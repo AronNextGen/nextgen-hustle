@@ -1,83 +1,239 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NextGen Hustle</title>
   <style>
+    /* Basic Reset & Dark Theme */
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #111;
-      color: #fff;
+      background: #121212;
+      color: #eee;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       scroll-behavior: smooth;
+      cursor: default;
+    }
+    a {
+      color: #00ffcc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+    a:hover {
+      color: #00ddaa;
     }
     header {
       background: #000;
-      padding: 40px 20px;
+      padding: 2rem 1rem;
       text-align: center;
-      font-size: 2.5rem;
-      font-weight: bold;
+      font-size: 2.8rem;
+      font-weight: 700;
       color: #00ffcc;
+      user-select: none;
+      letter-spacing: 3px;
     }
+    nav {
+      margin-top: 10px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
     section {
-      padding: 60px 20px;
-      max-width: 800px;
-      margin: auto;
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1rem;
     }
-    h2 {
+    section h2 {
       color: #00ffcc;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 2px solid #00ffcc;
+      padding-bottom: 5px;
+      user-select: none;
     }
-    a.button {
-      display: inline-block;
-      padding: 12px 24px;
+    section p {
+      line-height: 1.6;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li {
+      background: #222;
+      margin-bottom: 12px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      transition: background 0.3s;
+      cursor: default;
+      user-select: none;
+    }
+    ul li:hover {
       background: #00ffcc;
       color: #000;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
+      font-weight: 700;
+      box-shadow: 0 0 8px #00ffcc;
+      cursor: pointer;
     }
-    a.button:hover {
+
+    /* Membership Section */
+    .membership {
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 15px #00ffcc55;
+    }
+    .tier {
+      border: 2px solid #00ffcc;
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      transition: box-shadow 0.4s;
+    }
+    .tier:hover {
+      box-shadow: 0 0 20px #00ffcc;
+      cursor: pointer;
+      background: #000;
+    }
+    .tier h3 {
+      margin-top: 0;
+      font-size: 1.6rem;
+      color: #00ffcc;
+    }
+    .tier p {
+      margin: 0.6rem 0;
+    }
+    .levelup {
+      font-style: italic;
+      color: #a0f0d1;
+      font-weight: 600;
+    }
+
+    /* Smooth button effect */
+    button {
+      background: #00ffcc;
+      border: none;
+      color: #000;
+      padding: 12px 28px;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    button:hover {
       background: #00ddaa;
+    }
+
+    /* Cursor pointer glow on hover */
+    .glow-hover:hover {
+      text-shadow: 0 0 8px #00ffcc;
     }
   </style>
 </head>
 <body>
-  <header>
-    NextGen Hustle
-  </header>
+  <header>NextGen Hustle</header>
 
-  <section>
-    <h2>Welcome</h2>
-    <p>
-      Learn how to make money online for free. No experience needed. We teach, you earn — and part of every subscription helps kids get access to tech in poor countries.
-    </p>
-    <a href="#learn" class="button">Start Learning</a>
-  </section>
+  <nav>
+    <a href="#coding" class="glow-hover">Learn to Code</a>
+    <a href="#money" class="glow-hover">Money Making</a>
+    <a href="#history" class="glow-hover">History</a>
+    <a href="#finance" class="glow-hover">Money & Banking</a>
+    <a href="#membership" class="glow-hover">Membership</a>
+  </nav>
 
-  <section id="learn">
-    <h2>Free Resources</h2>
+  <section id="coding">
+    <h2>How to Learn to Code</h2>
+    <p>Start from zero! We provide simple tutorials and resources to master programming step by step — no experience required.</p>
     <ul>
-      <li>📱 How to Make Money from Your Phone</li>
-      <li>🛍️ Start a No-Budget Online Store</li>
-      <li>🎥 Make Money on Social Media</li>
+      <li>HTML & CSS basics</li>
+      <li>JavaScript fundamentals</li>
+      <li>Build real projects</li>
+      <li>Free online tools and courses</li>
     </ul>
   </section>
 
-  <section>
-    <h2>Join the Movement</h2>
-    <p>
-      From just £3/month, unlock exclusive tips and help fund devices for students with no access to the internet.
-    </p>
-    <a href="#" class="button">Coming Soon</a>
+  <section id="money">
+    <h2>Money Making Ways</h2>
+    <p>Discover practical side hustles and online gigs you can start today, from freelancing to dropshipping and more.</p>
+    <ul>
+      <li>Freelancing platforms walkthrough</li>
+      <li>Starting an online store</li>
+      <li>Affiliate marketing basics</li>
+      <li>Passive income ideas</li>
+    </ul>
   </section>
 
-  <section>
-    <h2>About Me</h2>
-    <p>
-      I'm 16 and building this from scratch to help others. You're not just joining a site — you're joining a mission.
-    </p>
+  <section id="history">
+    <h2>Interesting Colonisation & Dictatorship History</h2>
+    <p>Explore the fascinating history of colonization and dictatorship, understanding power dynamics and their impact on today's world.</p>
+    <ul>
+      <li>Major colonial empires overview</li>
+      <li>Famous dictators & their regimes</li>
+      <li>Effects on modern economies</li>
+      <li>Resistance and independence movements</li>
+    </ul>
   </section>
+
+  <section id="finance">
+    <h2>How Money Works & Banking System</h2>
+    <p>Learn the basics of money, banking, inflation, and how the global financial system operates.</p>
+    <ul>
+      <li>What is money?</li>
+      <li>How banks create money</li>
+      <li>Understanding inflation</li>
+      <li>Central banks & monetary policy</li>
+    </ul>
+  </section>
+
+  <section id="membership" class="membership">
+    <h2>Membership & Daily Leveling Up</h2>
+
+    <div class="tier">
+      <h3>Starter - £3/month</h3>
+      <p>Access to basic tutorials and community forums.</p>
+      <p class="levelup">Daily level-up rewards: Unlock 1 new tip or trick every day.</p>
+      <button>Subscribe</button>
+    </div>
+
+    <div class="tier">
+      <h3>Pro - £10/month</h3>
+      <p>Everything in Starter + exclusive monthly webinars and downloadable resources.</p>
+      <p class="levelup">Daily level-up rewards: Unlock 3 new tips or guides every day.</p>
+      <button>Subscribe</button>
+    </div>
+
+    <div class="tier">
+      <h3>Elite - £100/month</h3>
+      <p>Full access to all content, 1-on-1 mentorship, and early access to new features.</p>
+      <p class="levelup">Daily level-up rewards: Unlock 5 new guides and premium content daily.</p>
+      <button>Subscribe</button>
+    </div>
+
+    <p style="margin-top:20px; font-style: italic; color: #aaa;">
+      *Membership system coming soon! Subscribe buttons are placeholders.</p>
+  </section>
+
+  <script>
+    // Optional: Add smooth scroll on nav links (modern browsers support this by default)
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').slice(1);
+        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>
