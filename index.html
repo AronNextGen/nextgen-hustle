@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NextGen Hustle</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
@@ -15,165 +15,358 @@
       background-color: #0d0d0d;
       color: #f0f0f0;
       line-height: 1.6;
-      padding: 0 20px;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: #00ffcc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #00ddb3;
     }
 
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 25px 0;
+      padding: 25px 40px;
       border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      background: #0d0d0d;
+      z-index: 100;
     }
 
     header h1 {
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: #00ffcc;
     }
 
-    .badge {
-      font-size: 0.9rem;
-      color: #999;
-      margin-top: 5px;
-    }
-
     nav a {
-      margin-left: 20px;
-      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 600;
+      font-size: 1rem;
       color: #aaa;
-      transition: color 0.3s;
     }
 
     nav a:hover {
       color: #00ffcc;
     }
 
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding-bottom: 40px;
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 90vh;
+      text-align: center;
+      padding: 0 20px;
+      background: linear-gradient(135deg, #00ffcc, #005f5f);
+      color: #0d0d0d;
     }
 
-    h2 {
-      font-size: 1.5rem;
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 40px;
+      font-weight: 500;
+    }
+
+    .hero a.cta-button {
+      background: #0d0d0d;
       color: #00ffcc;
-      margin-bottom: 15px;
+      padding: 16px 45px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      box-shadow: 0 0 15px #00ffccaa;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
     }
 
-    ul {
-      list-style: none;
-      padding-left: 10px;
-    }
-
-    ul li {
-      padding: 6px 0;
-      border-bottom: 1px solid #222;
-    }
-
-    .cta {
-      margin-top: 30px;
-      text-align: center;
-    }
-
-    .cta a {
-      display: inline-block;
-      padding: 12px 25px;
+    .hero a.cta-button:hover {
       background: #00ffcc;
-      color: #000;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.3s ease;
+      color: #0d0d0d;
+      box-shadow: 0 0 25px #00ddb3;
     }
 
-    .cta a:hover {
-      background: #00ddb3;
+    /* Sections */
+    section {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
     }
 
-    .mission {
+    h2.section-title {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #00ffcc;
       text-align: center;
-      font-size: 1rem;
-      color: #bbb;
-      margin: 40px 0 20px;
     }
 
+    /* Cards container */
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    /* Individual Card */
+    .card {
+      background: #121212;
+      border-radius: 15px;
+      padding: 30px 25px;
+      width: 320px;
+      box-shadow: 0 4px 15px rgba(0,255,204,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0,255,204,0.4);
+    }
+
+    .card h3 {
+      color: #00ffcc;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #00ffcc;
+      padding-bottom: 8px;
+    }
+
+    .card ul {
+      list-style: none;
+      color: #ccc;
+      font-weight: 500;
+      flex-grow: 1;
+    }
+
+    .card ul li {
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .card ul li::before {
+      content: '🔥';
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    /* Premium card special style */
+    .premium {
+      background: linear-gradient(135deg, #00ffcc, #005f5f);
+      color: #0d0d0d;
+    }
+
+    .premium h3 {
+      color: #fff;
+      border-color: #fff;
+    }
+
+    .premium ul li::before {
+      content: '💎';
+      color: #222;
+    }
+
+    /* Why NextGen Hustle */
+    .why-us {
+      background: #121212;
+      padding: 40px 25px;
+      border-radius: 15px;
+      margin: 80px auto 60px;
+      max-width: 700px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,255,204,0.15);
+    }
+
+    .why-us h2 {
+      color: #00ffcc;
+      margin-bottom: 25px;
+    }
+
+    .why-us p {
+      font-size: 1.1rem;
+      color: #ccc;
+      line-height: 1.5;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding: 40px 0;
+      padding: 40px 20px;
       color: #666;
       font-size: 0.9rem;
       border-top: 1px solid #222;
     }
 
-    .contact {
-      margin-top: 10px;
-      font-size: 0.9rem;
+    footer a {
+      color: #00ffcc;
     }
 
-    @media (max-width: 768px) {
-      header {
+    /* Responsive */
+    @media (max-width: 980px) {
+      .cards-container {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
       }
 
-      nav {
-        margin-top: 10px;
-      }
-
-      nav a {
-        margin-left: 0;
-        display: block;
-        margin-bottom: 10px;
+      .card {
+        width: 100%;
+        max-width: 400px;
       }
     }
+
   </style>
 </head>
 <body>
 
   <header>
-    <div>
-      <h1>NextGen Hustle</h1>
-      <div class="badge">🚀 Trusted by 1,000+ young learners</div>
-    </div>
+    <h1>NextGen Hustle</h1>
     <nav>
-      <a href="#">Courses</a>
-      <a href="#">Membership</a>
-      <a href="#">Donate</a>
+      <a href="#free-courses">Free Courses</a>
+      <a href="#premium">Membership</a>
+      <a href="#donate">Donate</a>
     </nav>
   </header>
 
-  <section>
-    <div class="mission">
-      Building the next generation of creators, coders, and digital earners. 100% free to start. No excuses.
-    </div>
+  <section class="hero">
+    <h2>Master The Skills to Build Your Digital Future</h2>
+    <p>Free & premium courses designed to help you hustle smarter, build real projects, and start earning online — starting today.</p>
+    <a href="#free-courses" class="cta-button">Start Learning for Free</a>
+  </section>
 
-    <h2>🔥 Free Courses</h2>
-    <ul>
-      <li>Learn to Build Websites from Scratch</li>
-      <li>Top 10 AI Tools That Make You Money</li>
-      <li>Start a Hustle with £0</li>
-      <li>Money Basics They Don’t Teach in School</li>
-      <li>Daily Mindset & Productivity Boost</li>
-    </ul>
+  <section id="free-courses">
+    <h2 class="section-title">🔥 Free Courses</h2>
+    <div class="cards-container">
+      <div class="card">
+        <h3>Learn to Build Websites from Scratch</h3>
+        <ul>
+          <li>HTML & CSS basics</li>
+          <li>Build your portfolio page</li>
+          <li>Host your site for free</li>
+        </ul>
+      </div>
 
-    <h2 style="margin-top: 40px;">🔒 Premium Membership</h2>
-    <ul>
-      <li>Build & Launch Real Websites (JS + Hosting)</li>
-      <li>YouTube Automation Blueprint</li>
-      <li>Start Your AI-Powered Business</li>
-      <li>The Hustle Stack System</li>
-      <li>1-on-1 Mentorship & Weekly Level-Up Calls</li>
-    </ul>
+      <div class="card">
+        <h3>Top 10 AI Tools That Make You Money</h3>
+        <ul>
+          <li>ChatGPT productivity prompts</li>
+          <li>AI image & video tools</li>
+          <li>Automate side hustles</li>
+        </ul>
+      </div>
 
-    <div class="cta">
-      <a href="#">Join for Free</a>
+      <div class="card">
+        <h3>Start a Hustle with £0</h3>
+        <ul>
+          <li>Reselling & flipping</li>
+          <li>Fiverr & Upwork setup</li>
+          <li>Selling digital products</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Money Basics They Don’t Teach in School</h3>
+        <ul>
+          <li>What is money?</li>
+          <li>How banks make profit</li>
+          <li>Intro to crypto & digital banks</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Daily Mindset & Productivity Boost</h3>
+        <ul>
+          <li>Consistency & clarity</li>
+          <li>Simple daily routines</li>
+          <li>High-performer thinking</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <footer>
-    &copy; 2025 NextGen Hustle. Empower the future.
-    <div class="contact">
-      Contact: <a href="mailto:yirgaaron@gmail.com" style="color: #00ffcc;">yirgaaron@gmail.com</a>
+  <section id="premium">
+    <h2 class="section-title">🔒 Premium Membership</h2>
+    <div class="cards-container">
+      <div class="card premium">
+        <h3>Build & Launch Real Websites</h3>
+        <ul>
+          <li>Full JavaScript projects</li>
+          <li>Host with custom domain</li>
+          <li>Animate your portfolio</li>
+        </ul>
+      </div>
+
+      <div class="card premium">
+        <h3>YouTube Automation Blueprint</h3>
+        <ul>
+          <li>Faceless YouTube channels</li>
+          <li>Script writing & voice AI</li>
+          <li>Monetization strategies</li>
+        </ul>
+      </div>
+
+      <div class="card premium">
+        <h3>Start Your AI-Powered Business</h3>
+        <ul>
+          <li>Use GPT + automation</li>
+          <li>Sell with Notion/Framer/etc.</li>
+          <li>Real business examples</li>
+        </ul>
+      </div>
+
+      <div class="card premium">
+        <h3>The Hustle Stack System</h3>
+        <ul>
+          <li>Stack 2–3 side hustles</li>
+          <li>Time management hacks</li>
+          <li>Templates & trackers</li>
+        </ul>
+      </div>
+
+      <div class="card premium">
+        <h3>1-on-1 Mentorship & Level-Up Calls</h3>
+        <ul>
+          <li>Private Q&A & videos</li>
+          <li>Daily challenges & unlocks</li>
+          <li>Weekly live/recorded calls</li>
+        </ul>
+      </div>
     </div>
+  </section>
+
+  <section class="why-us">
+    <h2>Why NextGen Hustle?</h2>
+    <p>Trusted by over 1,000 young hustlers worldwide, NextGen Hustle is more than just courses — it’s a community dedicated to helping you build real skills, make money, and level up your life. Whether you’re starting from zero or ready to go pro, we’ve got your back with expert guidance and real projects.</p>
+  </section>
+
+  <section id="donate" style="text-align:center; margin-bottom: 80px;">
+    <h2 class="section-title">🌍 Donate & Make Impact</h2>
+    <p style="max-width: 700px; margin: 0 auto 25px;">
+      Part of your membership goes towards providing electronics and learning tools for youth in underserved communities worldwide. Together, we hustle for change.
+    </p>
+    <a href="#" class="cta-button">Donate Now</a>
+  </section>
+
+  <footer>
+    &copy; 2025 NextGen Hustle. Empower the future.<br/>
+    Contact: <a href="mailto:yirgaaron@gmail.com">yirgaaron@gmail.com</a>
   </footer>
 
 </body>
