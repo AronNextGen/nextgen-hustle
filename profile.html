@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NextGen Hustle - Profile</title>
+  <style>
+    /* Base Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #121212;
+      color: #eee;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a {
+      color: #00ffc3;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover, a:focus {
+      color: #00ddb3;
+      outline: none;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 20px 60px;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: #0d0d0d;
+      border-bottom: 1px solid #222;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+    header h1 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #00ffc3;
+      user-select: none;
+    }
+    nav a {
+      font-weight: 600;
+      color: #aaa;
+      margin-left: 20px;
+      font-size: 1rem;
+      padding: 8px 12px;
+      border-radius: 8px;
+      user-select: none;
+    }
+    nav a:hover {
+      background: #111;
+      color: #00ffc3;
+    }
+    /* Profile Section */
+    .profile-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .profile-info, .progress-overview {
+      background: #1a1a1a;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,255,195,0.15);
+      padding: 30px;
+      flex: 1 1 320px;
+    }
+    .profile-info h2, .progress-overview h2 {
+      color: #00ffc3;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    .profile-info p {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: #ccc;
+    }
+    .profile-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 20px;
+      border: 3px solid #00ffc3;
+    }
+    .profile-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Progress Bars */
+    .progress-bar {
+      background: #222;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 20px;
+      margin-bottom: 18px;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.4);
+    }
+    .progress-bar > div {
+      background: #00ffc3;
+      height: 100%;
+      width: 0;
+      border-radius: 12px;
+      transition: width 1s ease-in-out;
+    }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      color: #a5f9dc;
+    }
+    /* Settings Section */
+    .settings-section {
+      margin-top: 50px;
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,255,195,0.15);
+    }
+    .settings-section h2 {
+      color: #00ffc3;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+    .settings-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #a5f9dc;
+    }
+    .settings-form input, .settings-form select {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      background: #222;
+      color: #eee;
+      outline: none;
+      transition: background 0.3s ease;
+      box-sizing: border-box;
+    }
+    .settings-form input:focus, .settings-form select:focus {
+      background: #333;
+    }
+    .settings-form button {
+      background: #00ffc3;
+      color: #000;
+      font-weight: 700;
+      padding: 14px 0;
+      border: none;
+      border-radius: 12px;
+      width: 100%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    .settings-form button:hover {
+      background: #00ddb3;
+    }
+    /* Community Section */
+    .community-section {
+      margin-top: 50px;
+      background: #1a1a1a;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,255,195,0.15);
+      padding: 30px;
+    }
+    .community-section h2 {
+      color: #00ffc3;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+    .community-posts {
+      max-height: 280px;
+      overflow-y: auto;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 15px;
+      background: #111;
+    }
+    .post {
+      border-bottom: 1px solid #222;
+      padding: 12px 0;
+      font-size: 1rem;
+      color: #ccc;
+    }
+    .post:last-child {
+      border-bottom: none;
+    }
+    .post strong {
+      color: #00ffc3;
+    }
+    /* Navigation Buttons */
+    .nav-buttons {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .nav-buttons button {
+      background: #00ffc3;
+      color: #000;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 30px;
+      font-weight: 700;
+      margin: 0 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    .nav-buttons button:hover {
+      background: #00ddb3;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .profile-section {
+        flex-direction: column;
+      }
+      nav a {
+        margin-left: 10px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>NextGen Hustle</h1>
+  <nav aria-label="Primary Navigation">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="courses.html">Courses</a>
+    <a href="profile.html" aria-current="page">Profile</a>
+    <a href="index.html" id="logoutBtn">Logout</a>
+  </nav>
+</header>
+
+<main class="container" role="main" tabindex="-1">
+  <section class="profile-section" aria-label="User Profile Overview">
+    <div class="profile-info" role="region" aria-labelledby="profile-info-title">
+      <h2 id="profile-info-title">Profile Information</h2>
+      <div class="profile-avatar">
+        <img src="https://i.pravatar.cc/120" alt="User profile avatar" id="profileAvatar" />
+      </div>
+      <p><strong>Name:</strong> <span id="userName">Loading...</span></p>
+      <p><strong>Email:</strong> <span id="userEmail">Loading...</span></p>
+      <p><strong>Member Since:</strong> <span id="memberSince">Loading...</span></p>
+      <p><strong>Bio:</strong> <span id="userBio">Loading...</span></p>
+    </div>
+
+    <div class="progress-overview" role="region" aria-labelledby="progress-overview-title">
+      <h2 id="progress-overview-title">Course Progress</h2>
+      <div class="progress-label">
+        <span>Python for Beginners</span>
+        <span id="pythonProgressPercent">0%</span>
+      </div>
+      <div class="progress-bar" aria-label="Python course progress">
+        <div id="pythonProgressBar"></div>
+      </div>
+
+      <div class="progress-label">
+        <span>Web Development</span>
+        <span id="webDevProgressPercent">0%</span>
+      </div>
+      <div class="progress-bar" aria-label="Web Development course progress">
+        <div id="webDevProgressBar"></div>
+      </div>
+
+      <div class="progress-label">
+        <span>Digital Marketing</span>
+        <span id="marketingProgressPercent">0%</span>
+      </div>
+      <div class="progress-bar" aria-label="Digital Marketing course progress">
+        <div id="marketingProgressBar"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="settings-section" aria-label="User Settings">
+    <h2>Account Settings</h2>
+    <form class="settings-form" id="settingsForm" novalidate>
+      <label for="nameInput">Full Name</label>
+      <input type="text" id="nameInput" name="name" autocomplete="name" required />
+
+      <label for="bioInput">Bio</label>
+      <input type="text" id="bioInput" name="bio" placeholder="Short description about you" />
+
+      <label for="emailInput">Email Address</label>
+      <input type="email" id="emailInput" name="email" autocomplete="email" required />
+
+      <label for="themeSelect">Preferred Theme</label>
+      <select id="themeSelect" name="theme" aria-label="Select preferred theme">
+        <option value="dark" selected>Dark</option>
+        <option value="light">Light</option>
+      </select>
+
+      <button type="submit" aria-label="Save settings">Save Settings</button>
+      <div id="settingsMsg" role="alert" aria-live="polite" style="margin-top:12px; color:#00ffc3; font-weight:600;"></div>
+    </form>
+  </section>
+
+  <section class="community-section" aria-label="Community Posts and Updates">
+    <h2>Community Updates</h2>
+    <div class="community-posts" tabindex="0" aria-live="polite" aria-relevant="additions">
+      <div class="post"><strong>Alice:</strong> Just finished the Python course, feeling awesome! 🚀</div>
+      <div class="post"><strong>Bob:</strong> Does anyone have tips for job interviews in tech?</div>
+      <div class="post"><strong>Chloe:</strong> Loving the NextGen Hustle courses! Learned so much.</div>
+      <div class="post"><strong>David:</strong> Any recommendations for advanced web dev tutorials?</div>
+      <div class="post"><strong>Eva:</strong> Just enrolled in Digital Marketing — excited to start!</div>
+    </div>
+  </section>
+
+  <div class="nav-buttons">
+    <button id="backDashboardBtn" aria-label="Go back to dashboard">Back to Dashboard</button>
+    <button id="backCoursesBtn" aria-label="Go back to courses">Browse Courses</button>
+  </div>
+</main>
+
+<script>
+  // Redirect to login if not logged in
+  if (localStorage.getItem('loggedIn') !== 'true') {
+    window.location.href = 'index.html';
+  }
+
+  // Fake user data store - in real app, fetch from backend
+  let userData = {
+    name: 'Jane Doe',
+    email: localStorage.getItem('userEmail') || 'user@example.com',
+    bio: 'Aspiring tech hustler learning full-stack development.',
+    memberSince: 'January 2024',
+    progress: {
+      python: 85,
+      webDev: 55,
+      marketing: 40
+    }
+  };
+
+  // Populate user profile info
+  const userNameEl = document.getElementById('userName');
+  const userEmailEl = document.getElementById('userEmail');
+  const userBioEl = document.getElementById('userBio');
+  const memberSinceEl = document.getElementById('memberSince');
+
+  userNameEl.textContent = userData.name;
+  userEmailEl.textContent = userData.email;
+  userBioEl.textContent = userData.bio;
+  memberSinceEl.textContent = userData.memberSince;
+
+  // Animate progress bars
+  function animateProgress(idBar, idPercent, percent) {
+    const bar = document.getElementById(idBar);
+    const percentLabel = document.getElementById(idPercent);
+    let width = 0;
+    const interval = setInterval(() => {
+      if (width >= percent) clearInterval(interval);
+      else {
+        width++;
+        bar.style.width = width + '%';
+        percentLabel.textContent = width + '%';
+      }
+    }, 12);
+  }
+
+  animateProgress('pythonProgressBar', 'pythonProgressPercent', userData.progress.python);
+  animateProgress('webDevProgressBar', 'webDevProgressPercent', userData.progress.webDev);
+  animateProgress('marketingProgressBar', 'marketingProgressPercent', userData.progress.marketing);
+
+  // Settings form handling
+  const settingsForm = document.getElementById('settingsForm');
+  const settingsMsg = document.getElementById('settingsMsg');
+
+  settingsForm.name.value = userData.name;
+  settingsForm.bio.value = userData.bio;
+  settingsForm.email.value = userData.email;
+
+  settingsForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const newName = settingsForm.name.value.trim();
+    const newEmail = settingsForm.email.value.trim();
+    const newBio = settingsForm.bio.value.trim();
+    const theme = settingsForm.theme.value;
+
+    if (!newName || !newEmail) {
+      settingsMsg.textContent = 'Name and email are required.';
+      settingsMsg.style.color = '#ff5555';
+      return;
+    }
+
+    // Save to localStorage for demo purposes
+    userData.name = newName;
+    userData.email = newEmail;
+    userData.bio = newBio;
+
+    localStorage.setItem('userEmail', newEmail);
+
+    userNameEl.textContent = newName;
+    userEmailEl.textContent = newEmail;
+    userBioEl.textContent = newBio;
+
+    settingsMsg.textContent = 'Settings saved successfully!';
+    settingsMsg.style.color = '#00ffc3';
+
+    // Optionally, implement theme switch here
+    if (theme === 'light') {
+      document.body.style.background = '#f5f5f5';
+      document.body.style.color = '#222';
+    } else {
+      document.body.style.background = '#121212';
+      document.body.style.color = '#eee';
+    }
+  });
+
+  // Navigation buttons
+  document.getElementById('backDashboardBtn').addEventListener('click', () => {
+    window.location.href = 'dashboard.html';
+  });
+  document.getElementById('backCoursesBtn').addEventListener('click', () => {
+    window.location.href = 'courses.html';
+  });
+
+  // Logout button clears localStorage login info
+  document.getElementById('logoutBtn').addEventListener('click', e => {
+    e.preventDefault();
+    localStorage.removeItem('loggedIn');
+    localStorage.removeItem('userEmail');
+    window.location.href = 'index.html';
+  });
+
+  // Focus main for accessibility on load
+  window.addEventListener('load', () => {
+    document.querySelector('main').focus();
+  });
+</script>
+
+</body>
+</html>
