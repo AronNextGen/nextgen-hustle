@@ -1,349 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>NextGen Hustle - Empower Your Future</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-<style>
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NextGen Hustle</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-  body {
-    background: #121212;
-    color: #e0e0e0;
-    line-height: 1.6;
-    scroll-behavior: smooth;
-  }
+    body {
+      background-color: #0d0d0d;
+      color: #f0f0f0;
+      line-height: 1.6;
+      padding: 0 20px;
+    }
 
-  header {
-    position: fixed;
-    width: 100%;
-    background: #1f1f1f;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #00c1b0;
-    z-index: 1000;
-  }
-
-  header h1 {
-    font-size: 1.9rem;
-    color: #00c1b0;
-    user-select: none;
-  }
-
-  nav a {
-    color: #a0a0a0;
-    margin-left: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease, transform 0.2s ease;
-  }
-
-  nav a:hover, nav a.active {
-    color: #00c1b0;
-    transform: scale(1.1);
-  }
-
-  main {
-    max-width: 960px;
-    margin: 100px auto 60px;
-    padding: 0 20px;
-  }
-
-  section {
-    padding: 60px 0;
-    border-bottom: 1px solid #2a2a2a;
-  }
-
-  section:last-child {
-    border: none;
-  }
-
-  h2 {
-    font-size: 2rem;
-    color: #00c1b0;
-    margin-bottom: 25px;
-    text-align: center;
-    text-shadow: 0 0 10px #00c1b0bb;
-    user-select: none;
-  }
-
-  p.intro {
-    max-width: 600px;
-    margin: 0 auto 40px;
-    font-size: 1.1rem;
-    text-align: center;
-    color: #b8b8b8;
-  }
-
-  /* Trust badge */
-  .trust {
-    background: #007d75;
-    color: #e0f7f4;
-    padding: 12px 25px;
-    border-radius: 30px;
-    display: inline-block;
-    font-weight: 700;
-    font-size: 1rem;
-    margin-bottom: 45px;
-    box-shadow: 0 0 15px #00c1b0aa;
-    user-select: none;
-  }
-
-  /* Courses grid */
-  .courses-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-    gap: 25px;
-  }
-
-  .course-card {
-    background: #222;
-    border-radius: 15px;
-    padding: 30px 25px;
-    box-shadow: 0 0 20px #00887a55;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    user-select: none;
-  }
-
-  .course-card:hover {
-    box-shadow: 0 0 32px #00c1b0cc;
-    transform: translateY(-8px);
-  }
-
-  .course-card h3 {
-    margin-bottom: 18px;
-    color: #00c1b0;
-    font-size: 1.3rem;
-  }
-
-  .course-card ul {
-    list-style: none;
-    padding-left: 18px;
-    color: #b5eaea;
-    font-weight: 500;
-  }
-
-  .course-card ul li {
-    margin-bottom: 12px;
-    position: relative;
-    padding-left: 22px;
-  }
-
-  .course-card ul li::before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: #00c1b0;
-  }
-
-  /* Membership highlight */
-  .membership-info {
-    background: #002c2a;
-    border-radius: 20px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 0 0 25px #00c1b088;
-    margin-top: 40px;
-    font-size: 1.1rem;
-    color: #a0f2e8;
-    user-select: none;
-  }
-
-  /* Donate section */
-  .donate-info {
-    background: #002f2d;
-    padding: 25px 30px;
-    border-radius: 15px;
-    text-align: center;
-    color: #b0f7e3;
-    box-shadow: 0 0 18px #00c1b0aa;
-    user-select: none;
-  }
-
-  .donate-info p {
-    margin-bottom: 10px;
-  }
-
-  /* Call to action buttons */
-  .btn {
-    display: inline-block;
-    background: #00c1b0;
-    color: #121212;
-    padding: 14px 40px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    text-decoration: none;
-    box-shadow: 0 0 20px #00c1b099;
-    margin-top: 30px;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
-    user-select: none;
-  }
-
-  .btn:hover {
-    background: #00d3bd;
-    box-shadow: 0 0 28px #00d3bdcc;
-  }
-
-  footer {
-    text-align: center;
-    padding: 40px 20px;
-    color: #666;
-    font-size: 0.9rem;
-    border-top: 1px solid #222;
-    user-select: none;
-  }
-
-  footer a {
-    color: #00c1b0;
-    text-decoration: none;
-  }
-
-  footer a:hover {
-    text-decoration: underline;
-  }
-
-  /* Responsive Nav menu - mobile */
-  @media (max-width: 700px) {
     header {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #1f1f1f;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #00c1b0;
+      z-index: 1000;
     }
-    nav a {
-      margin-left: 15px;
-      font-size: 0.9rem;
-    }
-  }
 
-</style>
+    header h1 {
+      font-size: 1.9rem;
+      color: #00c1b0;
+      user-select: none;
+      text-shadow: none;
+    }
+
+    nav a {
+      color: #a0a0a0;
+      margin-left: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease, transform 0.2s ease;
+      text-shadow: none;
+    }
+
+    nav a:hover, nav a.active {
+      color: #00c1b0;
+      transform: scale(1.1);
+      text-shadow: none;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 100px auto 60px;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 80px 0 60px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    section:last-child {
+      border: none;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #00c1b0;
+      margin-bottom: 25px;
+      text-align: center;
+      text-shadow: none;
+      user-select: none;
+    }
+
+    .trust {
+      background: #007d75;
+      color: #e0f7f4;
+      padding: 12px 25px;
+      border-radius: 30px;
+      display: inline-block;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 45px;
+      box-shadow: none;
+      user-select: none;
+    }
+
+    .course-card {
+      background: #222;
+      border-radius: 15px;
+      padding: 30px 25px;
+      box-shadow: 0 0 10px #00887a55;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      user-select: none;
+      margin-bottom: 30px;
+    }
+
+    .course-card:hover {
+      box-shadow: 0 0 18px #00c1b0cc;
+      transform: translateY(-8px);
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 10px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    ul li {
+      padding: 8px 0;
+      border-bottom: 1px solid #222;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .cta a {
+      display: inline-block;
+      padding: 14px 35px;
+      background: #00c1b0;
+      color: #000;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+
+    .cta a:hover {
+      background: #00a38d;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      color: #666;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      nav a {
+        margin-left: 0;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      main {
+        margin: 120px 10px 60px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <h1>NextGen Hustle</h1>
-  <nav>
-    <a href="#home" class="active">Home</a>
-    <a href="#courses">Courses</a>
-    <a href="#membership">Membership</a>
-    <a href="#donate">Donate</a>
-  </nav>
-</header>
+  <header>
+    <h1>NextGen Hustle</h1>
+    <nav>
+      <a href="#courses" class="active">Courses</a>
+      <a href="#membership">Membership</a>
+      <a href="#donate">Donate</a>
+    </nav>
+  </header>
 
-<main>
+  <main>
 
-  <section id="home" aria-label="Home introduction">
-    <h2>Welcome to NextGen Hustle</h2>
-    <p class="intro">
-      Your trusted platform to learn real-world skills and build multiple income streams. Join 1000+ students who rated us <strong>4.7/5</strong> for practical, easy-to-follow courses that work.  
-      Empower your future with knowledge & community support.
-    </p>
-    <div class="trust">⭐ Rated 4.7 by 1000+ learners worldwide ⭐</div>
-    <div style="text-align:center;">
-      <a href="#courses" class="btn">Explore Courses</a>
-    </div>
-  </section>
+    <section id="welcome">
+      <div class="trust">Revised 4.7 • Trusted by 1000+ students worldwide</div>
+      <h2>Welcome to NextGen Hustle</h2>
+      <p style="max-width: 700px; margin: 0 auto 20px; font-size:1.2rem; text-align:center;">
+        Your trusted hub to learn how to build skills, create multiple income streams, and master the digital hustle — all for free, with premium support available.
+      </p>
+    </section>
 
-  <section id="courses" aria-label="Courses offered">
-    <h2>What You’ll Learn</h2>
-    <div class="courses-grid">
+    <section id="courses">
+      <h2>What We Offer</h2>
+
       <div class="course-card">
-        <h3>Website Building & Coding</h3>
+        <h3>Learn Web Development</h3>
         <ul>
-          <li>HTML & CSS fundamentals</li>
-          <li>Build your portfolio site</li>
-          <li>JavaScript basics & interactive projects</li>
-          <li>Website hosting & domain setup</li>
+          <li>HTML & CSS basics</li>
+          <li>Build a portfolio website</li>
+          <li>Host your site for free</li>
         </ul>
       </div>
+
       <div class="course-card">
-        <h3>AI Tools & Automation</h3>
+        <h3>AI & Productivity Tools</h3>
         <ul>
-          <li>Use AI to boost productivity</li>
-          <li>YouTube automation for passive income</li>
-          <li>Start an AI-powered business</li>
-          <li>Automate side hustles efficiently</li>
+          <li>Top AI tools to save time & earn money</li>
+          <li>Smart ChatGPT prompts for your workflow</li>
+          <li>Automate side hustles with AI</li>
         </ul>
       </div>
+
+      <div class="course-card">
+        <h3>Start Your Side Hustle</h3>
+        <ul>
+          <li>Reselling, flipping & affiliate marketing</li>
+          <li>Fiverr & Upwork profiles setup</li>
+          <li>Sell digital products & services</li>
+        </ul>
+      </div>
+
       <div class="course-card">
         <h3>Money & Mindset</h3>
         <ul>
-          <li>Smart money management</li>
-          <li>Banking & saving tips</li>
-          <li>Daily productivity & mindset hacks</li>
-          <li>Side hustle ideas for every budget</li>
+          <li>How money and banking really works</li>
+          <li>Daily mindset & productivity boosts</li>
+          <li>High-performance thinking routines</li>
         </ul>
       </div>
-    </div>
+    </section>
 
-    <div class="membership-info">
-      Want access to advanced courses and personalized mentorship? <br />
-      <strong>Join our Membership</strong> for exclusive content, weekly live sessions, and 1-on-1 support.  
-      <a href="#membership" style="color:#00fff2; text-decoration:underline;">Learn More</a>
-    </div>
-  </section>
+    <section id="membership">
+      <h2>Membership Benefits</h2>
+      <p style="max-width: 700px; margin: 0 auto 20px; font-size:1.1rem; text-align:center;">
+        Unlock advanced courses, exclusive mentorship, and weekly live sessions with our premium membership. Accelerate your journey and get direct support.
+      </p>
 
-  <section id="membership" aria-label="Membership details">
-    <h2>Membership Benefits</h2>
-    <p class="intro">
-      Become a member to unlock premium courses, mentorship calls, and a private community to fast-track your hustle.  
-      Gain insider access to:
-    </p>
-    <ul style="max-width:600px; margin: 0 auto 40px; color:#a0f2e8; font-weight:600; list-style-type: disc; padding-left: 20px;">
-      <li>Advanced website & business building tutorials</li>
-      <li>YouTube automation deep dives</li>
-      <li>Exclusive AI business strategies</li>
-      <li>Weekly live coaching & Q&A calls</li>
-      <li>Personalized 1-on-1 mentorship</li>
-    </ul>
-    <div style="text-align:center;">
-      <a href="#donate" class="btn">Join Membership Now</a>
-    </div>
-  </section>
+      <ul style="max-width: 600px; margin: 0 auto; font-size: 1.1rem;">
+        <li>Build & launch real-world JavaScript projects</li>
+        <li>Custom domain hosting & portfolio animation</li>
+        <li>YouTube Automation & AI business blueprints</li>
+        <li>1-on-1 mentorship & weekly “Level-Up” calls</li>
+      </ul>
 
-  <section id="donate" aria-label="Support and donations">
-    <h2>Support Our Mission</h2>
-    <div class="donate-info">
-      <p>NextGen Hustle is dedicated to empowering the next generation of entrepreneurs and creators worldwide.</p>
-      <p>Your donations help us create new content, maintain affordable pricing, and support scholarships.</p>
-      <p>Thank you for being part of this movement.</p>
-      <a href="mailto:yirgaaron@gmail.com" class="btn" style="background:#00a086;">Donate Now</a>
-    </div>
-  </section>
+      <div class="cta">
+        <a href="#">Join Now</a>
+      </div>
+    </section>
 
-</main>
+    <section id="donate">
+      <h2>Support Our Cause</h2>
+      <p style="max-width: 700px; margin: 0 auto 20px; font-size:1.1rem; text-align:center;">
+        We donate part of our membership earnings to provide electronics access in underserved communities worldwide.
+      </p>
+      <p style="max-width: 700px; margin: 0 auto 40px; font-size:1.1rem; text-align:center;">
+        Questions? Contact us at <a href="mailto:yirgaaron@gmail.com" style="color:#00c1b0;">yirgaaron@gmail.com</a>
+      </p>
+    </section>
 
-<footer>
-  <p>© 2025 NextGen Hustle. All rights reserved.</p>
-  <p>Contact: <a href="mailto:yirgaaron@gmail.com">yirgaaron@gmail.com</a></p>
-</footer>
+  </main>
 
-<script>
-  // Highlight active nav link on scroll
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('nav a');
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 90;
-      if (pageYOffset >= sectionTop) current = section.getAttribute('id');
-    });
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + current) {
-        link.classList.add('active');
-      }
-    });
-  });
-</script>
+  <footer>
+    &copy; 2025 NextGen Hustle. Empower the future.
+  </footer>
 
 </body>
 </html>
