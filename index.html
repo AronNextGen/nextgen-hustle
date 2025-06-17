@@ -1,93 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>NextGen Hustle - Login</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #121212;
-    color: #eee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  form {
-    background: #1a1a1a;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 0 20px #00ffc3;
-    width: 320px;
-  }
-  label, input, button {
-    display: block;
-    width: 100%;
-    margin-bottom: 15px;
-  }
-  input {
-    padding: 10px;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-  }
-  button {
-    background: #00ffc3;
-    border: none;
-    padding: 12px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    color: #000;
-    font-size: 1.1rem;
-  }
-  button:hover {
-    background: #00ddb3;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NextGen Hustle — Learn, Hustle, Grow</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset & base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: #121212;
+      color: #eee;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a {
+      color: #00ffc3;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover, a:focus {
+      color: #00ddb3;
+      outline: none;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background: #0d0d0d;
+      z-index: 999;
+      padding: 20px 0;
+      border-bottom: 1px solid #222;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    header h1 {
+      color: #00ffc3;
+      font-weight: 700;
+      font-size: 1.9rem;
+      letter-spacing: 2px;
+      cursor: default;
+      margin: 0;
+    }
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+    nav a {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #aaa;
+      padding: 6px 12px;
+      border-radius: 6px;
+      user-select: none;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    nav a:hover {
+      color: #00ffc3;
+      background: #111;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin: 60px 0 80px;
+      padding: 0 10px;
+    }
+    .hero h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #00ffc3;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      color: #ccc;
+    }
+    .hero .btn-primary {
+      background: #00ffc3;
+      color: #000;
+      font-weight: 700;
+      padding: 14px 48px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+      user-select: none;
+      box-shadow: 0 0 15px #00ffc3aa;
+    }
+    .hero .btn-primary:hover {
+      background: #00ddb3;
+      box-shadow: 0 0 30px #00ddb3cc;
+    }
+
+    /* Trust Section */
+    .trust-section {
+      background: #1a1a1a;
+      border-radius: 15px;
+      padding: 30px 20px;
+      margin-bottom: 80px;
+      box-shadow: 0 0 20px rgba(0,255,195,0.15);
+      user-select: none;
+      max-width: 850px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .trust-section h3 {
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.9rem;
+      margin-bottom: 10px;
+      color: #00ffc3;
+    }
+    .trust-section p.review {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 25px;
+      font-size: 1.05rem;
+      color: #ddd;
+      font-style: italic;
+      line-height: 1.4;
+    }
+    .trust-section p.review strong {
+      color: #00ffc3;
+    }
+    .trust-section .stats {
+      display: flex;
+      justify-content: center;
+      gap: 70px;
+      flex-wrap: wrap;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #00ffc3;
+      margin-top: 10px;
+    }
+    .trust-section .stats div {
+      text-align: center;
+      min-width: 100px;
+    }
+    .trust-section .stats div span {
+      display: block;
+      font-size: 2.4rem;
+      color: #00ffc3;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+    }
+
+    /* Courses Overview */
+    .section-title {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #00ffc3;
+      margin-bottom: 50px;
+      text-align: center;
+      user-select: none;
+      letter-spacing: 0.8px;
+    }
+    .courses-overview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      max-width: 1100px;
+      margin: 0 auto 100px;
+      user-select: none;
+    }
+    .course-card {
+      background: #181818;
+      border-radius: 15px;
+      padding: 30px 25px;
+      box-shadow: 0 0 25px rgba(0,255,195,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .course-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 40px rgba(0,255,195,0.4);
+    }
+    .course-card h4 {
+      color: #00ffc3;
+      font-weight: 700;
+      margin-bottom: 18px;
+      font-size: 1.4rem;
+      user-select: text;
+    }
+    .course-card ul {
+      list-style: inside disc;
+      padding-left: 10px;
+      color: #ccc;
+      font-size: 1.05rem;
+      margin: 0;
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+    .course-card ul li {
+      margin-bottom: 10px;
+    }
+    .course-card .btn-course {
+      margin-top: 20px;
+      padding: 12px 30px;
+      border-radius: 12px;
+      border: none;
+      background: #00ffc3;
+      color: #000;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+      align-self: flex-start;
+      box-shadow: 0 0 15px #00ffc3aa;
+      user-select: none;
+    }
+    .course-card .btn-course:hover {
+      background: #00ddb3;
+      box-shadow: 0 0 30px #00ddb3cc;
+    }
+
+    /* Footer */
+    footer {
+      background: #0d0d0d;
+      text-align: center;
+      padding: 28px 20px;
+      color: #555;
+      font-size: 0.9rem;
+      user-select: none;
+      border-top: 1px solid #222;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .trust-section .stats {
+        gap: 30px;
+        font-size: 1.1rem;
+      }
+      .trust-section .stats div span {
+        font-size: 1.8rem;
+      }
+      .hero h2 {
+        font-size: 2.3rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px 0;
+      }
+      nav {
+        gap: 18px;
+      }
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+      .course-card {
+        padding: 20px 15px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<form id="loginForm" aria-label="Login form">
-  <h2 style="text-align:center; margin-bottom:20px; color:#00ffc3;">NextGen Hustle Login</h2>
-  <label for="username">Username</label>
-  <input id="username" type="text" required autocomplete="username" />
-  
-  <label for="password">Password</label>
-  <input id="password" type="password" required autocomplete="current-password" />
-  
-  <button type="submit">Log In</button>
-</form>
+<header>
+  <h1>NextGen Hustle</h1>
+  <nav>
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="login.html">Login</a>
+  </nav>
+</header>
 
-<script>
-  // Hardcoded demo credentials
-  const validUser = {
-    username: "user123",
-    password: "pass123"
-  };
+<main>
+  <!-- Hero Intro -->
+  <section class="hero" role="banner" aria-label="Welcome section">
+    <h2>Learn Skills That Change Your Life</h2>
+    <p>Join over <strong>1000+</strong> students who trusted NextGen Hustle to kickstart their journey in tech, business, and personal growth.</p>
+    <button class="btn-primary" onclick="location.href='courses.html'">Explore Courses</button>
+  </section>
 
-  const form = document.getElementById('loginForm');
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const username = document.getElementById('username').value.trim();
-    const password = document.getElementById('password').value;
+  <!-- Trust & Reviews -->
+  <section class="trust-section" aria-label="Student reviews and trust statistics">
+    <h3>Trusted by Thousands Worldwide</h3>
+    <p class="review">“NextGen Hustle changed my life! The courses are well-structured, easy to follow, and the community is amazing.” <br><strong>- Maria K.</strong></p>
+    <p class="review">“I leveled up my career within months thanks to NextGen Hustle's pro courses.” <br><strong>- James L.</strong></p>
+    <p class="review">“Real skills, real results. Highly recommend!” <br><strong>- Anjali P.</strong></p>
+    <div class="stats" aria-label="Trust statistics">
+      <div><span>1000+</span> Students</div>
+      <div><span>95%</span> Satisfaction</div>
+      <div><span>50+</span> Courses</div>
+      <div><span>24/7</span> Support</div>
+    </div>
+  </section>
 
-    if(username === validUser.username && password === validUser.password) {
-      localStorage.setItem('loggedIn', 'true');
-      localStorage.setItem('username', username);
-      window.location.href = 'dashboard.html';
-    } else {
-      alert('Incorrect username or password.');
-    }
-  });
+  <!-- Courses Overview -->
+  <section aria-labelledby="courses-overview-title">
+    <h3 class="section-title" id="courses-overview-title">Popular Courses</h3>
+    <div class="courses-overview">
+      <article class="course-card" tabindex="0">
+        <h4>Fullstack Web Development</h4>
+        <ul>
+          <li>HTML, CSS, JavaScript</li>
+          <li>React & Node.js</li>
+          <li>Deploy real-world projects</li>
+        </ul>
+        <button class="btn-course" onclick="location.href='courses.html#webdev'">View Course</button>
+      </article>
 
-  // If already logged in, redirect to dashboard
-  if(localStorage.getItem('loggedIn') === 'true') {
-    window.location.href = 'dashboard.html';
-  }
-</script>
+      <article class="course-card" tabindex="0">
+        <h4>Data Science & AI</h4>
+        <ul>
+          <li>Python & Machine Learning</li>
+          <li>Data analysis & visualization</li>
+          <li>Real AI projects</li>
+        </ul>
+        <button class="btn-course" onclick="location.href='courses.html#datascience'">View Course</button>
+      </article>
+
+      <article class="course-card" tabindex="0">
+        <h4>Digital Marketing Pro</h4>
+        <ul>
+          <li>SEO, Ads & Social Media</li>
+          <li>Content strategy</li>
+          <li>Growth hacking techniques</li>
+        </ul>
+        <button class="btn-course" onclick="location.href='courses.html#marketing'">View Course</button>
+      </article>
+
+      <article class="course-card" tabindex="0">
+        <h4>Startup & Entrepreneurship</h4>
+        <ul>
+          <li>Business plan creation</li>
+          <li>Fundraising & pitching</li>
+          <li>Scaling your startup</li>
+        </ul>
+        <button class="btn-course" onclick="location.href='courses.html#entrepreneurship'">View Course</button>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 NextGen Hustle. All rights reserved.
+</footer>
 
 </body>
 </html>
