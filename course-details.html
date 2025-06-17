@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NextGen Hustle - Course Details</title>
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #121212;
+      color: #eee;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
+    }
+    a {
+      color: #00ffc3;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover, a:focus {
+      color: #00ddb3;
+      outline: none;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 20px 60px;
+    }
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: #0d0d0d;
+      border-bottom: 1px solid #222;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+    header h1 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #00ffc3;
+      user-select: none;
+    }
+    nav a {
+      font-weight: 600;
+      color: #aaa;
+      margin-left: 20px;
+      font-size: 1rem;
+      padding: 8px 12px;
+      border-radius: 8px;
+      user-select: none;
+    }
+    nav a:hover {
+      background: #111;
+      color: #00ffc3;
+    }
+    /* Main course details */
+    .course-header {
+      margin-top: 30px;
+      border-bottom: 2px solid #00ffc3;
+      padding-bottom: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .course-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #00ffc3;
+      max-width: 75%;
+    }
+    .instructor-info {
+      text-align: right;
+      max-width: 23%;
+      font-size: 1rem;
+      color: #ccc;
+      user-select: none;
+    }
+    .instructor-info img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 2px solid #00ffc3;
+      margin-bottom: 10px;
+      object-fit: cover;
+    }
+    /* Description */
+    .course-description {
+      margin-top: 25px;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #ddd;
+      max-width: 900px;
+    }
+    /* Enrollment */
+    .enroll-section {
+      margin-top: 30px;
+      background: #1a1a1a;
+      padding: 25px 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,255,195,0.15);
+      max-width: 400px;
+      user-select: none;
+    }
+    .enroll-price {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #00ffc3;
+      margin-bottom: 15px;
+    }
+    .enroll-button {
+      background: #00ffc3;
+      color: #000;
+      border: none;
+      border-radius: 12px;
+      padding: 15px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    .enroll-button:hover {
+      background: #00ddb3;
+    }
+    /* Syllabus */
+    .syllabus-section {
+      margin-top: 50px;
+      max-width: 900px;
+    }
+    .syllabus-section h2 {
+      color: #00ffc3;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+    .lesson {
+      background: #1a1a1a;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      padding: 15px 20px;
+      box-shadow: 0 0 15px rgba(0,255,195,0.1);
+      cursor: pointer;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    .lesson:hover, .lesson:focus {
+      background: #222;
+      outline: none;
+    }
+    .lesson-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: #a5f9dc;
+      font-size: 1.1rem;
+    }
+    .lesson-content {
+      margin-top: 10px;
+      color: #ddd;
+      font-size: 1rem;
+      display: none;
+    }
+    /* Video player mock */
+    .video-player {
+      margin-top: 40px;
+      background: #000;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(0,255,195,0.4);
+      max-width: 900px;
+      height: 500px;
+      position: relative;
+      overflow: hidden;
+      user-select: none;
+    }
+    .video-player video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+    /* Controls */
+    .video-controls {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      right: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #00ffc3;
+      font-size: 1rem;
+      user-select: none;
+    }
+    .video-controls button {
+      background: transparent;
+      border: none;
+      color: #00ffc3;
+      cursor: pointer;
+      font-size: 1.3rem;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    .video-controls button:hover {
+      color: #00ddb3;
+      outline: none;
+    }
+    /* Reviews Section */
+    .reviews-section {
+      margin-top: 50px;
+      max-width: 900px;
+    }
+    .reviews-section h2 {
+      color: #00ffc3;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+    .reviews-list {
+      max-height: 300px;
+      overflow-y: auto;
+      background: #1a1a1a;
+      border-radius: 12px;
+      padding: 15px 20px;
+      box-shadow: inset 0 0 10px rgba(0,255,195,0.1);
+    }
+    .review {
+      border-bottom: 1px solid #222;
+      padding: 12px 0;
+      color: #ccc;
+    }
+    .review:last-child {
+      border-bottom: none;
+    }
+    .review strong {
+      color: #00ffc3;
+    }
+    .review .rating {
+      color: #00ffc3;
+      margin-left: 8px;
+      user-select: none;
+    }
+    /* Navigation Buttons */
+    .nav-buttons {
+      margin-top: 50px;
+      text-align: center;
+      user-select: none;
+    }
+    .nav-buttons button {
+      background: #00ffc3;
+      color: #000;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 30px;
+      font-weight: 700;
+      margin: 0 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    .nav-buttons button:hover {
+      background: #00ddb3;
+    }
+    /* Accessibility focus styles */
+    .lesson:focus {
+      outline: 3px solid #00ffc3;
+      outline-offset: 3px;
+    }
+    .enroll-button:focus,
+    .nav-buttons button:focus {
+      outline: 3px solid #00ffc3;
+      outline-offset: 3px;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .course-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .course-title {
+        max-width: 100%;
+        font-size: 2rem;
+      }
+      .instructor-info {
+        max-width: 100%;
+        text-align: left;
+        margin-top: 15px;
+      }
+      .enroll-section {
+        max-width: 100%;
+        margin-top: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>NextGen Hustle</h1>
+  <nav aria-label="Primary Navigation">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="courses.html">Courses</a>
+    <a href="profile.html">Profile</a>
+    <a href="index.html" id="logoutBtn">Logout</a>
+  </nav>
+</header>
+
+<main class="container" role="main" tabindex="-1">
+  <section class="course-header" aria-label="Course header">
+    <h2 class="course-title" id="courseTitle">Loading course title...</h2>
+    <div class="instructor-info" aria-label="Instructor information">
+      <img src="https://i.pravatar.cc/70?img=5" alt="Instructor avatar" id="instructorAvatar" />
+      <div id="instructorName">Loading instructor...</div>
+      <div id="instructorBio" style="font-size: 0.9rem; color:#888;">Loading bio...</div>
+    </div>
+  </section>
+
+  <section class="course-description" id="courseDescription" aria-label="Course description">
+    Loading course description...
+  </section>
+
+  <section class="enroll-section" aria-label="Enrollment information">
+    <div class="enroll-price" id="coursePrice">$0.00</div>
+    <button class="enroll-button" id="enrollBtn" aria-label="Enroll in this course">Enroll Now</button>
+    <div id="enrollMsg" role="alert" aria-live="polite" style="margin-top:12px; color:#00ffc3; font-weight:600;"></div>
+  </section>
+
+  <section class="syllabus-section" aria-label="Course syllabus">
+    <h2>Syllabus</h2>
+    <div class="lesson" tabindex="0" aria-expanded="false" aria-controls="lesson1Content" id="lesson1">
+      <div class="lesson-header">Lesson 1: Introduction to Course</div>
+      <div class="lesson-content" id="lesson1Content">
+        Overview of course goals and what you will learn.
+      </div>
+    </div>
+    <div class="lesson" tabindex="0" aria-expanded="false" aria-controls="lesson2Content" id="lesson2">
+      <div class="lesson-header">Lesson 2: Setting Up Your Environment</div>
+      <div class="lesson-content" id="lesson2Content">
+        Installing software, tools, and getting ready for coding.
+      </div>
+    </div>
+    <div class="lesson" tabindex="0" aria-expanded="false" aria-controls="lesson3Content" id="lesson3">
+      <div class="lesson-header">Lesson 3: Core Concepts</div>
+      <div class="lesson-content" id="lesson3Content">
+        Fundamental concepts with examples and practice exercises.
+      </div>
+    </div>
+    <div class="lesson" tabindex="0" aria-expanded="false" aria-controls="lesson4Content" id="lesson4">
+      <div class="lesson-header">Lesson 4: Advanced Topics</div>
+      <div class="lesson-content" id="lesson4Content">
+        Dive into advanced subjects and real-world applications.
+      </div>
+    </div>
+    <div class="lesson" tabindex="0" aria-expanded="false" aria-controls="lesson5Content" id="lesson5">
+      <div class="lesson-header">Lesson 5: Final Project</div>
+      <div class="lesson-content" id="lesson5Content">
+        Complete a project to apply all you have learned.
+      </div>
+    </div>
+  </section>
+
+  <section class="video-player" aria-label="Course video player" tabindex="0">
+    <video id="courseVideo" src="" controls preload="metadata" aria-describedby="videoDescription"></video>
+    <div class="video-controls" aria-hidden="true">
+      <button id="playPauseBtn" aria-label="Play or pause video">▶️</button>
+      <span id="currentTime">00:00</span> / <span id="duration">00:00</span>
+    </div>
+    <div id="videoDescription" class="sr-only">Video player for course lessons</div>
+  </section>
+
+  <section class="reviews-section" aria-label="Student reviews">
+    <h2>Student Reviews</h2>
+    <div class="reviews-list" id="reviewsList">
+      <p>Loading reviews...</p>
+    </div>
+  </section>
+
+  <div class="nav-buttons" aria-label="Navigation buttons">
+    <button id="backToCoursesBtn">Back to Courses</button>
+    <button id="backToDashboardBtn">Back to Dashboard</button>
+  </div>
+</main>
+
+<script>
+  // Redirect to login if not logged in
+  if (localStorage.getItem('loggedIn') !== 'true') {
+    window.location.href = 'index.html';
+  }
+
+  // Example course data - normally fetched from backend API or database
+  const courseData = {
+    id: 'python-beginners',
+    title: 'Python for Beginners',
+    description: 'Learn Python from scratch, mastering the basics of programming, data structures, and practical applications.',
+    instructor: {
+      name: 'Jane Smith',
+      bio: 'Experienced software engineer and passionate educator.',
+      avatar: 'https://i.pravatar.cc/70?img=15'
+    },
+    price: 49.99,
+    videoLessons: [
+      'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm', // Sample video URL
+      // Add more videos if needed
+    ],
+    reviews: [
+      { name: 'Alice', rating: 5, comment: 'Fantastic course! Very clear and easy to follow.' },
+      { name: 'Bob', rating: 4, comment: 'Great content but would love more examples.' },
+      { name: 'Chloe', rating: 5, comment: 'Helped me get my first programming job!' },
+      { name: 'David', rating: 3, comment: 'Good intro but pacing was a bit fast.' }
+    ]
+  };
+
+  // Populate course header and info
+  document.getElementById('courseTitle').textContent = courseData.title;
+  document.getElementById('courseDescription').textContent = courseData.description;
+  document.getElementById('instructorName').textContent = courseData.instructor.name;
+  document.getElementById('instructorBio').textContent = courseData.instructor.bio;
+  document.getElementById('instructorAvatar').src = courseData.instructor.avatar;
+  document.getElementById('coursePrice').textContent = '$' + courseData.price.toFixed(2);
+
+  // Enrollment button logic
+  const enrollBtn = document.getElementById('enrollBtn');
+  const enrollMsg = document.getElementById('enrollMsg');
+  enrollBtn.addEventListener('click', () => {
+    enrollBtn.disabled = true;
+    enrollBtn.textContent = 'Enrolled ✓';
+    enrollMsg.textContent = 'You have successfully enrolled in this course.';
+  });
+
+  // Expand/collapse syllabus lessons
+  const lessons = document.querySelectorAll('.lesson');
+  lessons.forEach(lesson => {
+    lesson.addEventListener('click', () => {
+      const expanded = lesson.getAttribute('aria-expanded') === 'true';
+      lesson.setAttribute('aria-expanded', !expanded);
+      const content = lesson.querySelector('.lesson-content');
+      if (!expanded) {
+        content.style.display = 'block';
+      } else {
+        content.style.display = 'none';
+      }
+    });
+    lesson.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        lesson.click();
+      }
+    });
+  });
+
+  // Video player controls
+  const video = document.getElementById('courseVideo');
+  const playPauseBtn = document.getElementById('playPauseBtn');
+  const currentTimeEl = document.getElementById('currentTime');
+  const durationEl = document.getElementById('duration');
+
+  // Load first video
+  if (courseData.videoLessons.length > 0) {
+    video.src = courseData.videoLessons[0];
+  }
+
+  function formatTime(seconds) {
+    const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+    const s = Math.floor(seconds % 60).toString().padStart(2, '0');
+    return `${m}:${s}`;
+  }
+
+  video.addEventListener('loadedmetadata', () => {
+    durationEl.textContent = formatTime(video.duration);
+  });
+
+  video.addEventListener('timeupdate', () => {
+    currentTimeEl.textContent = formatTime(video.currentTime);
+  });
+
+  playPauseBtn.addEventListener('click', () => {
+    if (video.paused) {
+      video.play();
+      playPauseBtn.textContent = '⏸️';
+      playPauseBtn.setAttribute('aria-label', 'Pause video');
+    } else {
+      video.pause();
+      playPauseBtn.textContent = '▶️';
+      playPauseBtn.setAttribute('aria-label', 'Play video');
+    }
+  });
+
+  // Reviews listing
+  const reviewsList = document.getElementById('reviewsList');
+  reviewsList.innerHTML = ''; // Clear loading text
+  courseData.reviews.forEach(review => {
+    const reviewEl = document.createElement('div');
+    reviewEl.classList.add('review');
+    reviewEl.innerHTML = `<strong>${review.name}</strong> <span class="rating">${'⭐'.repeat(review.rating)}</span><br>${review.comment}`;
+    reviewsList.appendChild(reviewEl);
+  });
+
+  // Navigation buttons
+  document.getElementById('backToCoursesBtn').addEventListener('click', () => {
+    window.location.href = 'courses.html';
+  });
+  document.getElementById('backToDashboardBtn').addEventListener('click', () => {
+    window.location.href = 'dashboard.html';
+  });
+
+  // Accessibility: focus main on load
+  window.addEventListener('load', () => {
+    document.querySelector('main').focus();
+  });
+</script>
+
+</body>
+</html>
