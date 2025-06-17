@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NextGen Hustle</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
     * {
       margin: 0; padding: 0; box-sizing: border-box;
@@ -15,101 +15,62 @@
       background-color: #0d0d0d;
       color: #f0f0f0;
       line-height: 1.6;
-      padding: 0 20px;
+      padding: 0 20px 60px;
     }
 
     header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: #1f1f1f;
-      padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid #00c1b0;
+      padding: 25px 0;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      background-color: #0d0d0d;
       z-index: 1000;
     }
 
     header h1 {
-      font-size: 1.9rem;
-      color: #00c1b0;
+      font-size: 1.8rem;
+      color: #00ffcc;
       user-select: none;
-      text-shadow: none;
     }
 
     nav a {
-      color: #a0a0a0;
-      margin-left: 30px;
+      margin-left: 20px;
       text-decoration: none;
+      color: #aaa;
+      transition: color 0.3s;
       font-weight: 600;
-      transition: color 0.3s ease, transform 0.2s ease;
-      text-shadow: none;
     }
 
-    nav a:hover, nav a.active {
-      color: #00c1b0;
-      transform: scale(1.1);
-      text-shadow: none;
+    nav a:hover {
+      color: #00ffcc;
     }
 
     main {
-      max-width: 960px;
-      margin: 100px auto 60px;
-      padding: 0 20px;
+      max-width: 900px;
+      margin: 30px auto 0;
+      padding-bottom: 40px;
     }
 
     section {
-      padding: 80px 0 60px;
-      border-bottom: 1px solid #2a2a2a;
-    }
-
-    section:last-child {
-      border: none;
+      margin-bottom: 50px;
     }
 
     h2 {
-      font-size: 2rem;
-      color: #00c1b0;
-      margin-bottom: 25px;
-      text-align: center;
-      text-shadow: none;
+      font-size: 1.5rem;
+      color: #00ffcc;
+      margin-bottom: 15px;
       user-select: none;
-    }
-
-    .trust {
-      background: #007d75;
-      color: #e0f7f4;
-      padding: 12px 25px;
-      border-radius: 30px;
-      display: inline-block;
-      font-weight: 700;
-      font-size: 1rem;
-      margin-bottom: 45px;
-      box-shadow: none;
-      user-select: none;
-    }
-
-    .course-card {
-      background: #222;
-      border-radius: 15px;
-      padding: 30px 25px;
-      box-shadow: 0 0 10px #00887a55;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      user-select: none;
-      margin-bottom: 30px;
-    }
-
-    .course-card:hover {
-      box-shadow: 0 0 18px #00c1b0cc;
-      transform: translateY(-8px);
     }
 
     ul {
       list-style: none;
-      padding-left: 10px;
+      padding-left: 15px;
       font-size: 1.1rem;
-      line-height: 1.5;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
     ul li {
@@ -117,15 +78,25 @@
       border-bottom: 1px solid #222;
     }
 
-    .cta {
+    .trust-msg {
+      max-width: 700px;
+      margin: 0 auto 40px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #44e5d0;
       text-align: center;
+      user-select: none;
+    }
+
+    .cta {
       margin-top: 30px;
+      text-align: center;
     }
 
     .cta a {
       display: inline-block;
-      padding: 14px 35px;
-      background: #00c1b0;
+      padding: 12px 30px;
+      background: #00ffcc;
       color: #000;
       font-weight: 700;
       text-decoration: none;
@@ -135,7 +106,7 @@
     }
 
     .cta a:hover {
-      background: #00a38d;
+      background: #00ddb3;
     }
 
     footer {
@@ -150,7 +121,6 @@
       header {
         flex-direction: column;
         align-items: flex-start;
-        padding: 15px 20px;
       }
 
       nav {
@@ -162,10 +132,6 @@
         display: block;
         margin-bottom: 10px;
       }
-
-      main {
-        margin: 120px 10px 60px;
-      }
     }
   </style>
 </head>
@@ -174,7 +140,7 @@
   <header>
     <h1>NextGen Hustle</h1>
     <nav>
-      <a href="#courses" class="active">Courses</a>
+      <a href="#courses">Courses</a>
       <a href="#membership">Membership</a>
       <a href="#donate">Donate</a>
     </nav>
@@ -183,66 +149,34 @@
   <main>
 
     <section id="welcome">
-      <div class="trust">Revised 4.7 • Trusted by 1000+ students worldwide</div>
+      <div class="trust-msg">Revised 4.7 — Trusted by 1000+ students worldwide</div>
       <h2>Welcome to NextGen Hustle</h2>
-      <p style="max-width: 700px; margin: 0 auto 20px; font-size:1.2rem; text-align:center;">
+      <p style="max-width: 700px; margin: 0 auto 20px; font-size:1.15rem; text-align:center;">
         Your trusted hub to learn how to build skills, create multiple income streams, and master the digital hustle — all for free, with premium support available.
       </p>
     </section>
 
     <section id="courses">
       <h2>What We Offer</h2>
-
-      <div class="course-card">
-        <h3>Learn Web Development</h3>
-        <ul>
-          <li>HTML & CSS basics</li>
-          <li>Build a portfolio website</li>
-          <li>Host your site for free</li>
-        </ul>
-      </div>
-
-      <div class="course-card">
-        <h3>AI & Productivity Tools</h3>
-        <ul>
-          <li>Top AI tools to save time & earn money</li>
-          <li>Smart ChatGPT prompts for your workflow</li>
-          <li>Automate side hustles with AI</li>
-        </ul>
-      </div>
-
-      <div class="course-card">
-        <h3>Start Your Side Hustle</h3>
-        <ul>
-          <li>Reselling, flipping & affiliate marketing</li>
-          <li>Fiverr & Upwork profiles setup</li>
-          <li>Sell digital products & services</li>
-        </ul>
-      </div>
-
-      <div class="course-card">
-        <h3>Money & Mindset</h3>
-        <ul>
-          <li>How money and banking really works</li>
-          <li>Daily mindset & productivity boosts</li>
-          <li>High-performance thinking routines</li>
-        </ul>
-      </div>
+      <ul>
+        <li>Learn to Build Websites from Scratch — HTML & CSS basics, portfolio, hosting</li>
+        <li>Top AI Tools That Make You Money — ChatGPT prompts, automation, productivity</li>
+        <li>Start a Side Hustle with £0 — reselling, affiliate marketing, Fiverr & Upwork setup</li>
+        <li>Money Basics They Don’t Teach in School — banking, crypto, mindset & routines</li>
+      </ul>
     </section>
 
     <section id="membership">
       <h2>Membership Benefits</h2>
       <p style="max-width: 700px; margin: 0 auto 20px; font-size:1.1rem; text-align:center;">
-        Unlock advanced courses, exclusive mentorship, and weekly live sessions with our premium membership. Accelerate your journey and get direct support.
+        Unlock advanced courses, 1-on-1 mentorship, exclusive live sessions, and tools to fast-track your journey with our premium membership.
       </p>
-
-      <ul style="max-width: 600px; margin: 0 auto; font-size: 1.1rem;">
-        <li>Build & launch real-world JavaScript projects</li>
-        <li>Custom domain hosting & portfolio animation</li>
-        <li>YouTube Automation & AI business blueprints</li>
-        <li>1-on-1 mentorship & weekly “Level-Up” calls</li>
+      <ul style="max-width: 700px; margin: 0 auto;">
+        <li>Build & launch real JavaScript projects with custom domains</li>
+        <li>YouTube automation & AI business blueprints</li>
+        <li>Weekly Level-Up calls and daily challenges</li>
+        <li>Exclusive templates & productivity trackers</li>
       </ul>
-
       <div class="cta">
         <a href="#">Join Now</a>
       </div>
@@ -254,7 +188,7 @@
         We donate part of our membership earnings to provide electronics access in underserved communities worldwide.
       </p>
       <p style="max-width: 700px; margin: 0 auto 40px; font-size:1.1rem; text-align:center;">
-        Questions? Contact us at <a href="mailto:yirgaaron@gmail.com" style="color:#00c1b0;">yirgaaron@gmail.com</a>
+        Questions? Contact us at <a href="mailto:yirgaaron@gmail.com" style="color:#00ffcc;">yirgaaron@gmail.com</a>
       </p>
     </section>
 
