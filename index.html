@@ -1,232 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NextGen Hustle</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NextGen Hustle - Empower Your Future</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
 
-    body {
-      background-color: #0d0d0d;
-      color: #eee;
-      line-height: 1.6;
-      padding: 0 20px 60px;
-    }
+  body {
+    background: #121212;
+    color: #e0e0e0;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+  }
 
+  header {
+    position: fixed;
+    width: 100%;
+    background: #1f1f1f;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #00c1b0;
+    z-index: 1000;
+  }
+
+  header h1 {
+    font-size: 1.9rem;
+    color: #00c1b0;
+    user-select: none;
+  }
+
+  nav a {
+    color: #a0a0a0;
+    margin-left: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.2s ease;
+  }
+
+  nav a:hover, nav a.active {
+    color: #00c1b0;
+    transform: scale(1.1);
+  }
+
+  main {
+    max-width: 960px;
+    margin: 100px auto 60px;
+    padding: 0 20px;
+  }
+
+  section {
+    padding: 60px 0;
+    border-bottom: 1px solid #2a2a2a;
+  }
+
+  section:last-child {
+    border: none;
+  }
+
+  h2 {
+    font-size: 2rem;
+    color: #00c1b0;
+    margin-bottom: 25px;
+    text-align: center;
+    text-shadow: 0 0 10px #00c1b0bb;
+    user-select: none;
+  }
+
+  p.intro {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    font-size: 1.1rem;
+    text-align: center;
+    color: #b8b8b8;
+  }
+
+  /* Trust badge */
+  .trust {
+    background: #007d75;
+    color: #e0f7f4;
+    padding: 12px 25px;
+    border-radius: 30px;
+    display: inline-block;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 45px;
+    box-shadow: 0 0 15px #00c1b0aa;
+    user-select: none;
+  }
+
+  /* Courses grid */
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 25px;
+  }
+
+  .course-card {
+    background: #222;
+    border-radius: 15px;
+    padding: 30px 25px;
+    box-shadow: 0 0 20px #00887a55;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    user-select: none;
+  }
+
+  .course-card:hover {
+    box-shadow: 0 0 32px #00c1b0cc;
+    transform: translateY(-8px);
+  }
+
+  .course-card h3 {
+    margin-bottom: 18px;
+    color: #00c1b0;
+    font-size: 1.3rem;
+  }
+
+  .course-card ul {
+    list-style: none;
+    padding-left: 18px;
+    color: #b5eaea;
+    font-weight: 500;
+  }
+
+  .course-card ul li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 22px;
+  }
+
+  .course-card ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #00c1b0;
+  }
+
+  /* Membership highlight */
+  .membership-info {
+    background: #002c2a;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 0 25px #00c1b088;
+    margin-top: 40px;
+    font-size: 1.1rem;
+    color: #a0f2e8;
+    user-select: none;
+  }
+
+  /* Donate section */
+  .donate-info {
+    background: #002f2d;
+    padding: 25px 30px;
+    border-radius: 15px;
+    text-align: center;
+    color: #b0f7e3;
+    box-shadow: 0 0 18px #00c1b0aa;
+    user-select: none;
+  }
+
+  .donate-info p {
+    margin-bottom: 10px;
+  }
+
+  /* Call to action buttons */
+  .btn {
+    display: inline-block;
+    background: #00c1b0;
+    color: #121212;
+    padding: 14px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    box-shadow: 0 0 20px #00c1b099;
+    margin-top: 30px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+  }
+
+  .btn:hover {
+    background: #00d3bd;
+    box-shadow: 0 0 28px #00d3bdcc;
+  }
+
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+    font-size: 0.9rem;
+    border-top: 1px solid #222;
+    user-select: none;
+  }
+
+  footer a {
+    color: #00c1b0;
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* Responsive Nav menu - mobile */
+  @media (max-width: 700px) {
     header {
-      background: linear-gradient(90deg, #4b0082, #2e0854);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      border-bottom: 2px solid #6a4baf;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    header h1 {
-      font-size: 2rem;
-      color: #b8a1ff;
-      letter-spacing: 1.2px;
-      user-select: none;
-    }
-
-    nav a {
-      margin-left: 25px;
-      text-decoration: none;
-      color: #b8a1ff;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: color 0.3s ease, transform 0.2s ease;
-      cursor: pointer;
-    }
-
-    nav a:hover {
-      color: #00ffd5;
-      transform: scale(1.1);
-    }
-
-    main {
-      max-width: 960px;
-      margin: 60px auto 40px;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      color: #00ffd5;
-      margin-bottom: 20px;
-      text-align: center;
-      text-shadow: 0 0 8px #00ffd5aa;
-      user-select: none;
-    }
-
-    .courses-container {
-      display: flex;
-      gap: 30px;
-      justify-content: center;
       flex-wrap: wrap;
-      margin-top: 20px;
+      justify-content: center;
+      gap: 10px;
     }
-
-    .course-box {
-      background: #1a0a3b;
-      border-radius: 15px;
-      padding: 30px 25px;
-      width: 420px;
-      box-shadow: 0 0 18px #4b0082aa;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: default;
-      display: flex;
-      flex-direction: column;
-      user-select: none;
-    }
-
-    .course-box:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 28px #00ffd5cc;
-    }
-
-    .course-box h3 {
-      font-size: 1.4rem;
-      margin-bottom: 18px;
-      color: #b8a1ff;
-      border-bottom: 2px solid #00ffd5;
-      padding-bottom: 10px;
-      user-select: none;
-    }
-
-    .course-list {
-      list-style: none;
-      padding-left: 20px;
-      color: #cfcfffdd;
-      font-weight: 500;
-      flex-grow: 1;
-    }
-
-    .course-list li {
-      margin-bottom: 12px;
-      position: relative;
-      padding-left: 22px;
-    }
-
-    .course-list li::before {
-      content: '🔥';
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-
-    .cta {
-      margin-top: 35px;
-      text-align: center;
-    }
-
-    .cta a {
-      display: inline-block;
-      padding: 14px 36px;
-      background: #00ffd5;
-      color: #0d0d0d;
-      font-weight: 700;
-      font-size: 1.1rem;
-      border-radius: 50px;
-      text-decoration: none;
-      box-shadow: 0 0 15px #00ffd5aa;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-      user-select: none;
-    }
-
-    .cta a:hover {
-      background: #00e6c2;
-      box-shadow: 0 0 22px #00e6c2cc;
-    }
-
-    footer {
-      text-align: center;
-      padding: 35px 20px;
-      color: #666;
+    nav a {
+      margin-left: 15px;
       font-size: 0.9rem;
-      border-top: 1px solid #222;
-      user-select: none;
     }
+  }
 
-    footer p {
-      margin-bottom: 5px;
-    }
-
-    footer a {
-      color: #00ffd5;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 940px) {
-      .courses-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .course-box {
-        width: 90%;
-      }
-    }
-  </style>
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>NextGen Hustle</h1>
-    <nav>
-      <a href="#">Courses</a>
-      <a href="#">Membership</a>
-      <a href="#">Donate</a>
-    </nav>
-  </header>
+<header>
+  <h1>NextGen Hustle</h1>
+  <nav>
+    <a href="#home" class="active">Home</a>
+    <a href="#courses">Courses</a>
+    <a href="#membership">Membership</a>
+    <a href="#donate">Donate</a>
+  </nav>
+</header>
 
-  <main>
-    <h2>🔥 Free Courses</h2>
-    <div class="courses-container">
-      <div class="course-box">
-        <h3>Get Started</h3>
-        <ul class="course-list">
-          <li>Build Websites from Scratch (HTML & CSS)</li>
-          <li>Top 10 AI Tools to Boost Income</li>
-          <li>Start a Side Hustle with £0</li>
-          <li>Money Basics & Banking Explained</li>
-          <li>Daily Mindset & Productivity Tips</li>
-        </ul>
-      </div>
+<main>
 
-      <div class="course-box">
-        <h3>Premium Membership</h3>
-        <ul class="course-list">
-          <li>Build & Launch Real Websites (JavaScript + Hosting)</li>
-          <li>YouTube Automation Blueprint</li>
-          <li>Start Your AI-Powered Business</li>
-          <li>Hustle Stack System: Manage Multiple Income Streams</li>
-          <li>1-on-1 Mentorship & Weekly Level-Up Calls</li>
-        </ul>
-      </div>
+  <section id="home" aria-label="Home introduction">
+    <h2>Welcome to NextGen Hustle</h2>
+    <p class="intro">
+      Your trusted platform to learn real-world skills and build multiple income streams. Join 1000+ students who rated us <strong>4.7/5</strong> for practical, easy-to-follow courses that work.  
+      Empower your future with knowledge & community support.
+    </p>
+    <div class="trust">⭐ Rated 4.7 by 1000+ learners worldwide ⭐</div>
+    <div style="text-align:center;">
+      <a href="#courses" class="btn">Explore Courses</a>
     </div>
+  </section>
 
-    <div class="cta">
-      <a href="#">Join NextGen Hustle — Start Free Today</a>
-    </div>
-  </main>
-
-  <footer>
-    <p>Trusted by thousands worldwide. Your success is our mission.</p>
-    <p>Contact: <a href="mailto:yirgaaron@gmail.com">yirgaaron@gmail.com</a></p>
-    <p>&copy; 2025 NextGen Hustle. Empower the future.</p>
-  </footer>
-
-</body>
-</html>
+  <section id="courses" aria-label="Courses offered">
+    <h2>What You’ll Learn</h2>
+    <div class="courses-grid">
+      <div class="course-card">
+        <h3>Website Building & Coding</h3>
+        <ul>
+          <li>HTML & CSS fundamentals</li>
+          <li>Build your portfolio site</li>
+          <li>JavaScript basics & interactive projects</li>
+          <li
