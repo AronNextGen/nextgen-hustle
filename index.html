@@ -123,53 +123,6 @@
       box-shadow: 0 8px 22px rgba(0,221,179,0.7);
     }
 
-    /* Trust Section */
-    .trust-section {
-      background: #1a1a1a;
-      border-radius: 18px;
-      padding: 45px 35px;
-      margin-bottom: 90px;
-      box-shadow: 0 0 25px rgba(0,255,195,0.2);
-      user-select: text;
-    }
-    .trust-section h3 {
-      text-align: center;
-      font-weight: 700;
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-      color: #00ffc3;
-      letter-spacing: 1px;
-    }
-    .trust-section p {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 35px;
-      font-size: 1.1rem;
-      color: #ccc;
-      font-style: italic;
-      line-height: 1.5;
-    }
-    .trust-section .stats {
-      display: flex;
-      justify-content: center;
-      gap: 70px;
-      flex-wrap: wrap;
-      font-weight: 700;
-      font-size: 1.3rem;
-      color: #00ffc3;
-      user-select: none;
-    }
-    .trust-section .stats div {
-      text-align: center;
-    }
-    .trust-section .stats div span {
-      display: block;
-      font-size: 2.4rem;
-      font-weight: 900;
-      color: #00ffc3;
-      text-shadow: 0 0 12px rgba(0,255,195,0.6);
-    }
-
     /* Sections Titles */
     .section-title {
       font-size: 2.4rem;
@@ -181,90 +134,93 @@
       user-select: text;
     }
 
-    /* Courses & Membership Grid */
-    .courses, .membership {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-      gap: 40px;
-      margin-bottom: 90px;
-      user-select: none;
-    }
-    .card {
-      background: #181818;
-      border-radius: 18px;
-      padding: 30px 28px 38px;
-      box-shadow: 0 0 20px rgba(0,255,195,0.14);
-      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
-      cursor: default;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-    .card:hover, .card:focus-within {
-      transform: translateY(-12px);
-      box-shadow: 0 12px 38px rgba(0,255,195,0.35);
-      outline: none;
-    }
-    .card h4 {
-      color: #00ffc3;
-      font-weight: 700;
-      margin-bottom: 22px;
-      font-size: 1.5rem;
-      letter-spacing: 0.4px;
-      user-select: text;
-    }
-    .card ul {
-      list-style: inside disc;
-      padding-left: 12px;
-      color: #ddd;
+    /* Content Section */
+    .content-section {
+      max-width: 850px;
+      margin: 0 auto 80px;
       font-size: 1.1rem;
+      color: #ddd;
+      user-select: text;
       line-height: 1.5;
-    }
-    .card ul li {
-      margin-bottom: 12px;
-      user-select: text;
+      padding: 0 10px;
     }
 
-    /* Membership Callout */
-    .membership-callout {
+    /* Footer */
+    footer {
+      background: #0d0d0d;
       text-align: center;
-      margin-bottom: 70px;
-      font-size: 1.3rem;
-      color: #a5f9dc;
-      max-width: 720px;
-      margin-left: auto;
-      margin-right: auto;
-      font-weight: 600;
-      font-style: italic;
-      user-select: text;
-    }
-    .btn-secondary {
-      background: transparent;
-      border: 3px solid #00ffc3;
-      color: #00ffc3;
-      font-weight: 700;
-      padding: 16px 44px;
-      border-radius: 16px;
-      cursor: pointer;
-      font-size: 1.15rem;
-      transition: background 0.3s ease, color 0.3s ease;
+      padding: 35px 15px;
+      font-size: 0.9rem;
+      color: #555;
       user-select: none;
-      box-shadow: 0 0 12px rgba(0,255,195,0.25);
-      display: inline-block;
-      margin-top: 20px;
+      border-top: 1px solid #222;
+      letter-spacing: 0.5px;
     }
-    .btn-secondary:hover, .btn-secondary:focus {
-      background: #00ffc3;
-      color: #000;
-      outline: none;
-      box-shadow: 0 0 28px rgba(0,221,179,0.7);
-    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>NextGen Hustle</h1>
+    <nav role="navigation" aria-label="Primary navigation">
+      <a href="#learn">Learn</a>
+      <a href="#hustle">Hustle</a>
+      <a href="#grow">Grow</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    /* Donate Section */
-    .donate-section {
-      text-align: center;
-      background: #1a1a1a;
-      border-radius: 18px;
-      padding: 48px 35px;
-      box-shadow: 0 0 30px rgba(0,255,195,0.18);
-      max-width: 750px
+  <main class="container" role="main">
+    <section class="hero" aria-label="Introduction">
+      <h2>Welcome to NextGen Hustle</h2>
+      <p>Unlock your potential with the ultimate guide to learning, hustling, and growing in the digital era.</p>
+      <button class="btn-primary" onclick="alert('Let’s get started!')">Get Started</button>
+    </section>
+
+    <section id="learn" class="content-section" tabindex="0">
+      <h3 class="section-title">Learn</h3>
+      <p>Dive deep into curated courses that empower you with knowledge in tech, marketing, business, and personal growth. We deliver clear, actionable lessons so you never waste time.</p>
+      <ul>
+        <li>Comprehensive video tutorials from industry pros</li>
+        <li>Interactive quizzes and assignments to test your skills</li>
+        <li>Weekly live Q&A sessions to clarify doubts</li>
+      </ul>
+    </section>
+
+    <section id="hustle" class="content-section" tabindex="0">
+      <h3 class="section-title">Hustle</h3>
+      <p>Learn the art of the grind. From side gigs to launching startups, our resources help you monetize your skills and create multiple income streams.</p>
+      <ul>
+        <li>Real-world case studies & success stories</li>
+        <li>Tools and templates to fast-track your projects</li>
+        <li>Networking opportunities with a like-minded community</li>
+      </ul>
+    </section>
+
+    <section id="grow" class="content-section" tabindex="0">
+      <h3 class="section-title">Grow</h3>
+      <p>Develop the mindset, habits, and networks to scale your personal and professional life. Growth is continuous — and we’re here to fuel it.</p>
+      <ul>
+        <li>Personal development plans tailored for hustlers</li>
+        <li>Mentorship programs and mastermind groups</li>
+        <li>Access to exclusive events and workshops</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="content-section" tabindex="0" aria-label="Contact information">
+      <h3 class="section-title">Contact Us</h3>
+      <p>Have questions? Want to collaborate? Reach out anytime — we’re here to help you hustle smarter.</p>
+      <address>
+        Email: <a href="mailto:support@nextgenhustle.com">support@nextgenhustle.com</a><br />
+        Phone: <a href="tel:+1234567890">+1 (234) 567-890</a><br />
+        Follow us on
+        <a href="https://twitter.com/nextgenhustle" target="_blank" rel="noopener noreferrer">Twitter</a>,
+        <a href="https://www.linkedin.com/company/nextgenhustle" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </address>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 NextGen Hustle. All rights reserved.
+  </footer>
+</body>
+</html>
