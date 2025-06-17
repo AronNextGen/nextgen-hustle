@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NextGen Hustle</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
   <style>
     * {
       margin: 0; padding: 0; box-sizing: border-box;
@@ -12,48 +12,55 @@
     }
 
     body {
-      background-color: #0d0d0d;
-      color: #f0f0f0;
-      line-height: 1.6;
+      background: #0a0a14;
+      color: #e0dcdc;
+      line-height: 1.65;
       scroll-behavior: smooth;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-size: 16px;
     }
 
     a {
-      color: #00ffcc;
+      color: #d4af37; /* gold */
       text-decoration: none;
       transition: color 0.3s ease;
+      font-weight: 600;
     }
 
     a:hover {
-      color: #00ddb3;
+      color: #f0d95c; /* lighter gold */
     }
 
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 25px 40px;
-      border-bottom: 1px solid #222;
+      padding: 30px 50px;
+      background: linear-gradient(90deg, #120f2d, #1e183f);
+      border-bottom: 1px solid #2e2a4d;
       position: sticky;
       top: 0;
-      background: #0d0d0d;
-      z-index: 100;
+      z-index: 999;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.7);
     }
 
     header h1 {
-      font-size: 2rem;
-      color: #00ffcc;
+      font-size: 2.4rem;
+      color: #d4af37;
+      letter-spacing: 2px;
     }
 
     nav a {
-      margin-left: 25px;
-      font-weight: 600;
-      font-size: 1rem;
-      color: #aaa;
+      margin-left: 30px;
+      font-size: 1.05rem;
+      color: #a69e9e;
+      letter-spacing: 0.03em;
     }
 
     nav a:hover {
-      color: #00ffcc;
+      color: #d4af37;
     }
 
     /* Hero Section */
@@ -62,312 +69,198 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 90vh;
+      min-height: 90vh;
       text-align: center;
       padding: 0 20px;
-      background: linear-gradient(135deg, #00ffcc, #005f5f);
-      color: #0d0d0d;
+      background: linear-gradient(135deg, #1a1436, #3a2e65);
+      color: #f5e9b9; /* soft gold */
+      box-shadow: inset 0 0 60px rgba(212,175,55,0.4);
     }
 
     .hero h2 {
-      font-size: 3rem;
-      margin-bottom: 20px;
+      font-size: 3.6rem;
       font-weight: 700;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+      letter-spacing: 1.5px;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.7);
+      max-width: 850px;
     }
 
     .hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin-bottom: 40px;
+      font-size: 1.3rem;
+      max-width: 650px;
+      margin-bottom: 45px;
       font-weight: 500;
+      letter-spacing: 0.03em;
+      text-shadow: 0 1px 5px rgba(0,0,0,0.5);
     }
 
     .hero a.cta-button {
-      background: #0d0d0d;
-      color: #00ffcc;
-      padding: 16px 45px;
+      background: #d4af37;
+      color: #0a0a14;
+      padding: 18px 50px;
       font-weight: 700;
-      font-size: 1.1rem;
-      border-radius: 50px;
-      box-shadow: 0 0 15px #00ffccaa;
+      font-size: 1.2rem;
+      border-radius: 40px;
+      box-shadow: 0 0 25px #d4af37aa;
       transition: background 0.3s ease, box-shadow 0.3s ease;
+      letter-spacing: 0.05em;
+      border: 2px solid transparent;
+      text-transform: uppercase;
+      user-select: none;
     }
 
     .hero a.cta-button:hover {
-      background: #00ffcc;
-      color: #0d0d0d;
-      box-shadow: 0 0 25px #00ddb3;
+      background: transparent;
+      color: #d4af37;
+      border-color: #d4af37;
+      box-shadow: 0 0 35px #f0d95c;
     }
 
     /* Sections */
     section {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 60px auto;
-      padding: 0 20px;
+      padding: 0 25px;
+      flex-grow: 1;
     }
 
     h2.section-title {
-      font-size: 2rem;
-      margin-bottom: 30px;
-      color: #00ffcc;
+      font-size: 2.8rem;
+      margin-bottom: 40px;
+      color: #d4af37;
+      font-weight: 700;
       text-align: center;
+      letter-spacing: 1.2px;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.5);
     }
 
     /* Cards container */
     .cards-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 35px;
     }
 
     /* Individual Card */
     .card {
-      background: #121212;
-      border-radius: 15px;
-      padding: 30px 25px;
-      width: 320px;
-      box-shadow: 0 4px 15px rgba(0,255,204,0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #1e1a33;
+      border-radius: 18px;
+      padding: 35px 30px;
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.15);
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 22px;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      cursor: default;
+      border: 1px solid transparent;
     }
 
     .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 30px rgba(0,255,204,0.4);
+      transform: translateY(-12px);
+      box-shadow: 0 15px 35px rgba(212, 175, 55, 0.5);
+      border-color: #f0d95c;
     }
 
     .card h3 {
-      color: #00ffcc;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      border-bottom: 2px solid #00ffcc;
-      padding-bottom: 8px;
+      color: #f0d95c;
+      font-size: 1.7rem;
+      font-weight: 700;
+      border-bottom: 3px solid #f0d95c;
+      padding-bottom: 10px;
+      letter-spacing: 0.03em;
     }
 
     .card ul {
       list-style: none;
-      color: #ccc;
+      color: #cbc3a5;
       font-weight: 500;
-      flex-grow: 1;
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
     .card ul li {
-      margin-bottom: 10px;
-      padding-left: 20px;
+      margin-bottom: 14px;
+      padding-left: 25px;
       position: relative;
     }
 
     .card ul li::before {
-      content: '🔥';
+      content: '➤';
       position: absolute;
       left: 0;
       top: 0;
+      color: #d4af37;
+      font-weight: 900;
+      font-size: 1.1rem;
+      line-height: 1;
+      user-select: none;
     }
 
     /* Premium card special style */
     .premium {
-      background: linear-gradient(135deg, #00ffcc, #005f5f);
-      color: #0d0d0d;
+      background: linear-gradient(135deg, #3a2e65, #6c5480);
+      color: #f5e9b9;
+      border: 1.5px solid #d4af37;
     }
 
     .premium h3 {
-      color: #fff;
-      border-color: #fff;
+      color: #ffd770;
+      border-color: #ffd770;
     }
 
     .premium ul li::before {
       content: '💎';
-      color: #222;
+      color: #ffd770;
     }
 
     /* Why NextGen Hustle */
     .why-us {
-      background: #121212;
-      padding: 40px 25px;
-      border-radius: 15px;
+      background: #1f1a38;
+      padding: 50px 35px;
+      border-radius: 18px;
       margin: 80px auto 60px;
-      max-width: 700px;
+      max-width: 800px;
       text-align: center;
-      box-shadow: 0 0 20px rgba(0,255,204,0.15);
+      box-shadow: 0 0 35px rgba(212, 175, 55, 0.3);
+      font-size: 1.15rem;
+      color: #e9e0b8;
+      letter-spacing: 0.02em;
+      line-height: 1.6;
+      font-weight: 500;
     }
 
     .why-us h2 {
-      color: #00ffcc;
-      margin-bottom: 25px;
+      color: #d4af37;
+      margin-bottom: 30px;
+      font-weight: 700;
+      font-size: 2.5rem;
+      letter-spacing: 0.1em;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.6);
     }
 
-    .why-us p {
-      font-size: 1.1rem;
-      color: #ccc;
-      line-height: 1.5;
-    }
-
-    /* Footer */
-    footer {
+    /* Donate Section */
+    #donate {
       text-align: center;
-      padding: 40px 20px;
-      color: #666;
-      font-size: 0.9rem;
-      border-top: 1px solid #222;
+      margin-bottom: 100px;
+      color: #cbc3a5;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    footer a {
-      color: #00ffcc;
+    #donate p {
+      margin-bottom: 30px;
     }
 
-    /* Responsive */
-    @media (max-width: 980px) {
-      .cards-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .card {
-        width: 100%;
-        max-width: 400px;
-      }
-    }
-
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>NextGen Hustle</h1>
-    <nav>
-      <a href="#free-courses">Free Courses</a>
-      <a href="#premium">Membership</a>
-      <a href="#donate">Donate</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h2>Master The Skills to Build Your Digital Future</h2>
-    <p>Free & premium courses designed to help you hustle smarter, build real projects, and start earning online — starting today.</p>
-    <a href="#free-courses" class="cta-button">Start Learning for Free</a>
-  </section>
-
-  <section id="free-courses">
-    <h2 class="section-title">🔥 Free Courses</h2>
-    <div class="cards-container">
-      <div class="card">
-        <h3>Learn to Build Websites from Scratch</h3>
-        <ul>
-          <li>HTML & CSS basics</li>
-          <li>Build your portfolio page</li>
-          <li>Host your site for free</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Top 10 AI Tools That Make You Money</h3>
-        <ul>
-          <li>ChatGPT productivity prompts</li>
-          <li>AI image & video tools</li>
-          <li>Automate side hustles</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Start a Hustle with £0</h3>
-        <ul>
-          <li>Reselling & flipping</li>
-          <li>Fiverr & Upwork setup</li>
-          <li>Selling digital products</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Money Basics They Don’t Teach in School</h3>
-        <ul>
-          <li>What is money?</li>
-          <li>How banks make profit</li>
-          <li>Intro to crypto & digital banks</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Daily Mindset & Productivity Boost</h3>
-        <ul>
-          <li>Consistency & clarity</li>
-          <li>Simple daily routines</li>
-          <li>High-performer thinking</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="premium">
-    <h2 class="section-title">🔒 Premium Membership</h2>
-    <div class="cards-container">
-      <div class="card premium">
-        <h3>Build & Launch Real Websites</h3>
-        <ul>
-          <li>Full JavaScript projects</li>
-          <li>Host with custom domain</li>
-          <li>Animate your portfolio</li>
-        </ul>
-      </div>
-
-      <div class="card premium">
-        <h3>YouTube Automation Blueprint</h3>
-        <ul>
-          <li>Faceless YouTube channels</li>
-          <li>Script writing & voice AI</li>
-          <li>Monetization strategies</li>
-        </ul>
-      </div>
-
-      <div class="card premium">
-        <h3>Start Your AI-Powered Business</h3>
-        <ul>
-          <li>Use GPT + automation</li>
-          <li>Sell with Notion/Framer/etc.</li>
-          <li>Real business examples</li>
-        </ul>
-      </div>
-
-      <div class="card premium">
-        <h3>The Hustle Stack System</h3>
-        <ul>
-          <li>Stack 2–3 side hustles</li>
-          <li>Time management hacks</li>
-          <li>Templates & trackers</li>
-        </ul>
-      </div>
-
-      <div class="card premium">
-        <h3>1-on-1 Mentorship & Level-Up Calls</h3>
-        <ul>
-          <li>Private Q&A & videos</li>
-          <li>Daily challenges & unlocks</li>
-          <li>Weekly live/recorded calls</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="why-us">
-    <h2>Why NextGen Hustle?</h2>
-    <p>Trusted by over 1,000 young hustlers worldwide, NextGen Hustle is more than just courses — it’s a community dedicated to helping you build real skills, make money, and level up your life. Whether you’re starting from zero or ready to go pro, we’ve got your back with expert guidance and real projects.</p>
-  </section>
-
-  <section id="donate" style="text-align:center; margin-bottom: 80px;">
-    <h2 class="section-title">🌍 Donate & Make Impact</h2>
-    <p style="max-width: 700px; margin: 0 auto 25px;">
-      Part of your membership goes towards providing electronics and learning tools for youth in underserved communities worldwide. Together, we hustle for change.
-    </p>
-    <a href="#" class="cta-button">Donate Now</a>
-  </section>
-
-  <footer>
-    &copy; 2025 NextGen Hustle. Empower the future.<br/>
-    Contact: <a href="mailto:yirgaaron@gmail.com">yirgaaron@gmail.com</a>
-  </footer>
-
-</body>
-</html>
+    #donate a.cta-button {
+      background: #d4af37;
+      color: #0a0a14;
+      padding: 15px 45px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 35px;
+      box-shadow: 0 0 20px #d4af37aa;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      border: 2px solid
