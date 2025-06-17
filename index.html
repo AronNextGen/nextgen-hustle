@@ -2,139 +2,172 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NextGen Hustle</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0f0f0f;
-      color: #f1f1f1;
-      scroll-behavior: smooth;
+      background-color: #0d0d0d;
+      color: #f0f0f0;
+      line-height: 1.6;
+      padding: 0 20px;
     }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 0;
+      border-bottom: 1px solid #222;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: #00ffcc;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #aaa;
+      transition: color 0.3s;
+    }
+
     nav a:hover {
-      color: #22d3ee;
-      transition: color 0.3s ease;
+      color: #00ffcc;
     }
-    .section-title {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #22d3ee;
+
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding-bottom: 40px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: #00ffcc;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 10px;
+    }
+
+    ul li {
+      padding: 6px 0;
+      border-bottom: 1px solid #222;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    .cta {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .cta a {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #00ffcc;
+      color: #000;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .cta a:hover {
+      background: #00ddb3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      color: #666;
+      font-size: 0.9rem;
+      border-top: 1px solid #222;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      nav a {
+        margin-left: 0;
+        display: block;
+        margin-bottom: 10px;
+      }
     }
   </style>
 </head>
-<body class="text-gray-100">
+<body>
 
-  <!-- Header -->
-  <header class="bg-black border-b border-gray-800 sticky top-0 z-50">
-    <div class="container mx-auto flex justify-between items-center p-4">
-      <h1 class="text-xl font-bold text-white">NextGen Hustle</h1>
-      <nav class="space-x-4 text-sm">
-        <a href="#free" class="hover:text-cyan-400">Free Courses</a>
-        <a href="#pro" class="hover:text-cyan-400">Pro Access</a>
-        <a href="#join" class="hover:text-cyan-400">Join Now</a>
-      </nav>
-    </div>
+  <header>
+    <h1>NextGen Hustle</h1>
+    <nav>
+      <a href="#">Courses</a>
+      <a href="#">Membership</a>
+      <a href="#">Donate</a>
+    </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="text-center py-20 bg-gradient-to-b from-black to-gray-900">
-    <h2 class="text-4xl font-bold mb-4">From £0 to Hustle Pro</h2>
-    <p class="text-gray-400 max-w-lg mx-auto">Everything you need to build skills and income — starting completely free.</p>
-    <a href="#free" class="mt-8 inline-block px-6 py-3 bg-cyan-500 text-black font-semibold rounded-lg hover:bg-cyan-400 transition">Explore Courses</a>
-  </section>
+  <section>
+    <h2>👋 Welcome to NextGen Hustle</h2>
+    <p>NextGen Hustle is your modern guide to building online income, learning real-world skills, and growing your mindset — all from zero. We're on a mission to make success accessible for every teen, student, and beginner worldwide.</p>
 
-  <!-- Free Section -->
-  <section id="free" class="py-16 px-6 max-w-5xl mx-auto">
-    <h3 class="section-title">🎓 Start 100% Free</h3>
-    <div class="grid md:grid-cols-2 gap-6 text-sm">
-      <div>
-        <h4 class="font-semibold text-lg text-cyan-400">💻 Build Websites</h4>
-        <ul class="list-disc ml-6 text-gray-400">
-          <li>HTML & CSS step-by-step</li>
-          <li>Launch your own portfolio</li>
-          <li>Host it for free</li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold text-lg text-cyan-400">🤖 AI Money Tools</h4>
-        <ul class="list-disc ml-6 text-gray-400">
-          <li>Top 10 free AI tools</li>
-          <li>Time-saving ChatGPT prompts</li>
-          <li>Create content with AI</li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold text-lg text-cyan-400">📈 Hustle with £0</h4>
-        <ul class="list-disc ml-6 text-gray-400">
-          <li>Reselling & flipping</li>
-          <li>Start affiliate marketing</li>
-          <li>Earn using Fiverr or Upwork</li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold text-lg text-cyan-400">🧠 Mindset & Daily Systems</h4>
-        <ul class="list-disc ml-6 text-gray-400">
-          <li>Stay consistent & focused</li>
-          <li>Daily clarity routines</li>
-          <li>Boost performance fast</li>
-        </ul>
-      </div>
+    <h2>🔥 Free Courses</h2>
+    <ul>
+      <li>Learn to Build Websites from Scratch</li>
+      <li>Top 10 AI Tools That Make You Money</li>
+      <li>Start a Hustle with £0</li>
+      <li>Money Basics They Don’t Teach in School</li>
+      <li>Daily Mindset & Productivity Boost</li>
+    </ul>
+
+    <h2 style="margin-top: 40px;">🔒 Premium Membership</h2>
+    <ul>
+      <li>Build & Launch Real Websites (JS + Hosting)</li>
+      <li>YouTube Automation Blueprint</li>
+      <li>Start Your AI-Powered Business</li>
+      <li>The Hustle Stack System</li>
+      <li>1-on-1 Mentorship & Weekly Level-Up Calls</li>
+    </ul>
+
+    <div class="cta">
+      <a href="#">Join for Free</a>
     </div>
+
+    <h2 style="margin-top: 50px;">✅ Why Trust NextGen Hustle?</h2>
+    <ul>
+      <li>100% Transparent — learn real skills with no fluff</li>
+      <li>Made for beginners — no money or experience needed</li>
+      <li>Growing community — we're built by people like you</li>
+      <li>Clear path to level up — from free to pro</li>
+    </ul>
   </section>
 
-  <!-- Pro Section -->
-  <section id="pro" class="py-16 px-6 bg-gray-900 max-w-5xl mx-auto">
-    <h3 class="section-title">🔐 Pro Membership (Next Level)</h3>
-    <div class="grid md:grid-cols-2 gap-6 text-sm">
-      <div>
-        <h4 class="font-semibold text-lg text-cyan-400">🌐 Real Projects</h4>
-        <ul class="list-disc ml-6 text-gray-400">
-          <li>Advanced JavaScript</li>
-          <li>Custom domains</li>
-          <li>Smooth portfolio animations</li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold text-lg text-cyan-400">🎥 YouTube Automation</h4>
-        <ul class="list-disc ml-6 text-gray-400">
-          <li>Faceless channels step-by-step</li>
-          <li>AI voice, script writing</li>
-          <li>Monetization tricks</li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold text-lg text-cyan-400">🤖 AI-Powered Business</h4>
-        <ul class="list-disc ml-6 text-gray-400">
-          <li>Sell GPT-based services</li>
-          <li>Use Notion, Framer, etc.</li>
-          <li>Real use-cases & blueprints</li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold text-lg text-cyan-400">📊 Hustle Stack System</h4>
-        <ul class="list-disc ml-6 text-gray-400">
-          <li>Smart routine stacking</li>
-          <li>Templates + time tools</li>
-          <li>Trackers to level up</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Join -->
-  <section id="join" class="text-center py-16">
-    <h3 class="text-3xl font-bold mb-4">Built for Hustlers Like You</h3>
-    <p class="text-gray-400 mb-6">No fluff. No scam. Just tools, strategy, and mindset to grow.</p>
-    <a href="#" class="px-6 py-3 bg-cyan-500 text-black font-semibold rounded-lg hover:bg-cyan-400 transition">Join for Free</a>
-  </section>
-
-  <!-- Footer -->
-  <footer class="text-center py-6 text-xs text-gray-500 border-t border-gray-800">
-    © 2025 NextGen Hustle. Built by Hustlers, for Hustlers.
+  <footer>
+    &copy; 2025 NextGen Hustle | Built by young creators, for future leaders.<br>
+    Contact: <a href="mailto:yirgaaron@gmail.com" style="color:#00ffcc;">yirgaaron@gmail.com</a>
   </footer>
+
+</body>
+</html>
+
 
 </body>
 </html>
