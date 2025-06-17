@@ -1,378 +1,396 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NextGen Hustle - Learn, Grow, Succeed</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-
+  <title>NextGen Hustle — Learn, Hustle, Grow</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* Reset & base */
-    * {
+    /* Reset and base */
+    *, *::before, *::after {
       box-sizing: border-box;
-      margin: 0; padding: 0;
-      font-family: 'Montserrat', sans-serif;
-      scroll-behavior: smooth;
     }
-    body, html {
-      height: 100%;
-      background: #0a0a0b;
-      color: #e0e0e0;
+    body {
+      margin: 0;
+      background: #121212;
+      color: #eee;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     a {
-      color: #68c3c0;
+      color: #00ffc3;
       text-decoration: none;
       transition: color 0.3s ease;
     }
     a:hover, a:focus {
-      color: #3a9ca5;
+      color: #00ddb3;
       outline: none;
     }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-    /* Header */
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    /* Header & Navigation */
     header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(10,10,11,0.85);
-      backdrop-filter: saturate(180%) blur(10px);
+      position: sticky;
+      top: 0;
+      background: #0d0d0d;
+      z-index: 999;
+      padding: 20px 0;
+      border-bottom: 1px solid #222;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.6rem 1rem;
-      z-index: 9999;
-      box-shadow: 0 2px 10px #0008;
+      user-select: none;
     }
-    .logo {
+    header h1 {
+      color: #00ffc3;
       font-weight: 700;
-      font-size: 14px; /* smaller as requested but still readable */
-      letter-spacing: 1.3px;
-      color: #68c3c0;
-      user-select: none;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
       cursor: default;
+      max-width: 150px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-    nav ul {
+    nav {
       display: flex;
-      list-style: none;
-      gap: 1.8rem;
+      gap: 20px;
+      align-items: center;
+    }
+    nav a {
       font-weight: 600;
-      font-size: 14px;
-    }
-    nav ul li a {
-      padding: 0.3rem 0;
-      border-bottom: 2px solid transparent;
-    }
-    nav ul li a:hover,
-    nav ul li a:focus {
-      border-bottom: 2px solid #68c3c0;
-    }
-    .btn-login,
-    .btn-register {
-      font-weight: 600;
-      font-size: 14px;
-      padding: 6px 14px;
-      border-radius: 20px;
-      border: 2px solid #68c3c0;
-      background: transparent;
-      color: #68c3c0;
-      cursor: pointer;
-      transition: background 0.3s ease, color 0.3s ease;
-      margin-left: 0.8rem;
-    }
-    .btn-login:hover,
-    .btn-login:focus {
-      background: #68c3c0;
-      color: #0a0a0b;
-      outline: none;
-    }
-    .btn-register:hover,
-    .btn-register:focus {
-      background: #3a9ca5;
-      color: #0a0a0b;
-      outline: none;
-      border-color: #3a9ca5;
-    }
-
-    /* Hamburger for mobile */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 4px;
+      font-size: 1rem;
+      color: #aaa;
+      padding: 6px 12px;
+      border-radius: 6px;
       user-select: none;
     }
-    .hamburger div {
-      width: 22px;
-      height: 2.5px;
-      background: #68c3c0;
-      border-radius: 2px;
+    nav a:hover {
+      color: #00ffc3;
+      background: #111;
+    }
+    .btn-login, .btn-register {
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 8px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 2px solid #00ffc3;
+      background: transparent;
+      color: #00ffc3;
+      transition: background 0.3s ease, color 0.3s ease;
+      user-select: none;
+    }
+    .btn-login:hover, .btn-register:hover {
+      background: #00ffc3;
+      color: #000;
     }
 
-    @media (max-width: 720px) {
-      nav ul {
-        position: fixed;
-        top: 55px;
-        right: 0;
-        background: rgba(10,10,11,0.95);
-        flex-direction: column;
-        width: 180px;
-        padding: 1rem;
-        border-radius: 0 0 0 8px;
-        box-shadow: -2px 5px 15px #000c;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-      }
-      nav ul.open {
-        transform: translateX(0);
-      }
-      nav ul li {
-        margin-bottom: 1rem;
-      }
-      .btn-login,
-      .btn-register {
-        margin-left: 0;
-      }
-      .hamburger {
-        display: flex;
-      }
-    }
-
-    /* Hero with 4K background */
-    .hero {
-      height: 100vh;
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=3840&q=80') no-repeat center center/cover;
+    /* Hero Section */
+    .hero-section {
       position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #e0e0e0;
-      padding: 0 1rem;
+      height: 450px;
+      margin: 60px 0 60px;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(0,255,195,0.2);
     }
-    .hero::after {
-      content: '';
+    .hero-background {
       position: absolute;
       inset: 0;
-      background: rgba(10,10,11,0.7);
+      background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.45);
+      transition: filter 0.3s ease;
       z-index: 0;
     }
     .hero-content {
       position: relative;
-      max-width: 900px;
       z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #00ffc3;
+      padding: 0 20px;
+      text-align: center;
     }
-    .hero h1 {
-      font-size: clamp(2.8rem, 5vw, 4rem);
-      font-weight: 800;
-      letter-spacing: 3px;
-      margin-bottom: 0.6rem;
-      text-shadow: 0 0 20px #68c3c0bb;
-    }
-    .hero p {
-      font-size: clamp(1.1rem, 1.5vw, 1.4rem);
-      font-weight: 400;
-      margin-bottom: 2rem;
-      color: #bbb;
-      text-shadow: 0 0 10px #0008;
-      line-height: 1.5;
-    }
-    .hero .btn-primary {
-      padding: 1rem 3rem;
-      font-size: 1.2rem;
+    .hero-content h2 {
+      font-size: 3.2rem;
       font-weight: 700;
-      color: #0a0a0b;
-      background: #68c3c0;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 5px 15px #68c3c0aa;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-      user-select: none;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      text-shadow: 0 0 12px rgba(0,255,195,0.6);
     }
-    .hero .btn-primary:hover,
-    .hero .btn-primary:focus {
-      background: #3a9ca5;
-      box-shadow: 0 8px 25px #3a9ca5cc;
-      outline: none;
+    .hero-content p {
+      font-size: 1.4rem;
+      max-width: 750px;
+      margin: 0 auto 30px;
+      color: #b0fff3;
+      text-shadow: 0 0 8px rgba(0,255,195,0.4);
+      font-weight: 500;
+    }
+    .btn-primary {
+      background: #00ffc3;
+      color: #000;
+      font-weight: 700;
+      padding: 16px 50px;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: background 0.3s ease;
+      user-select: none;
+      box-shadow: 0 6px 18px rgba(0,255,195,0.4);
+    }
+    .btn-primary:hover {
+      background: #00ddb3;
+      box-shadow: 0 8px 22px rgba(0,221,179,0.6);
     }
 
     /* Reviews Section */
-    section.reviews {
-      background: #121212;
-      padding: 3rem 1rem 4rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      border-radius: 12px;
-      box-shadow: 0 0 30px #68c3c099;
-    }
-    section.reviews h2 {
-      text-align: center;
-      font-size: 2.4rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      color: #68c3c0;
-      letter-spacing: 1.5px;
-    }
-    .review-cards {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    article.review-card {
-      background: #1e1e1f;
-      border-radius: 10px;
-      padding: 1.8rem 1.5rem;
-      box-shadow: 0 6px 14px #68c3c055;
-      max-width: 320px;
-      color: #ccc;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+    .reviews-section {
+      background: #1a1a1a;
+      border-radius: 20px;
+      padding: 40px 25px;
+      max-width: 1000px;
+      margin: 0 auto 80px;
+      box-shadow: 0 0 25px rgba(0,255,195,0.15);
       user-select: none;
     }
-    .stars {
-      color: #68c3c0;
-      font-size: 1.5rem;
+    .reviews-section h3 {
       font-weight: 700;
+      font-size: 2rem;
+      color: #00ffc3;
+      text-align: center;
+      margin-bottom: 40px;
+      letter-spacing: 1px;
+    }
+    .reviews {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .review-card {
+      background: #121212;
+      border-radius: 15px;
+      box-shadow: 0 0 18px rgba(0,255,195,0.12);
+      padding: 25px;
+      max-width: 300px;
+      flex: 1 1 280px;
+      color: #b3f9db;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .review-score {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #00ffc3;
+      margin-bottom: 10px;
+      text-align: center;
+      letter-spacing: 1px;
       user-select: none;
     }
     .review-text {
       font-style: italic;
       font-size: 1rem;
       line-height: 1.4;
+      color: #ccc;
+      margin-bottom: 12px;
       flex-grow: 1;
+      user-select: text;
     }
-    .reviewer {
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: #68c3c0;
+    .review-author {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #00ffc3;
       text-align: right;
+      user-select: none;
     }
 
     /* Stats Section */
-    section.stats {
-      max-width: 1100px;
-      margin: 4rem auto 6rem;
+    .stats-section {
+      background: #0f0f0f;
+      border-radius: 20px;
+      padding: 35px 20px 60px;
+      max-width: 900px;
+      margin: 0 auto 100px;
+      box-shadow: 0 0 28px rgba(0,255,195,0.18);
+      text-align: center;
+      user-select: none;
+    }
+    .stats-section h3 {
+      font-weight: 700;
+      font-size: 2.2rem;
+      color: #00ffc3;
+      margin-bottom: 30px;
+      letter-spacing: 1.2px;
+    }
+    .stats {
       display: flex;
       justify-content: center;
-      gap: 4rem;
-      padding: 0 1rem;
-      text-align: center;
-      color: #68c3c0;
-      user-select: none;
+      gap: 60px;
+      flex-wrap: wrap;
     }
-    .stat {
-      background: #121212;
-      padding: 2rem 2.5rem;
-      border-radius: 15px;
-      box-shadow: 0 0 30px #68c3c099;
-      width: 200px;
+    .stat-item {
+      color: #00ffc3;
       font-weight: 700;
+      font-size: 1.3rem;
+      flex: 1 1 150px;
+      user-select: none;
     }
     .stat-number {
-      font-size: 3.6rem;
-      margin-bottom: 0.4rem;
-      color: #a2f0ec;
-      text-shadow: 0 0 10px #a2f0ecaa;
-    }
-    .stat-label {
-      font-size: 1.3rem;
-      font-weight: 500;
-      color: #c4f3f1;
+      font-size: 3rem;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
     }
 
-    /* Footer */
-    footer {
-      background: #0a0a0b;
-      padding: 1.6rem 1rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #555;
-      user-select: none;
+    /* Responsive tweaks */
+    @media (max-width: 900px) {
+      .reviews {
+        flex-direction: column;
+        gap: 25px;
+      }
+      .stats {
+        gap: 40px;
+      }
     }
-    footer a {
-      color: #68c3c0;
-      font-weight: 600;
-    }
+    @media (max-width: 600px) {
+      /* Header tweaks for mobile */
+      header {
+        flex-wrap: wrap;
+        padding: 15px 20px;
+      }
+      header h1 {
+        flex: 1 1 100%;
+        max-width: 100%;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        user-select: none;
+      }
+      nav {
+        flex: 1 1 100%;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+      nav a {
+        padding: 7px 12px;
+        font-size: 0.9rem;
+      }
+      .btn-login, .btn-register {
+        flex-shrink: 1;
+        min-width: 90px;
+        font-size: 0.9rem;
+        padding: 7px 15px;
+      }
 
+      /* Hero */
+      .hero-section {
+        height: 350px;
+        margin: 40px 0 40px;
+      }
+      .hero-content h2 {
+        font-size: 2.2rem;
+      }
+      .hero-content p {
+        font-size: 1.1rem;
+        max-width: 100%;
+      }
+
+      /* Reviews */
+      .reviews-section {
+        padding: 30px 15px;
+      }
+
+      /* Stats Section */
+      .stats-section {
+        padding: 30px 15px 50px;
+      }
+      .stats {
+        flex-direction: column;
+        gap: 30px;
+      }
+      .stat-item {
+        font-size: 1.1rem;
+      }
+      .stat-number {
+        font-size: 2.4rem;
+      }
+    }
   </style>
 </head>
 <body>
+  <header>
+    <h1>NextGen Hustle</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <button class="btn-login" onclick="location.href='login.html'">Login</button>
+      <button class="btn-register" onclick="location.href='register.html'">Register</button>
+    </nav>
+  </header>
 
-<header role="banner">
-  <div class="logo" tabindex="0">NextGen Hustle</div>
-  <nav role="navigation" aria-label="Primary Navigation">
-    <ul id="nav-links">
-      <li><a href="#hero" tabindex="0">Home</a></li>
-      <li><a href="#reviews" tabindex="0">Reviews</a></li>
-      <li><a href="#stats" tabindex="0">Stats</a></li>
-      <li><a href="courses.html" tabindex="0">Courses</a></li>
-    </ul>
-  </nav>
-  <div>
-    <button class="btn-login" onclick="location.href='login.html'">Login</button>
-    <button class="btn-register" onclick="location.href='register.html'">Register</button>
-  </div>
-</header>
+  <main>
+    <section class="hero-section" aria-label="Introduction and overview">
+      <div class="hero-background" role="img" aria-label="Motivational learning background image"></div>
+      <div class="hero-content">
+        <h2>Unlock Your Potential. Learn, Hustle, Grow.</h2>
+        <p>Trusted by 1000+ students worldwide, we've helped 4 people become millionaires with our cutting-edge courses. Join us to master skills that change lives.</p>
+        <button class="btn-primary" onclick="location.href='courses.html'">Explore Courses</button>
+      </div>
+    </section>
 
-<main>
+    <section class="reviews-section" aria-label="Student reviews and testimonials">
+      <h3>What Our Students Say</h3>
+      <div class="reviews">
+        <article class="review-card" tabindex="0">
+          <div class="review-score">4.7 ⭐</div>
+          <p class="review-text">“NextGen Hustle gave me the tools and motivation to finally start my own business. Truly life-changing!”</p>
+          <div class="review-author">– Alice M.</div>
+        </article>
+        <article class="review-card" tabindex="0">
+          <div class="review-score">4.8 ⭐</div>
+          <p class="review-text">“The courses are well-structured and the community is super supportive. Highly recommend!”</p>
+          <div class="review-author">– Jamal R.</div>
+        </article>
+        <article class="review-card" tabindex="0">
+          <div class="review-score">4.6 ⭐</div>
+          <p class="review-text">“I learned more in 3 months here than years elsewhere. The pro courses are next level!”</p>
+          <div class="review-author">– Sienna L.</div>
+        </article>
+      </div>
+    </section>
 
-  <!-- Hero -->
-  <section id="hero" class="hero" role="region" aria-label="Introduction and main call to action">
-    <div class="hero-content">
-      <h1>Learn From The Best: 10 Multi-Millionaire Entrepreneurs</h1>
-      <p>Join over 1000 students who are mastering entrepreneurship, data science, web dev, and digital marketing. Our courses have helped 4 people become millionaires — your success story starts here.</p>
-      <button class="btn-primary" onclick="location.href='courses.html'">Explore Courses</button>
-    </div>
-  </section>
-
-  <!-- Reviews -->
-  <section id="reviews" class="reviews" role="region" aria-label="Student reviews">
-    <h2>What Our Students Say</h2>
-    <div class="review-cards">
-      <article class="review-card" tabindex="0" aria-label="Review by Sarah">
-        <div class="stars" aria-hidden="true">★★★★☆ 4.7</div>
-        <p class="review-text">"This platform gave me the clarity and confidence to start my own business. The mentors are incredible!"</p>
-        <div class="reviewer">— Sarah T.</div>
-      </article>
-      <article class="review-card" tabindex="0" aria-label="Review by Mark">
-        <div class="stars" aria-hidden="true">★★★★☆ 4.8</div>
-        <p class="review-text">"The courses are practical and actionable. I landed a dream job in tech thanks to NextGen Hustle."</p>
-        <div class="reviewer">— Mark J.</div>
-      </article>
-      <article class="review-card" tabindex="0" aria-label="Review by Linda">
-        <div class="stars" aria-hidden="true">★★★★☆ 4.6</div>
-        <p class="review-text">"I love how easy it is to follow the courses and save my favorites. Highly recommend to anyone serious about growth."</p>
-        <div class="reviewer">— Linda K.</div>
-      </article>
-    </div>
-  </section>
-
-  <!-- Stats -->
-  <section id="stats" class="stats" role="region" aria-label="Platform statistics and achievements">
-    <div class="stat">
-      <div class="stat-number" aria-live="polite">4</div>
-      <div class="stat-label">Millionaire Entrepreneurs Created</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number" aria-live="polite">1000+</div>
-      <div class="stat-label">Active Students Learning</div>
-    </div>
-  </section>
-
-</main>
-
-<footer role="contentinfo">
-  <p>Contact us: <a href="mailto:nextgenhustle@gmail.com" aria-label="Send email to nextgenhustle@gmail.com">nextgenhustle@gmail.com</a></p>
-  <p>© 2025 NextGen Hustle. All rights reserved.</p>
-</footer>
-
-<script>
-  // For mobile nav toggle, if you want later
-</script>
-
+    <section class="stats-section" aria-label="Website statistics and milestones">
+      <h3>Our Impact</h3>
+      <div class="stats" role="list">
+        <div class="stat-item" role="listitem" aria-label="Number of millionaires created">
+          <div class="stat-number">4</div>
+          <div>Millionaires Created</div>
+        </div>
+        <div class="stat-item" role="listitem" aria-label="Number of students learning">
+          <div class="stat-number">1000+</div>
+          <div>Students Learning</div>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
