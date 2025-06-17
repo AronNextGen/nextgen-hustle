@@ -5,251 +5,89 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>NextGen Hustle - Login</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-  * {
-    box-sizing: border-box;
-  }
   body {
-    margin: 0;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    font-family: 'Poppins', sans-serif;
-    color: #e0e0e0;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-  }
-  .login-container {
-    background: rgba(10, 10, 10, 0.9);
-    padding: 40px 50px;
-    border-radius: 20px;
-    width: 400px;
-    box-shadow: 0 0 40px #00ffc3cc;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .login-container::before {
-    content: '';
-    position: absolute;
-    top: -30%;
-    left: -30%;
-    width: 160%;
-    height: 160%;
-    background: linear-gradient(60deg, #00ffc3, #00ddb3, #00ffc3, #00ddb3);
-    animation: gradientShift 6s linear infinite;
-    filter: blur(40px);
-    z-index: 0;
-  }
-  @keyframes gradientShift {
-    0% {
-      background-position: 0% 50%;
-    }
-    100% {
-      background-position: 100% 50%;
-    }
-  }
-  .login-container * {
-    position: relative;
-    z-index: 1;
-  }
-  h1 {
-    margin-bottom: 15px;
-    font-weight: 700;
-    color: #00ffc3;
-    letter-spacing: 3px;
-    font-size: 2.8rem;
-    user-select: none;
-  }
-  p.subtitle {
-    margin-bottom: 35px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: #00ddb3cc;
-    text-align: center;
-  }
-  form {
-    width: 100%;
-  }
-  label {
-    font-weight: 600;
-    font-size: 1rem;
-    display: block;
-    margin-bottom: 6px;
-    color: #00ffc3dd;
-  }
-  input[type="text"],
-  input[type="password"] {
-    width: 100%;
-    padding: 14px 18px;
-    margin-bottom: 25px;
-    border-radius: 10px;
-    border: none;
+    font-family: Arial, sans-serif;
     background: #121212;
     color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  form {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #00ffc3;
+    width: 320px;
+  }
+  label, input, button {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  input {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
     font-size: 1rem;
-    box-shadow: inset 0 0 8px #00ffc3bb;
-    transition: box-shadow 0.3s ease;
-  }
-  input[type="text"]:focus,
-  input[type="password"]:focus {
-    outline: none;
-    box-shadow: 0 0 15px #00ffc3;
-  }
-  .error-message {
-    color: #ff4c60;
-    font-size: 0.9rem;
-    margin-top: -18px;
-    margin-bottom: 18px;
-    height: 20px;
-    font-weight: 600;
-    text-align: center;
   }
   button {
-    width: 100%;
-    padding: 16px 0;
-    font-weight: 700;
-    font-size: 1.1rem;
+    background: #00ffc3;
     border: none;
-    border-radius: 15px;
-    background: linear-gradient(90deg, #00ffc3, #00ddb3);
-    color: #000;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 0 20px #00ffc3cc;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
-    user-select: none;
+    color: #000;
+    font-size: 1.1rem;
   }
   button:hover {
-    background: linear-gradient(90deg, #00ddb3, #00ffc3);
-    box-shadow: 0 0 40px #00ffc3ff;
-  }
-  .register-link {
-    margin-top: 28px;
-    text-align: center;
-    font-size: 0.95rem;
-    color: #00ddb3cc;
-  }
-  .register-link a {
-    color: #00ffc3;
-    text-decoration: none;
-    font-weight: 700;
-  }
-  .register-link a:hover {
-    text-decoration: underline;
-  }
-  /* Animations for form fields */
-  input::placeholder {
-    color: #00ddb399;
-  }
-  /* Responsive */
-  @media (max-width: 480px) {
-    .login-container {
-      width: 90vw;
-      padding: 30px 25px;
-    }
-    h1 {
-      font-size: 2.2rem;
-    }
+    background: #00ddb3;
   }
 </style>
 </head>
 <body>
-  <div class="login-container" role="main" aria-labelledby="login-title">
-    <h1 id="login-title">NextGen Hustle</h1>
-    <p class="subtitle">Login to start your digital hustle journey</p>
-    <form id="loginForm" novalidate>
-      <label for="username">Username</label>
-      <input
-        type="text"
-        id="username"
-        name="username"
-        placeholder="Enter your username"
-        autocomplete="username"
-        aria-required="true"
-        aria-describedby="usernameError"
-      />
-      <div class="error-message" id="usernameError" aria-live="assertive"></div>
 
-      <label for="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Enter your password"
-        autocomplete="current-password"
-        aria-required="true"
-        aria-describedby="passwordError"
-      />
-      <div class="error-message" id="passwordError" aria-live="assertive"></div>
-
-      <button type="submit" aria-label="Log in">Log In</button>
-    </form>
-    <p class="register-link">
-      Don't have an account?
-      <a href="#" id="registerLink">Register here</a>
-    </p>
-  </div>
+<form id="loginForm" aria-label="Login form">
+  <h2 style="text-align:center; margin-bottom:20px; color:#00ffc3;">NextGen Hustle Login</h2>
+  <label for="username">Username</label>
+  <input id="username" type="text" required autocomplete="username" />
+  
+  <label for="password">Password</label>
+  <input id="password" type="password" required autocomplete="current-password" />
+  
+  <button type="submit">Log In</button>
+</form>
 
 <script>
-  // Simple client-side "database" of users (username: password)
-  const usersDB = {
-    'student1': 'password123',
-    'hustler2025': 'nextgenrocks',
-    'alice': 'alice2025',
-    'bob': 'bobsecret',
+  // Hardcoded demo credentials
+  const validUser = {
+    username: "user123",
+    password: "pass123"
   };
 
-  const loginForm = document.getElementById('loginForm');
-  const usernameInput = document.getElementById('username');
-  const passwordInput = document.getElementById('password');
-  const usernameError = document.getElementById('usernameError');
-  const passwordError = document.getElementById('passwordError');
-  const registerLink = document.getElementById('registerLink');
-
-  function validate() {
-    let valid = true;
-    usernameError.textContent = '';
-    passwordError.textContent = '';
-
-    if (!usernameInput.value.trim()) {
-      usernameError.textContent = 'Username is required';
-      valid = false;
-    } else if (!usersDB[usernameInput.value.trim()]) {
-      usernameError.textContent = 'Username not found';
-      valid = false;
-    }
-
-    if (!passwordInput.value.trim()) {
-      passwordError.textContent = 'Password is required';
-      valid = false;
-    } else if (usersDB[usernameInput.value.trim()] !== passwordInput.value) {
-      passwordError.textContent = 'Incorrect password';
-      valid = false;
-    }
-
-    return valid;
-  }
-
-  loginForm.addEventListener('submit', e => {
+  const form = document.getElementById('loginForm');
+  form.addEventListener('submit', function(e) {
     e.preventDefault();
-    if (validate()) {
-      // Save user login to localStorage
-      localStorage.setItem('loggedInUser', usernameInput.value.trim());
-      // Redirect to dashboard
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value;
+
+    if(username === validUser.username && password === validUser.password) {
+      localStorage.setItem('loggedIn', 'true');
+      localStorage.setItem('username', username);
       window.location.href = 'dashboard.html';
+    } else {
+      alert('Incorrect username or password.');
     }
   });
 
-  registerLink.addEventListener('click', e => {
-    e.preventDefault();
-    alert('Registration is currently disabled.');
-  });
-
-  // Autofocus username on load
-  usernameInput.focus();
+  // If already logged in, redirect to dashboard
+  if(localStorage.getItem('loggedIn') === 'true') {
+    window.location.href = 'dashboard.html';
+  }
 </script>
+
 </body>
 </html>
