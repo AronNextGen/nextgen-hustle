@@ -3,226 +3,443 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Courses - NextGen Hustle</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <title>NextGen Hustle - Courses</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+
   <style>
-    body {
-      margin: 0;
-      background: #121212;
-      color: #eee;
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
+    }
+    body, html {
+      height: 100%;
+      background: #0a0a0b;
+      color: #e0e0e0;
     }
     a {
-      color: #00ffc3;
+      color: #68c3c0;
       text-decoration: none;
       transition: color 0.3s ease;
     }
     a:hover, a:focus {
-      color: #00ddb3;
+      color: #3a9ca5;
       outline: none;
     }
+
+    /* Header */
     header {
-      position: sticky;
-      top: 0;
-      background: #0d0d0d;
-      z-index: 999;
-      padding: 20px 0;
-      border-bottom: 1px solid #222;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(10,10,11,0.85);
+      backdrop-filter: saturate(180%) blur(10px);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      user-select: none;
+      padding: 0.6rem 1rem;
+      z-index: 9999;
+      box-shadow: 0 2px 10px #0008;
     }
-    header h1 {
-      color: #00ffc3;
+    .logo {
       font-weight: 700;
-      font-size: 1.9rem;
-      letter-spacing: 2px;
+      font-size: 14px;
+      letter-spacing: 1.3px;
+      color: #68c3c0;
+      user-select: none;
       cursor: default;
-      margin: 0 20px;
     }
-    nav {
+    nav ul {
       display: flex;
-      gap: 25px;
-      margin-right: 20px;
-    }
-    nav a {
+      list-style: none;
+      gap: 1.8rem;
       font-weight: 600;
-      font-size: 1rem;
-      color: #aaa;
-      padding: 6px 12px;
-      border-radius: 6px;
-      user-select: none;
-      transition: background 0.3s ease, color 0.3s ease;
+      font-size: 14px;
     }
-    nav a:hover {
-      color: #00ffc3;
-      background: #111;
+    nav ul li a {
+      padding: 0.3rem 0;
+      border-bottom: 2px solid transparent;
     }
-    main {
-      max-width: 900px;
-      margin: 60px auto 100px;
-      padding: 0 20px;
-      user-select: none;
+    nav ul li a:hover,
+    nav ul li a:focus {
+      border-bottom: 2px solid #68c3c0;
     }
-    h2 {
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: #00ffc3;
-      margin-bottom: 25px;
-      letter-spacing: 1px;
-      text-align: center;
-    }
-    .course-section {
-      background: #1a1a1a;
-      border-radius: 15px;
-      padding: 30px 25px;
-      margin-bottom: 50px;
-      box-shadow: 0 0 20px rgba(0,255,195,0.15);
-      user-select: none;
-    }
-    .course-section h3 {
-      font-size: 1.8rem;
-      margin-bottom: 18px;
-      color: #00ffc3;
-    }
-    .course-section p.description {
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-      color: #ccc;
-    }
-    ul.course-details {
-      list-style: inside disc;
-      color: #ddd;
-      font-size: 1.05rem;
-      line-height: 1.5;
-      margin-bottom: 20px;
-      padding-left: 15px;
-    }
-    ul.course-details li {
-      margin-bottom: 10px;
-    }
-    .btn-enroll {
-      background: #00ffc3;
-      color: #000;
-      font-weight: 700;
-      padding: 12px 36px;
-      border: none;
-      border-radius: 12px;
+    .btn-login,
+    .btn-register {
+      font-weight: 600;
+      font-size: 14px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 2px solid #68c3c0;
+      background: transparent;
+      color: #68c3c0;
       cursor: pointer;
-      font-size: 1rem;
-      transition: background 0.3s ease;
-      box-shadow: 0 0 15px #00ffc3aa;
+      transition: background 0.3s ease, color 0.3s ease;
+      margin-left: 0.8rem;
+    }
+    .btn-login:hover,
+    .btn-login:focus {
+      background: #68c3c0;
+      color: #0a0a0b;
+      outline: none;
+    }
+    .btn-register:hover,
+    .btn-register:focus {
+      background: #3a9ca5;
+      color: #0a0a0b;
+      outline: none;
+      border-color: #3a9ca5;
+    }
+
+    /* Main background */
+    .courses-hero {
+      height: 60vh;
+      background: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=3840&q=80') no-repeat center center/cover;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+      margin-top: 56px; /* header height */
+      color: #e0e0e0;
+    }
+    .courses-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(10,10,11,0.75);
+      z-index: 0;
+    }
+    .courses-hero-content {
+      position: relative;
+      max-width: 900px;
+      z-index: 1;
       user-select: none;
     }
-    .btn-enroll:hover {
-      background: #00ddb3;
-      box-shadow: 0 0 30px #00ddb3cc;
+    .courses-hero-content h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px #68c3c0bb;
     }
-    footer {
-      background: #0d0d0d;
+    .courses-hero-content p {
+      font-size: clamp(1rem, 1.5vw, 1.3rem);
+      font-weight: 400;
+      color: #bbb;
+      line-height: 1.4;
+      text-shadow: 0 0 10px #0008;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    /* Courses container */
+    main.courses-container {
+      max-width: 1200px;
+      margin: 3rem auto 5rem;
+      padding: 0 1rem;
+    }
+    h2.section-title {
+      color: #68c3c0;
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      letter-spacing: 1.4px;
+      user-select: none;
       text-align: center;
-      padding: 28px 20px;
-      color: #555;
+    }
+
+    /* Grid for courses */
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    /* Course card */
+    article.course-card {
+      background: #121212;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px #68c3c044;
+      padding: 1.5rem 1.8rem;
+      color: #ccc;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      user-select: none;
+    }
+    article.course-card:hover,
+    article.course-card:focus {
+      box-shadow: 0 8px 30px #68c3c088;
+      outline: none;
+      transform: translateY(-6px);
+    }
+    article.course-card h3 {
+      font-size: 1.5rem;
+      color: #68c3c0;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+    }
+    article.course-card p {
+      font-size: 1rem;
+      line-height: 1.4;
+      flex-grow: 1;
+      color: #bbb;
+    }
+    .course-duration {
+      margin-top: 0.8rem;
       font-size: 0.9rem;
+      color: #8abdbd;
+    }
+    .course-level {
+      margin-top: 0.4rem;
+      font-size: 0.85rem;
+      color: #5a8b8b;
+      font-style: italic;
+    }
+
+    /* Locked overlay for pro courses */
+    .locked-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #68c3c0;
+      font-weight: 700;
+      font-size: 1.1rem;
+      user-select: none;
+      text-align: center;
+      padding: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .locked-overlay:hover {
+      background: rgba(0,0,0,0.9);
+    }
+    .locked-overlay svg {
+      width: 30px;
+      height: 30px;
+      margin-bottom: 0.6rem;
+      fill: #68c3c0;
+    }
+
+    /* Membership prompt */
+    #membership-prompt {
+      background: #121212;
+      max-width: 480px;
+      margin: 3rem auto;
+      padding: 2rem 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 0 35px #68c3c099;
+      color: #68c3c0;
+      font-weight: 700;
+      text-align: center;
+      display: none;
+      user-select: none;
+    }
+    #membership-prompt p {
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.4;
+    }
+    #membership-prompt button {
+      background: #68c3c0;
+      color: #0a0a0b;
+      border: none;
+      border-radius: 50px;
+      padding: 0.8rem 2rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 6px 15px #68c3c0aa;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    #membership-prompt button:hover,
+    #membership-prompt button:focus {
+      background: #3a9ca5;
+      outline: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.2rem 1rem;
+      font-size: 0.9rem;
+      color: #666;
       user-select: none;
       border-top: 1px solid #222;
-      margin-top: 80px;
     }
+
+    /* Responsive small screens */
     @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        gap: 12px;
-        padding: 15px 0;
-      }
-      nav {
-        gap: 18px;
-        margin-right: 0;
-      }
-      .course-section {
-        padding: 20px 15px;
-      }
-      h2 {
+      .courses-hero-content h1 {
         font-size: 2rem;
+      }
+      nav ul {
+        gap: 1rem;
+      }
+      article.course-card {
+        padding: 1rem 1.2rem;
       }
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  <h1>NextGen Hustle</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="courses.html" aria-current="page">Courses</a>
-    <a href="login.html">Login</a>
-  </nav>
-</header>
+  <!-- Header -->
+  <header role="banner">
+    <div class="logo" aria-label="NextGen Hustle Logo">NextGen Hustle</div>
+    <nav role="navigation" aria-label="Primary navigation">
+      <ul>
+        <li><a href="index.html" tabindex="0">Home</a></li>
+        <li><a href="courses.html" tabindex="0" aria-current="page">Courses</a></li>
+        <li><a href="login.html" tabindex="0">Login</a></li>
+      </ul>
+    </nav>
+    <div>
+      <button class="btn-login" onclick="location.href='login.html'">Login</button>
+      <button class="btn-register" onclick="location.href='register.html'">Register</button>
+    </div>
+  </header>
 
-<main>
-  <h2>Our Courses</h2>
-
-  <section id="webdev" class="course-section" tabindex="0" aria-labelledby="webdev-title">
-    <h3 id="webdev-title">Fullstack Web Development</h3>
-    <p class="description">Master the skills to build modern web applications from scratch — from frontend design to backend servers.</p>
-    <ul class="course-details">
-      <li>HTML5, CSS3, and JavaScript fundamentals</li>
-      <li>React.js for building dynamic interfaces</li>
-      <li>Node.js & Express backend development</li>
-      <li>Database integration with MongoDB</li>
-      <li>Deploy your projects live with Netlify & Heroku</li>
-    </ul>
-    <button class="btn-enroll" onclick="location.href='login.html'">Enroll Now</button>
+  <!-- Hero Section -->
+  <section class="courses-hero" aria-label="Courses introduction">
+    <div class="courses-hero-content">
+      <h1>Unlock Your Potential with NextGen Courses</h1>
+      <p>
+        Sign in to continue where you left off, save your favorite courses, and unlock exclusive features.<br />
+        Explore our free courses or upgrade to Pro for advanced learning at only £4.99/month — first month free!
+      </p>
+    </div>
   </section>
 
-  <section id="datascience" class="course-section" tabindex="0" aria-labelledby="datascience-title">
-    <h3 id="datascience-title">Data Science & AI</h3>
-    <p class="description">Dive into data analytics, machine learning, and artificial intelligence using Python and real-world datasets.</p>
-    <ul class="course-details">
-      <li>Python programming basics</li>
-      <li>Data analysis with Pandas and NumPy</li>
-      <li>Machine learning algorithms with scikit-learn</li>
-      <li>Deep learning fundamentals with TensorFlow</li>
-      <li>Building AI projects from start to finish</li>
-    </ul>
-    <button class="btn-enroll" onclick="location.href='login.html'">Enroll Now</button>
-  </section>
+  <!-- Main Courses Section -->
+  <main class="courses-container" role="main" aria-label="Available courses">
 
-  <section id="marketing" class="course-section" tabindex="0" aria-labelledby="marketing-title">
-    <h3 id="marketing-title">Digital Marketing Pro</h3>
-    <p class="description">Learn how to boost brands online with SEO, social media marketing, paid ads, and content strategies.</p>
-    <ul class="course-details">
-      <li>SEO fundamentals & keyword research</li>
-      <li>Google Ads and Facebook Ads mastery</li>
-      <li>Social media growth hacks</li>
-      <li>Content marketing and copywriting</li>
-      <li>Analyzing marketing campaigns with data</li>
-    </ul>
-    <button class="btn-enroll" onclick="location.href='login.html'">Enroll Now</button>
-  </section>
+    <h2 class="section-title">Our Courses</h2>
 
-  <section id="entrepreneurship" class="course-section" tabindex="0" aria-labelledby="entrepreneurship-title">
-    <h3 id="entrepreneurship-title">Startup & Entrepreneurship</h3>
-    <p class="description">Everything you need to start and grow your own business from ideation to fundraising and scaling.</p>
-    <ul class="course-details">
-      <li>Business idea validation</li>
-      <li>Writing winning business plans</li>
-      <li>Pitching to investors and raising funds</li>
-      <li>Marketing & scaling strategies</li>
-      <li>Legal & financial basics for startups</li>
-    </ul>
-    <button class="btn-enroll" onclick="location.href='login.html'">Enroll Now</button>
-  </section>
+    <div class="course-grid" aria-live="polite">
 
-</main>
+      <!-- Free Course Example -->
+      <article class="course-card" tabindex="0" aria-label="Business Fundamentals Course">
+        <h3>Business Fundamentals</h3>
+        <p>Master the basics of business strategy, marketing, and management.</p>
+        <div class="course-duration">Duration: 6 weeks</div>
+        <div class="course-level">Level: Beginner</div>
+      </article>
 
-<footer>
-  &copy; 2025 NextGen Hustle. All rights reserved.
-</footer>
+      <article class="course-card" tabindex="0" aria-label="Personal Finance 101 Course">
+        <h3>Personal Finance 101</h3>
+        <p>Learn how to manage your money, budgeting, and saving effectively.</p>
+        <div class="course-duration">Duration: 4 weeks</div>
+        <div class="course-level">Level: Beginner</div>
+      </article>
+
+      <article class="course-card" tabindex="0" aria-label="Digital Marketing Essentials Course">
+        <h3>Digital Marketing Essentials</h3>
+        <p>Get introduced to digital marketing strategies and tools for success.</p>
+        <div class="course-duration">Duration: 5 weeks</div>
+        <div class="course-level">Level: Intermediate</div>
+      </article>
+
+      <!-- Locked Pro Course Example -->
+      <article class="course-card locked" aria-label="Advanced Business Strategies Pro Course - Locked">
+        <h3>Advanced Business Strategies <span aria-hidden="true">🔒</span></h3>
+        <p>Deep dive into market analysis, leadership, and scaling your business.</p>
+        <div class="course-duration">Duration: 8 weeks</div>
+        <div class="course-level">Level: Advanced</div>
+        <div class="locked-overlay" role="button" tabindex="0" aria-pressed="false" aria-label="Locked Pro Course. Sign in to unlock">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 17a2 2 0 0 0 2-2v-2a2 2 0 0 0-4 0v2a2 2 0 0 0 2 2zm6-7h-1V7a5 5 0 0 0-10 0v3H6a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2z" />
+          </svg>
+          <span>Pro Course - Sign In to Unlock</span>
+        </div>
+      </article>
+
+      <article class="course-card locked" aria-label="Professional Trading Mastery Pro Course - Locked">
+        <h3>Professional Trading Mastery <span aria-hidden="true">🔒</span></h3>
+        <p>Advanced techniques for trading stocks, forex, and cryptocurrencies.</p>
+        <div class="course-duration">Duration: 10 weeks</div>
+        <div class="course-level">Level: Advanced</div>
+        <div class="locked-overlay" role="button" tabindex="0" aria-pressed="false" aria-label="Locked Pro Course. Sign in to unlock">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 17a2 2 0 0 0 2-2v-2a2 2 0 0 0-4 0v2a2 2 0 0 0 2 2zm6-7h-1V7a5 5 0 0 0-10 0v3H6a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2z" />
+          </svg>
+          <span>Pro Course - Sign In to Unlock</span>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Membership purchase prompt -->
+    <section id="membership-prompt" role="dialog" aria-modal="true" aria-labelledby="membership-title" aria-describedby="membership-desc">
+      <p id="membership-desc">Unlock all Pro courses for just £4.99/month. Your first month is free! Please enter your payment details to subscribe.</p>
+      <button id="subscribe-btn">Subscribe Now</button>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; 2025 NextGen Hustle — All rights reserved.
+  </footer>
+
+  <script>
+    // Simulate user logged in status and subscription
+    let isLoggedIn = false; // Change to true to simulate logged-in user
+    let isSubscribed = false; // Change to true to simulate subscription
+
+    // Select all locked course overlays
+    const lockedOverlays = document.querySelectorAll('.locked-overlay');
+    const membershipPrompt = document.getElementById('membership-prompt');
+    const subscribeBtn = document.getElementById('subscribe-btn');
+
+    function showMembershipPrompt() {
+      membershipPrompt.style.display = 'block';
+      membershipPrompt.focus();
+    }
+
+    // Handle clicking locked courses
+    lockedOverlays.forEach(overlay => {
+      overlay.addEventListener('click', () => {
+        if (!isLoggedIn) {
+          alert('Please sign in to unlock Pro courses.');
+          window.location.href = 'login.html';
+        } else if (!isSubscribed) {
+          showMembershipPrompt();
+        }
+      });
+
+      overlay.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          overlay.click();
+        }
+      });
+    });
+
+    // Handle subscription button click
+    subscribeBtn.addEventListener('click', () => {
+      // Here you would integrate payment gateway like Stripe or PayPal
+      alert('Subscription successful! You now have access to Pro courses.');
+      isSubscribed = true;
+      membershipPrompt.style.display = 'none';
+      // Optionally, refresh page or update UI
+    });
+
+  </script>
 
 </body>
 </html>
