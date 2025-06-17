@@ -260,4 +260,90 @@
           <li>HTML & CSS fundamentals</li>
           <li>Build your portfolio site</li>
           <li>JavaScript basics & interactive projects</li>
-          <li
+          <li>Website hosting & domain setup</li>
+        </ul>
+      </div>
+      <div class="course-card">
+        <h3>AI Tools & Automation</h3>
+        <ul>
+          <li>Use AI to boost productivity</li>
+          <li>YouTube automation for passive income</li>
+          <li>Start an AI-powered business</li>
+          <li>Automate side hustles efficiently</li>
+        </ul>
+      </div>
+      <div class="course-card">
+        <h3>Money & Mindset</h3>
+        <ul>
+          <li>Smart money management</li>
+          <li>Banking & saving tips</li>
+          <li>Daily productivity & mindset hacks</li>
+          <li>Side hustle ideas for every budget</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="membership-info">
+      Want access to advanced courses and personalized mentorship? <br />
+      <strong>Join our Membership</strong> for exclusive content, weekly live sessions, and 1-on-1 support.  
+      <a href="#membership" style="color:#00fff2; text-decoration:underline;">Learn More</a>
+    </div>
+  </section>
+
+  <section id="membership" aria-label="Membership details">
+    <h2>Membership Benefits</h2>
+    <p class="intro">
+      Become a member to unlock premium courses, mentorship calls, and a private community to fast-track your hustle.  
+      Gain insider access to:
+    </p>
+    <ul style="max-width:600px; margin: 0 auto 40px; color:#a0f2e8; font-weight:600; list-style-type: disc; padding-left: 20px;">
+      <li>Advanced website & business building tutorials</li>
+      <li>YouTube automation deep dives</li>
+      <li>Exclusive AI business strategies</li>
+      <li>Weekly live coaching & Q&A calls</li>
+      <li>Personalized 1-on-1 mentorship</li>
+    </ul>
+    <div style="text-align:center;">
+      <a href="#donate" class="btn">Join Membership Now</a>
+    </div>
+  </section>
+
+  <section id="donate" aria-label="Support and donations">
+    <h2>Support Our Mission</h2>
+    <div class="donate-info">
+      <p>NextGen Hustle is dedicated to empowering the next generation of entrepreneurs and creators worldwide.</p>
+      <p>Your donations help us create new content, maintain affordable pricing, and support scholarships.</p>
+      <p>Thank you for being part of this movement.</p>
+      <a href="mailto:yirgaaron@gmail.com" class="btn" style="background:#00a086;">Donate Now</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2025 NextGen Hustle. All rights reserved.</p>
+  <p>Contact: <a href="mailto:yirgaaron@gmail.com">yirgaaron@gmail.com</a></p>
+</footer>
+
+<script>
+  // Highlight active nav link on scroll
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('nav a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 90;
+      if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
