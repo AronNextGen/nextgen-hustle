@@ -1,257 +1,141 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NextGen Hustle</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Body and text tweaks */
-    * {
-      box-sizing: border-box;
-    }
     body {
-      margin: 0;
-      background: #121212;
-      color: #ddd;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Inter', sans-serif;
+      background-color: #0f0f0f;
+      color: #f1f1f1;
       scroll-behavior: smooth;
-      cursor: default;
-      font-size: 14px; /* smaller base font */
-      line-height: 1.5;
     }
-
-    /* Header tweaks */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      padding: 1rem 2rem;
+    nav a:hover {
+      color: #22d3ee;
+      transition: color 0.3s ease;
+    }
+    .section-title {
       font-size: 2rem;
       font-weight: 700;
-      color: #00ffcc;
-      letter-spacing: 2px;
-      user-select: none;
-      background: #000a; /* semi-transparent background */
-      width: 100%;
-      z-index: 1000;
-    }
-
-    /* Navigation in top right corner, horizontal */
-    nav {
-      position: fixed;
-      top: 1.2rem;
-      right: 2rem;
-      z-index: 1100;
-      display: flex;
-      gap: 20px;
-      background: #000a;
-      padding: 8px 15px;
-      border-radius: 30px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 10px #00ffcc44;
-    }
-
-    nav a {
-      color: #00ffcc;
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 6px 10px;
-      border-radius: 20px;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    nav a:hover {
-      background-color: #00ffcc;
-      color: #000;
-      cursor: pointer;
-    }
-
-    /* Sections with some top padding so content not hidden under fixed header */
-    section {
-      max-width: 900px;
-      margin: 5rem auto 3rem auto;
-      padding: 0 1rem;
-      font-size: 0.9rem;
-      color: #ccc;
-    }
-
-    /* Smaller headings */
-    section h2 {
-      color: #00ffcc;
-      font-size: 1.6rem;
-      margin-bottom: 0.4rem;
-      border-bottom: 2px solid #00ffcc;
-      padding-bottom: 4px;
-      user-select: none;
-    }
-
-    /* Lists smaller */
-    ul li {
-      font-size: 0.85rem;
-      background: #222;
-      margin-bottom: 10px;
-      padding: 10px 15px;
-      border-radius: 8px;
-      transition: background 0.3s;
-      cursor: default;
-      user-select: none;
-    }
-    ul li:hover {
-      background: #00ffcc;
-      color: #000;
-      font-weight: 700;
-      box-shadow: 0 0 8px #00ffcc;
-      cursor: pointer;
-    }
-
-    /* Membership Section */
-    .membership {
-      background: #1e1e1e;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 0 15px #00ffcc55;
-    }
-    .tier {
-      border: 2px solid #00ffcc;
-      border-radius: 10px;
-      padding: 15px 20px;
-      margin-bottom: 20px;
-      transition: box-shadow 0.4s;
-    }
-    .tier:hover {
-      box-shadow: 0 0 20px #00ffcc;
-      cursor: pointer;
-      background: #000;
-    }
-    .tier h3 {
-      margin-top: 0;
-      font-size: 1.4rem;
-      color: #00ffcc;
-    }
-    .tier p {
-      margin: 0.6rem 0;
-    }
-    .levelup {
-      font-style: italic;
-      color: #a0f0d1;
-      font-weight: 600;
-    }
-
-    /* Smooth button effect */
-    button {
-      background: #00ffcc;
-      border: none;
-      color: #000;
-      padding: 12px 28px;
-      font-weight: 700;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      transition: background 0.3s ease;
-      user-select: none;
-    }
-    button:hover {
-      background: #00ddaa;
-    }
-
-    /* Cursor pointer glow on hover */
-    .glow-hover:hover {
-      text-shadow: 0 0 8px #00ffcc;
+      margin-bottom: 1rem;
+      color: #22d3ee;
     }
   </style>
 </head>
-<body>
-  <header>NextGen Hustle</header>
+<body class="text-gray-100">
 
-  <nav>
-    <a href="#coding" class="glow-hover">Learn to Code</a>
-    <a href="#money" class="glow-hover">Money Making</a>
-    <a href="#history" class="glow-hover">History</a>
-    <a href="#finance" class="glow-hover">Money & Banking</a>
-    <a href="#membership" class="glow-hover">Membership</a>
-  </nav>
-
-  <section id="coding">
-    <h2>How to Learn to Code</h2>
-    <p>Start from zero! We provide simple tutorials and resources to master programming step by step — no experience required.</p>
-    <ul>
-      <li>HTML & CSS basics</li>
-      <li>JavaScript fundamentals</li>
-      <li>Build real projects</li>
-      <li>Free online tools and courses</li>
-    </ul>
-  </section>
-
-  <section id="money">
-    <h2>Money Making Ways</h2>
-    <p>Discover practical side hustles and online gigs you can start today, from freelancing to dropshipping and more.</p>
-    <ul>
-      <li>Freelancing platforms walkthrough</li>
-      <li>Starting an online store</li>
-      <li>Affiliate marketing basics</li>
-      <li>Passive income ideas</li>
-    </ul>
-  </section>
-
-  <section id="history">
-    <h2>Interesting Colonisation & Dictatorship History</h2>
-    <p>Explore the fascinating history of colonization and dictatorship, understanding power dynamics and their impact on today's world.</p>
-    <ul>
-      <li>Major colonial empires overview</li>
-      <li>Famous dictators & their regimes</li>
-      <li>Effects on modern economies</li>
-      <li>Resistance and independence movements</li>
-    </ul>
-  </section>
-
-  <section id="finance">
-    <h2>How Money Works & Banking System</h2>
-    <p>Learn the basics of money, banking, inflation, and how the global financial system operates.</p>
-    <ul>
-      <li>What is money?</li>
-      <li>How banks create money</li>
-      <li>Understanding inflation</li>
-      <li>Central banks & monetary policy</li>
-    </ul>
-  </section>
-
-  <section id="membership" class="membership">
-    <h2>Membership & Daily Leveling Up</h2>
-
-    <div class="tier">
-      <h3>Starter - £3/month</h3>
-      <p>Access to basic tutorials and community forums.</p>
-      <p class="levelup">Daily level-up rewards: Unlock 1 new tip or trick every day.</p>
-      <button>Subscribe</button>
+  <!-- Header -->
+  <header class="bg-black border-b border-gray-800 sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <h1 class="text-xl font-bold text-white">NextGen Hustle</h1>
+      <nav class="space-x-4 text-sm">
+        <a href="#free" class="hover:text-cyan-400">Free Courses</a>
+        <a href="#pro" class="hover:text-cyan-400">Pro Access</a>
+        <a href="#join" class="hover:text-cyan-400">Join Now</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="tier">
-      <h3>Pro - £10/month</h3>
-      <p>Everything in Starter + exclusive monthly webinars and downloadable resources.</p>
-      <p class="levelup">Daily level-up rewards: Unlock 3 new tips or guides every day.</p>
-      <button>Subscribe</button>
-    </div>
-
-    <div class="tier">
-      <h3>Elite - £100/month</h3>
-      <p>Full access to all content, 1-on-1 mentorship, and early access to new features.</p>
-      <p class="levelup">Daily level-up rewards: Unlock 5 new guides and premium content daily.</p>
-      <button>Subscribe</button>
-    </div>
-
-    <p style="margin-top:20px; font-style: italic; color: #aaa;">
-      *Membership system coming soon! Subscribe buttons are placeholders.</p>
+  <!-- Hero Section -->
+  <section class="text-center py-20 bg-gradient-to-b from-black to-gray-900">
+    <h2 class="text-4xl font-bold mb-4">Start Your Hustle Today</h2>
+    <p class="text-gray-400 max-w-lg mx-auto">Real skills. Real systems. Built for people starting with £0 and a dream.</p>
+    <a href="#free" class="mt-8 inline-block px-6 py-3 bg-cyan-500 text-black font-semibold rounded-lg hover:bg-cyan-400 transition">Start Free</a>
   </section>
 
-  <script>
-    // Smooth scroll for nav links
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').slice(1);
-        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-  </script>
+  <!-- Free Courses -->
+  <section id="free" class="py-16 px-6 max-w-5xl mx-auto">
+    <h3 class="section-title">🎓 Free Starter Courses</h3>
+    <div class="grid md:grid-cols-2 gap-6 text-sm">
+      <div>
+        <h4 class="font-semibold text-lg text-cyan-400">🖥️ Web Creation Basics</h4>
+        <ul class="list-disc ml-6 text-gray-400">
+          <li>Learn to build websites</li>
+          <li>HTML & CSS basics</li>
+          <li>Create a portfolio page</li>
+          <li>Host it online — free</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-lg text-cyan-400">🤖 Top 10 AI Tools</h4>
+        <ul class="list-disc ml-6 text-gray-400">
+          <li>Prompts that save time</li>
+          <li>AI for content & images</li>
+          <li>Automate your side hustle</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-lg text-cyan-400">💰 Money Basics</h4>
+        <ul class="list-disc ml-6 text-gray-400">
+          <li>What is money?</li>
+          <li>How banks make profit</li>
+          <li>Crypto & digital banking</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-lg text-cyan-400">🧠 Mindset Boost</h4>
+        <ul class="list-disc ml-6 text-gray-400">
+          <li>Stay consistent</li>
+          <li>Daily focus routines</li>
+          <li>High-performer thinking</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pro Section -->
+  <section id="pro" class="py-16 px-6 bg-gray-900 max-w-5xl mx-auto">
+    <h3 class="section-title">🔐 Pro Membership: Go Next Level</h3>
+    <div class="grid md:grid-cols-2 gap-6 text-sm">
+      <div>
+        <h4 class="font-semibold text-lg text-cyan-400">🌐 Real Projects</h4>
+        <ul class="list-disc ml-6 text-gray-400">
+          <li>Full JavaScript apps</li>
+          <li>Custom domains</li>
+          <li>Advanced animations</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-lg text-cyan-400">🎥 YouTube Automation</h4>
+        <ul class="list-disc ml-6 text-gray-400">
+          <li>Faceless channel system</li>
+          <li>Voice AI, scripts & edits</li>
+          <li>Monetize like a pro</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-lg text-cyan-400">🤖 AI Biz Builder</h4>
+        <ul class="list-disc ml-6 text-gray-400">
+          <li>Use GPT to offer services</li>
+          <li>Notion, Framer, Gumroad</li>
+          <li>Sell your stack</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-lg text-cyan-400">🎯 Hustle Stack System</h4>
+        <ul class="list-disc ml-6 text-gray-400">
+          <li>2–3 income streams</li>
+          <li>Smart time management</li>
+          <li>Daily tracker system</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join Now -->
+  <section id="join" class="text-center py-16">
+    <h3 class="text-3xl font-bold mb-4">Ready to Level Up?</h3>
+    <p class="text-gray-400 mb-6">Start free or unlock the full system when you're ready.</p>
+    <a href="#" class="px-6 py-3 bg-cyan-500 text-black font-semibold rounded-lg hover:bg-cyan-400 transition">Join the Movement</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-xs text-gray-500 border-t border-gray-800">
+    © 2025 NextGen Hustle. All rights reserved.
+  </footer>
+
 </body>
 </html>
