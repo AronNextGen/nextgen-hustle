@@ -1,97 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>NextGen Hustle - Courses</title>
-<style>
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: #121212;
-    color: #eee;
-    margin: 0;
-    min-height: 100vh;
-  }
-  header {
-    background: #0d0d0d;
-    padding: 20px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #222;
-  }
-  header h1 {
-    color: #00ffc3;
-    margin: 0;
-  }
-  nav a {
-    color: #aaa;
-    margin-left: 25px;
-    text-decoration: none;
-    font-weight: 600;
-  }
-  nav a:hover {
-    color: #00ffc3;
-  }
-  main {
-    padding: 40px 30px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  h2 {
-    color: #00ffc3;
-    margin-bottom: 30px;
-  }
-  .course-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-  }
-  .course-card {
-    background: #1a1a1a;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px #00ffc3aa;
-    transition: transform 0.3s ease;
-  }
-  .course-card:hover {
-    transform: translateY(-6px);
-  }
-  .course-card h3 {
-    margin-top: 0;
-    margin-bottom: 12px;
-    color: #00ffc3;
-  }
-  .course-card ul {
-    list-style: inside disc;
-    padding-left: 15px;
-  }
-  .course-card li {
-    margin-bottom: 8px;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Courses - NextGen Hustle</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      background: #121212;
+      color: #eee;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a {
+      color: #00ffc3;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover, a:focus {
+      color: #00ddb3;
+      outline: none;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: #0d0d0d;
+      z-index: 999;
+      padding: 20px 0;
+      border-bottom: 1px solid #222;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    header h1 {
+      color: #00ffc3;
+      font-weight: 700;
+      font-size: 1.9rem;
+      letter-spacing: 2px;
+      cursor: default;
+      margin: 0 20px;
+    }
+    nav {
+      display: flex;
+      gap: 25px;
+      margin-right: 20px;
+    }
+    nav a {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #aaa;
+      padding: 6px 12px;
+      border-radius: 6px;
+      user-select: none;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    nav a:hover {
+      color: #00ffc3;
+      background: #111;
+    }
+    main {
+      max-width: 900px;
+      margin: 60px auto 100px;
+      padding: 0 20px;
+      user-select: none;
+    }
+    h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #00ffc3;
+      margin-bottom: 25px;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .course-section {
+      background: #1a1a1a;
+      border-radius: 15px;
+      padding: 30px 25px;
+      margin-bottom: 50px;
+      box-shadow: 0 0 20px rgba(0,255,195,0.15);
+      user-select: none;
+    }
+    .course-section h3 {
+      font-size: 1.8rem;
+      margin-bottom: 18px;
+      color: #00ffc3;
+    }
+    .course-section p.description {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      color: #ccc;
+    }
+    ul.course-details {
+      list-style: inside disc;
+      color: #ddd;
+      font-size: 1.05rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      padding-left: 15px;
+    }
+    ul.course-details li {
+      margin-bottom: 10px;
+    }
+    .btn-enroll {
+      background: #00ffc3;
+      color: #000;
+      font-weight: 700;
+      padding: 12px 36px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+      box-shadow: 0 0 15px #00ffc3aa;
+      user-select: none;
+    }
+    .btn-enroll:hover {
+      background: #00ddb3;
+      box-shadow: 0 0 30px #00ddb3cc;
+    }
+    footer {
+      background: #0d0d0d;
+      text-align: center;
+      padding: 28px 20px;
+      color: #555;
+      font-size: 0.9rem;
+      user-select: none;
+      border-top: 1px solid #222;
+      margin-top: 80px;
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px 0;
+      }
+      nav {
+        gap: 18px;
+        margin-right: 0;
+      }
+      .course-section {
+        padding: 20px 15px;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <header>
   <h1>NextGen Hustle</h1>
   <nav>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="courses.html">Courses</a>
-    <a href="#" id="logoutBtn">Logout</a>
+    <a href="index.html">Home</a>
+    <a href="courses.html" aria-current="page">Courses</a>
+    <a href="login.html">Login</a>
   </nav>
 </header>
 
 <main>
-  <h2>Your Courses</h2>
-  <div class="course-list">
-    <article class="course-card" tabindex="0" aria-label="Website Development Basics course">
-      <h3>Website Development Basics</h3>
-      <ul>
-        <li>HTML & CSS fundamentals</li>
-        <li>Build your own portfolio</li>
-        <li>Deploy on free hosting</li>
-      </ul>
-    </article>
-    <article class="course-card" tabindex="0" aria-label="AI Tools for Profit course">
-      <
+  <h2>Our Courses</h2>
+
+  <section id="webdev" class="course-section" tabindex="0" aria-labelledby="webdev-title">
+    <h3 id="webdev-title">Fullstack Web Development</h3>
+    <p class="description">Master the skills to build modern web applications from scratch — from frontend design to backend servers.</p>
+    <ul class="course-details">
+      <li>HTML5, CSS3, and JavaScript fundamentals</li>
+      <li>React.js for building dynamic interfaces</li>
+      <li>Node.js & Express backend development</li>
+      <li>Database integration with MongoDB</li>
+      <li>Deploy your projects live with Netlify & Heroku</li>
+    </ul>
+    <button class="btn-enroll" onclick="location.href='login.html'">Enroll Now</button>
+  </section>
+
+  <section id="datascience" class="course-section" tabindex="0" aria-labelledby="datascience-title">
+    <h3 id="datascience-title">Data Science & AI</h3>
+    <p class="description">Dive into data analytics, machine learning, and artificial intelligence using Python and real-world datasets.</p>
+    <ul class="course-details">
+      <li>Python programming basics</li>
+      <li>Data analysis with Pandas and NumPy</li>
+      <li>Machine learning algorithms with scikit-learn</li>
+      <li>Deep learning fundamentals with TensorFlow</li>
+      <li>Building AI projects from start to finish</li>
+    </ul>
+    <button class="btn-enroll" onclick="location.href='login.html'">Enroll Now</button>
+  </section>
+
+  <section id="marketing" class="course-section" tabindex="0" aria-labelledby="marketing-title">
+    <h3 id="marketing-title">Digital Marketing Pro</h3>
+    <p class="description">Learn how to boost brands online with SEO, social media marketing, paid ads, and content strategies.</p>
+    <ul class="course-details">
+      <li>SEO fundamentals & keyword research</li>
+      <li>Google Ads and Facebook Ads mastery</li>
+      <li>Social media growth hacks</li>
+      <li>Content marketing and copywriting</li>
+      <li>Analyzing marketing campaigns with data</li>
+    </ul>
+    <button class="btn-enroll" onclick="location.href='login.html'">Enroll Now</button>
+  </section>
+
+  <section id="entrepreneurship" class="course-section" tabindex="0" aria-labelledby="entrepreneurship-title">
+    <h3 id="entrepreneurship-title">Startup & Entrepreneurship</h3>
+    <p class="description">Everything you need to start and grow your own business from ideation to fundraising and scaling.</p>
+    <ul class="course-details">
+      <li>Business idea validation</li>
+      <li>Writing winning business plans</li>
+      <li>Pitching to investors and raising funds</li>
+      <li>Marketing & scaling strategies</li>
+      <li>Legal & financial basics for startups</li>
+    </ul>
+    <button class="btn-enroll" onclick="location.href='login.html'">Enroll Now</button>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2025 NextGen Hustle. All rights reserved.
+</footer>
+
+</body>
+</html>
