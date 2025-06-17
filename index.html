@@ -2,225 +2,149 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>NextGen Hustle — Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NextGen Hustle — Learn, Hustle, Grow</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     /* Reset */
-    *, *::before, *::after {
+    * {
       box-sizing: border-box;
     }
     body {
+      background: #121212;
+      color: #eee;
+      font-family: 'Poppins', sans-serif, Arial, sans-serif;
       margin: 0;
-      background-color: #121212;
-      color: #e0e0e0;
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
+      padding: 0;
+      display: flex;
       min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    a {
-      color: #00ffc3;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover, a:focus {
-      color: #00ddb3;
-      outline: none;
-    }
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    /* Container */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 25px 60px;
-    }
-
-    /* Header & Navigation */
-    header {
-      position: sticky;
-      top: 0;
-      background: #0d0d0d;
-      z-index: 999;
-      padding: 20px 0;
-      border-bottom: 1px solid #222;
-      display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+    }
+    main {
+      background: #1e1e1e;
+      padding: 40px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 0 30px rgba(0,255,195,0.3);
       user-select: none;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.7);
     }
-    header h1 {
-      color: #00ffc3;
-      font-weight: 700;
-      font-size: 2rem;
-      letter-spacing: 2px;
-      cursor: default;
-      user-select: text;
-    }
-    nav {
-      display: flex;
-      gap: 30px;
-    }
-    nav a {
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: #aaa;
-      padding: 8px 12px;
-      border-radius: 8px;
-      user-select: none;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    nav a:hover, nav a:focus {
-      color: #00ffc3;
-      background-color: #111;
-      outline: none;
-    }
-
-    /* Hero Section */
-    .hero {
+    h1 {
       text-align: center;
-      margin: 80px 0 90px;
-      padding: 0 10px;
-      user-select: text;
-    }
-    .hero h2 {
-      font-size: 3rem;
-      font-weight: 700;
       color: #00ffc3;
-      margin-bottom: 20px;
-      letter-spacing: 1.2px;
-      line-height: 1.1;
+      font-weight: 700;
+      margin-bottom: 32px;
+      letter-spacing: 2px;
+      font-size: 2.2rem;
     }
-    .hero p {
-      font-size: 1.4rem;
-      max-width: 700px;
-      margin: 0 auto 35px;
-      color: #bbb;
-      font-style: italic;
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #a5f9dc;
     }
-    .hero .btn-primary {
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 2px solid #333;
+      background: #222;
+      color: #eee;
+      font-size: 1rem;
+      margin-bottom: 24px;
+      transition: border-color 0.3s ease;
+    }
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      outline: none;
+      border-color: #00ffc3;
+    }
+    button {
+      width: 100%;
       background: #00ffc3;
+      border: none;
+      padding: 14px;
+      border-radius: 12px;
       color: #000;
       font-weight: 700;
-      padding: 16px 48px;
-      border: none;
-      border-radius: 14px;
-      cursor: pointer;
-      font-size: 1.2rem;
-      transition: background 0.3s ease;
-      user-select: none;
-      box-shadow: 0 5px 15px rgba(0,255,195,0.5);
-    }
-    .hero .btn-primary:hover, .hero .btn-primary:focus {
-      background: #00ddb3;
-      outline: none;
-      box-shadow: 0 8px 22px rgba(0,221,179,0.7);
-    }
-
-    /* Sections Titles */
-    .section-title {
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: #00ffc3;
-      margin-bottom: 55px;
-      text-align: center;
-      letter-spacing: 1px;
-      user-select: text;
-    }
-
-    /* Content Section */
-    .content-section {
-      max-width: 850px;
-      margin: 0 auto 80px;
       font-size: 1.1rem;
-      color: #ddd;
-      user-select: text;
-      line-height: 1.5;
-      padding: 0 10px;
-    }
-
-    /* Footer */
-    footer {
-      background: #0d0d0d;
-      text-align: center;
-      padding: 35px 15px;
-      font-size: 0.9rem;
-      color: #555;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
       user-select: none;
-      border-top: 1px solid #222;
-      letter-spacing: 0.5px;
+    }
+    button:hover {
+      background: #00ddb3;
+    }
+    #errorMsg {
+      color: #ff4c4c;
+      font-weight: 600;
+      text-align: center;
+      margin-top: -16px;
+      margin-bottom: 24px;
+      min-height: 22px;
+      user-select: none;
+    }
+    footer {
+      text-align: center;
+      margin-top: 32px;
+      color: #555;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    @media (max-width: 480px) {
+      main {
+        padding: 28px 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>NextGen Hustle</h1>
-    <nav role="navigation" aria-label="Primary navigation">
-      <a href="#learn">Learn</a>
-      <a href="#hustle">Hustle</a>
-      <a href="#grow">Grow</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <main class="container" role="main">
-    <section class="hero" aria-label="Introduction">
-      <h2>Welcome to NextGen Hustle</h2>
-      <p>Unlock your potential with the ultimate guide to learning, hustling, and growing in the digital era.</p>
-      <button class="btn-primary" onclick="alert('Let’s get started!')">Get Started</button>
-    </section>
-
-    <section id="learn" class="content-section" tabindex="0">
-      <h3 class="section-title">Learn</h3>
-      <p>Dive deep into curated courses that empower you with knowledge in tech, marketing, business, and personal growth. We deliver clear, actionable lessons so you never waste time.</p>
-      <ul>
-        <li>Comprehensive video tutorials from industry pros</li>
-        <li>Interactive quizzes and assignments to test your skills</li>
-        <li>Weekly live Q&A sessions to clarify doubts</li>
-      </ul>
-    </section>
-
-    <section id="hustle" class="content-section" tabindex="0">
-      <h3 class="section-title">Hustle</h3>
-      <p>Learn the art of the grind. From side gigs to launching startups, our resources help you monetize your skills and create multiple income streams.</p>
-      <ul>
-        <li>Real-world case studies & success stories</li>
-        <li>Tools and templates to fast-track your projects</li>
-        <li>Networking opportunities with a like-minded community</li>
-      </ul>
-    </section>
-
-    <section id="grow" class="content-section" tabindex="0">
-      <h3 class="section-title">Grow</h3>
-      <p>Develop the mindset, habits, and networks to scale your personal and professional life. Growth is continuous — and we’re here to fuel it.</p>
-      <ul>
-        <li>Personal development plans tailored for hustlers</li>
-        <li>Mentorship programs and mastermind groups</li>
-        <li>Access to exclusive events and workshops</li>
-      </ul>
-    </section>
-
-    <section id="contact" class="content-section" tabindex="0" aria-label="Contact information">
-      <h3 class="section-title">Contact Us</h3>
-      <p>Have questions? Want to collaborate? Reach out anytime — we’re here to help you hustle smarter.</p>
-      <address>
-        Email: <a href="mailto:support@nextgenhustle.com">support@nextgenhustle.com</a><br />
-        Phone: <a href="tel:+1234567890">+1 (234) 567-890</a><br />
-        Follow us on
-        <a href="https://twitter.com/nextgenhustle" target="_blank" rel="noopener noreferrer">Twitter</a>,
-        <a href="https://www.linkedin.com/company/nextgenhustle" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      </address>
-    </section>
+  <main>
+    <h1>NextGen Hustle Login</h1>
+    <form id="loginForm" autocomplete="off" spellcheck="false" novalidate>
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Enter username" required autofocus />
+      
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter password" required />
+      
+      <div id="errorMsg"></div>
+      
+      <button type="submit">Log In</button>
+    </form>
   </main>
-
   <footer>
-    &copy; 2025 NextGen Hustle. All rights reserved.
+    &copy; 2025 NextGen Hustle — Empower your digital journey
   </footer>
+
+  <script>
+    const users = {
+      user1: 'pass1',
+      user2: 'pass2',
+      admin: 'admin123'
+    };
+
+    const loginForm = document.getElementById('loginForm');
+    const errorMsg = document.getElementById('errorMsg');
+
+    loginForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const username = loginForm.username.value.trim();
+      const password = loginForm.password.value;
+      
+      if (!username || !password) {
+        errorMsg.textContent = 'Please enter both username and password.';
+        return;
+      }
+      
+      if(users[username] && users[username] === password) {
+        localStorage.setItem('loggedInUser', username);
+        window.location.href = 'dashboard.html';
+      } else {
+        errorMsg.textContent = 'Invalid username or password.';
+      }
+    });
+  </script>
 </body>
 </html>
