@@ -3,22 +3,35 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>ElitePath Academy - Learn Skills That Pay</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pap/24dlZ3RYZJpm8+UkKvC2Ma+M4k2mWdFtCfiBqJ7F4x6Ej1owpIcY7IlRph7QxE4n1CBrjRDbv6nSYkg2Eg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pap/24dlZ3RYZJpm8+UkKvC2Ma+M4k2mWdFtCfiBqJ7F4x6Ej1owpIcY7IlRph7QxE4n1CBrjRDbv6nSYkg2Eg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
   <style>
     :root {
       --dark-bg: #0f0f0f;
       --light-bg: #ffffff;
       --accent: #04ddb2;
       --text-color: #eaeaea;
+      --shadow: rgba(4, 221, 178, 0.3);
       --scroll-behavior: smooth;
     }
 
+    /* Reset & base */
     * {
       margin: 0;
       padding: 0;
@@ -26,11 +39,14 @@
       scroll-behavior: smooth;
     }
 
-    html, body {
+    html,
+    body {
       font-family: 'Outfit', sans-serif;
       background-color: var(--dark-bg);
       color: var(--text-color);
       line-height: 1.6;
+      min-height: 100vh;
+      scroll-behavior: smooth;
     }
 
     body.light-mode {
@@ -38,70 +54,152 @@
       color: #222;
     }
 
+    /* Header */
     header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: #121212cc;
+      backdrop-filter: saturate(180%) blur(10px);
+      padding: 1.5rem 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 5%;
-      background-color: #121212;
-      position: sticky;
-      top: 0;
-      z-index: 999;
+      box-shadow: 0 2px 8px var(--shadow);
     }
 
     header h1 {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
+      font-weight: 700;
       color: var(--accent);
+      letter-spacing: 1.2px;
+      cursor: default;
+      user-select: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
     }
 
     nav a {
-      margin: 0 1rem;
       text-decoration: none;
       color: var(--text-color);
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    .hero {
-      background: url('https://images.unsplash.com/photo-1581090700227-1e8eec2a4266?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80') no-repeat center center/cover;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
       position: relative;
     }
 
-    .hero::after {
-      content: "";
+    nav a::after {
+      content: '';
       position: absolute;
-      top: 0;
+      bottom: -4px;
       left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: var(--accent);
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
       width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .toggle-mode {
+      background: none;
+      border: 1.8px solid var(--accent);
+      padding: 0.5rem 1.2rem;
+      border-radius: 25px;
+      color: var(--accent);
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .toggle-mode:hover {
+      background-color: var(--accent);
+      color: var(--dark-bg);
+    }
+
+    /* Hero */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1581090700227-1e8eec2a4266?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80')
+        no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      padding: 0 2rem;
+      color: white;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: 0;
     }
 
     .hero-content {
       position: relative;
       z-index: 1;
+      max-width: 700px;
+      animation: fadeInUp 1s ease forwards;
     }
 
     .hero h2 {
-      font-size: 3rem;
+      font-size: 3.6rem;
       margin-bottom: 1rem;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: 1.5px;
+      text-shadow: 0 0 15px rgba(4, 221, 178, 0.6);
     }
 
     .hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: auto;
+      font-size: 1.3rem;
+      margin-bottom: 2.5rem;
+      color: #b1f0e7;
+      font-weight: 500;
+      text-shadow: 0 0 10px rgba(4, 221, 178, 0.4);
     }
 
+    .btn-primary {
+      background: var(--accent);
+      color: var(--dark-bg);
+      font-weight: 700;
+      padding: 1rem 3rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      box-shadow: 0 5px 15px var(--shadow);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: #02c7a6;
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px var(--shadow);
+      outline: none;
+    }
+
+    /* Sections */
     .section {
       padding: 5rem 5%;
       max-width: 1200px;
@@ -110,51 +208,127 @@
 
     .section-title {
       text-align: center;
-      margin-bottom: 2rem;
-      font-size: 2.2rem;
+      font-size: 2.6rem;
       color: var(--accent);
+      margin-bottom: 3rem;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      text-shadow: 0 0 8px var(--accent);
     }
 
-    .features, .stats, .reviews, .courses {
+    .features,
+    .stats,
+    .reviews,
+    .courses {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
     }
 
     .card {
       background-color: #1b1b1b;
-      border-radius: 10px;
-      padding: 2rem;
-      transition: transform 0.3s;
+      border-radius: 15px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
+    .card:hover,
+    .card:focus-within {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px var(--shadow);
+      outline: none;
     }
 
     .card h3 {
       margin-bottom: 1rem;
-    }
-
-    .toggle-mode {
-      background: none;
-      border: 1px solid var(--accent);
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
+      font-weight: 700;
       color: var(--accent);
-      cursor: pointer;
+      font-size: 1.6rem;
+      text-shadow: 0 0 10px var(--accent);
     }
 
+    .card p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #c0c0c0;
+    }
+
+    /* Stats special styling */
+    .stats .card h3 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #04ddb2cc;
+      letter-spacing: 2px;
+    }
+
+    /* Reviews with stars */
+    .reviews .card h3 {
+      font-size: 1.8rem;
+      color: #fbc02d;
+    }
+
+    /* Footer */
     footer {
       background-color: #111;
       padding: 3rem 5%;
       text-align: center;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      color: #666;
+      letter-spacing: 0.7px;
+      user-select: none;
+      border-top: 1px solid #222;
     }
 
-    @media(max-width: 768px) {
+    footer p {
+      margin-bottom: 0.5rem;
+    }
+
+    footer .social-icons {
+      margin-top: 1rem;
+    }
+
+    footer .social-icons a {
+      color: var(--accent);
+      margin: 0 0.75rem;
+      font-size: 1.3rem;
+      transition: color 0.3s ease;
+    }
+
+    footer .social-icons a:hover {
+      color: #02c7a6;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
       .hero h2 {
-        font-size: 2rem;
+        font-size: 2.4rem;
+      }
+
+      .section {
+        padding: 3rem 5%;
+      }
+
+      nav {
+        gap: 1rem;
+      }
+
+      .toggle-mode {
+        padding: 0.4rem 0.9rem;
+        font-size: 0.85rem;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   </style>
@@ -165,78 +339,92 @@
     <h1>ElitePath Academy</h1>
     <nav>
       <a href="#home">Home</a>
-      <a href="#courses">Courses</a>
+      <a href="#features">Why ElitePath?</a>
       <a href="#reviews">Reviews</a>
-      <a href="login.html">Login</a>
-      <a href="register.html">Register</a>
+      <a href="#stats">Our Impact</a>
+      <a href="login.html" aria-label="Login to ElitePath Academy">Login</a>
+      <a href="register.html" aria-label="Register at ElitePath Academy">Register</a>
     </nav>
-    <button class="toggle-mode" onclick="toggleMode()">Toggle Theme</button>
+    <button class="toggle-mode" aria-pressed="false" onclick="toggleMode()" aria-label="Toggle light/dark theme">
+      Toggle Theme
+    </button>
   </header>
 
-  <section class="hero" id="home">
+  <section class="hero" id="home" role="banner" aria-label="Hero Section">
     <div class="hero-content">
       <h2>Learn Skills That Pay You</h2>
-      <p>Trusted by 1000+ students. Join now and explore free and pro courses that have made millionaires.</p>
+      <p>Trusted by 1000+ students worldwide. Join now and unlock free & pro courses that have made millionaires.</p>
+      <a href="register.html" class="btn-primary" aria-label="Join ElitePath Academy now">Get Started</a>
     </div>
   </section>
 
-  <section class="section" id="features">
+  <section class="section" id="features" aria-label="Reasons to choose ElitePath Academy">
     <h2 class="section-title">Why ElitePath?</h2>
     <div class="features">
-      <div class="card">
-        <h3>Real-World Skills</h3>
-        <p>Courses crafted by experts making real money in the field.</p>
+      <div class="card" tabindex="0">
+        <h3><i class="fas fa-briefcase"></i> Real-World Skills</h3>
+        <p>Courses crafted by active experts earning real income in the field.</p>
       </div>
-      <div class="card">
-        <h3>Flexible Learning</h3>
-        <p>Progress at your own pace with full control over your schedule.</p>
+      <div class="card" tabindex="0">
+        <h3><i class="fas fa-clock"></i> Flexible Learning</h3>
+        <p>Learn at your own pace with total control over your schedule.</p>
       </div>
-      <div class="card">
-        <h3>Career Focused</h3>
-        <p>We focus on skills that lead to jobs or business success.</p>
+      <div class="card" tabindex="0">
+        <h3><i class="fas fa-rocket"></i> Career Focused</h3>
+        <p>We teach only skills that open doors to jobs or entrepreneurial success.</p>
       </div>
     </div>
   </section>
 
-  <section class="section" id="reviews">
+  <section class="section" id="reviews" aria-label="Student testimonials">
     <h2 class="section-title">What Students Say</h2>
     <div class="reviews">
-      <div class="card">
-        <h3>4.7 ★</h3>
-        <p>"ElitePath helped me land my first freelance client within weeks!" - Sarah M.</p>
+      <div class="card" tabindex="0">
+        <h3><i class="fas fa-star"></i> 4.7 ★</h3>
+        <p>"ElitePath helped me land my first freelance client within weeks!" – Sarah M.</p>
       </div>
-      <div class="card">
-        <h3>4.8 ★</h3>
-        <p>"The community and support are unmatched. Highly recommend!" - Jacob K.</p>
+      <div class="card" tabindex="0">
+        <h3><i class="fas fa-star"></i> 4.8 ★</h3>
+        <p>"The community and support are unmatched. Highly recommend!" – Jacob K.</p>
       </div>
-      <div class="card">
-        <h3>4.6 ★</h3>
-        <p>"From beginner to paid projects in 2 months. Amazing value." - Lena T.</p>
+      <div class="card" tabindex="0">
+        <h3><i class="fas fa-star"></i> 4.6 ★</h3>
+        <p>"From beginner to paid projects in 2 months. Amazing value." – Lena T.</p>
       </div>
     </div>
   </section>
 
-  <section class="section" id="stats">
+  <section class="section" id="stats" aria-label="ElitePath Academy impact stats">
     <h2 class="section-title">Our Impact</h2>
     <div class="stats">
-      <div class="card">
-        <h3>4 Millionaires</h3>
-        <p>Our methods have helped real people achieve massive financial growth.</p>
+      <div class="card" tabindex="0">
+        <h3><i class="fas fa-dollar-sign"></i> 4 Millionaires</h3>
+        <p>Our proven methods have helped many achieve massive financial growth.</p>
       </div>
-      <div class="card">
-        <h3>1000+ Students</h3>
-        <p>Join a growing community of learners gaining life-changing skills.</p>
+      <div class="card" tabindex="0">
+        <h3><i class="fas fa-users"></i> 1000+ Students</h3>
+        <p>Join a vibrant community gaining life-changing skills every day.</p>
       </div>
     </div>
   </section>
 
-  <footer>
+  <footer aria-label="Site footer">
     <p>&copy; 2025 ElitePath Academy. All Rights Reserved.</p>
+    <div class="social-icons" role="navigation" aria-label="Social media links">
+      <a href="#" target="_blank" rel="noopener" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
   </footer>
 
   <script>
     function toggleMode() {
-      document.body.classList.toggle('light-mode');
+      const body = document.body;
+      const button = document.querySelector('.toggle-mode');
+      body.classList.toggle('light-mode');
+      const isLight = body.classList.contains('light-mode');
+      button.setAttribute('aria-pressed', isLight);
     }
   </script>
 </body>
