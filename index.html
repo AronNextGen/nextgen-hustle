@@ -1,330 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>ElitePath Academy - Learn Skills That Pay</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet" />
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    rel="stylesheet"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <title>ElitePath Academy — Build Your Future</title>
   <style>
-    :root {
-      --dark-bg: #0f0f0f;
-      --light-bg: #ffffff;
-      --accent: #04ddb2;
-      --accent-light: #4effe0;
-      --text-color: #eaeaea;
-      --text-light: #bdbdbd;
-      --shadow: rgba(4, 221, 178, 0.3);
-      --transition-speed: 0.3s;
-    }
-
+    /* Reset & basics */
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth;
-      font-smooth: antialiased;
-      -webkit-font-smoothing: antialiased;
+      margin: 0; padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #e0e0e0;
     }
-
-    html,
     body {
-      font-family: 'Outfit', sans-serif;
-      background-color: var(--dark-bg);
-      color: var(--text-color);
+      background-color: #121212;
       line-height: 1.6;
       min-height: 100vh;
-      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      font-size: 16px;
+    }
+    a {
+      color: #03a9f4;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover, a:focus {
+      color: #0288d1;
+      outline: none;
     }
 
-    body.light-mode {
-      background-color: var(--light-bg);
-      color: #222;
-    }
-
+    /* NAVIGATION */
     header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(18,18,18,0.95);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid #333;
+      z-index: 1000;
+    }
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 5%;
-      background-color: #121212cc;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      backdrop-filter: saturate(180%) blur(10px);
-      box-shadow: 0 2px 10px var(--shadow);
     }
-
-    header h1 {
-      font-size: 1.5rem;
-      color: var(--accent);
-      letter-spacing: 2px;
-      font-weight: 700;
-      user-select: none;
-    }
-
-    nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: var(--text-color);
-      font-weight: 600;
-      transition: color var(--transition-speed);
-      position: relative;
-    }
-
-    nav a::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width var(--transition-speed);
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-    }
-
-    nav a:hover,
-    nav a:focus {
-      color: var(--accent-light);
-    }
-
-    nav a:hover::after,
-    nav a:focus::after {
-      width: 100%;
-    }
-
-    .toggle-mode {
-      background: none;
-      border: 1.8px solid var(--accent);
-      padding: 0.5rem 1.2rem;
-      border-radius: 6px;
-      color: var(--accent);
-      cursor: pointer;
-      font-weight: 600;
-      letter-spacing: 1px;
-      transition: background-color var(--transition-speed), color var(--transition-speed);
-      user-select: none;
-    }
-
-    .toggle-mode:hover {
-      background-color: var(--accent-light);
-      color: var(--dark-bg);
-      box-shadow: 0 0 8px var(--accent-light);
-    }
-
-    /* Hero Section */
-    .hero {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      padding: 0 1rem;
-      background: 
-        linear-gradient(135deg, rgba(4, 221, 178, 0.75), rgba(0, 0, 0, 0.85)), 
-        url('https://images.unsplash.com/photo-1581090700227-1e8eec2a4266?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80') no-repeat center center/cover;
-      filter: drop-shadow(0 0 8px var(--accent));
-    }
-
-    .hero-content {
-      max-width: 700px;
-      position: relative;
-      z-index: 2;
-      animation: fadeInUp 1.2s ease forwards;
-    }
-
-    .hero h2 {
-      font-size: 3.8rem;
-      margin-bottom: 1rem;
-      font-weight: 900;
-      text-shadow: 0 0 12px var(--accent-light);
-      letter-spacing: 1.2px;
-    }
-
-    .hero p {
-      font-size: 1.4rem;
-      margin-bottom: 2rem;
-      font-weight: 500;
-      text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
-      color: #d0f6efdd;
-    }
-
-    .btn-primary {
-      background-color: var(--accent);
-      color: var(--dark-bg);
-      padding: 0.9rem 2.4rem;
-      border-radius: 50px;
+    .logo {
       font-weight: 700;
       font-size: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 1.4px;
-      cursor: pointer;
-      border: none;
-      box-shadow: 0 0 20px var(--accent-light);
-      transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+      letter-spacing: 0.05em;
       user-select: none;
+      color: #03a9f4;
     }
-
-    .btn-primary:hover,
-    .btn-primary:focus {
-      background-color: var(--accent-light);
-      box-shadow: 0 0 30px var(--accent-light);
-      outline: none;
-      color: var(--dark-bg);
-    }
-
-    /* Sections */
-    .section {
-      padding: 5rem 5% 4rem 5%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      font-size: 2.8rem;
-      color: var(--accent);
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      user-select: none;
-    }
-
-    /* Features Section */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2.5rem;
-    }
-
-    .card {
-      background-color: #1b1b1b;
-      border-radius: 14px;
-      padding: 2.5rem 2rem;
-      box-shadow: 0 8px 20px var(--shadow);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-      color: var(--text-color);
+    .nav-links {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      gap: 1.5rem;
+      font-weight: 500;
+    }
+    .nav-links button, .nav-links a {
+      background: none;
+      border: none;
+      color: #e0e0e0;
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    .nav-links button:hover, .nav-links a:hover,
+    .nav-links button:focus, .nav-links a:focus {
+      background-color: #0288d1;
+      outline: none;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+      text-align: center;
+      color: #fff;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0.9));
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      font-weight: 400;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #bbb;
+    }
+    .hero-content button {
+      background-color: #03a9f4;
+      border: none;
+      padding: 0.75rem 2rem;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    .hero-content button:hover, .hero-content button:focus {
+      background-color: #0288d1;
+      outline: none;
+    }
+
+    /* SECTION BASE STYLES */
+    section {
+      max-width: 1100px;
+      margin: 5rem auto 3rem auto;
+      padding: 0 1rem;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #03a9f4;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    section p {
+      max-width: 700px;
+      margin: 0.5rem auto 2rem auto;
+      color: #bbb;
+      text-align: center;
+    }
+
+    /* REVIEWS */
+    .reviews {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .review-card {
+      background: #1e1e1e;
+      padding: 1.5rem;
+      border-radius: 12px;
+      width: 280px;
+      box-shadow: 0 4px 12px rgba(3,169,244,0.3);
+      transition: transform 0.3s ease;
       cursor: default;
     }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 30px var(--accent-light);
+    .review-card:hover, .review-card:focus-within {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(3,169,244,0.5);
+      outline: none;
     }
-
-    .card h3 {
-      margin-bottom: 1.1rem;
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: var(--accent-light);
-      letter-spacing: 0.8px;
-    }
-
-    .card p {
-      font-weight: 400;
-      color: var(--text-light);
-      line-height: 1.5;
-      font-size: 1rem;
-      user-select: none;
-    }
-
-    /* About Section */
-    #about {
-      background: #121212cc;
-      border-radius: 12px;
-      box-shadow: 0 0 20px var(--shadow);
-      padding: 3rem 2rem;
-      margin-top: 2rem;
-      color: #b3f0df;
-      user-select: none;
-    }
-
-    #about p {
-      max-width: 850px;
-      margin: 0 auto;
-      font-size: 1.2rem;
-      line-height: 1.65;
-      color: #a0f1db;
-    }
-
-    /* Reviews Section */
-    .reviews {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2.5rem;
-    }
-
-    .review-card {
-      background-color: #222222cc;
-      border-radius: 12px;
-      padding: 2rem 1.8rem;
-      box-shadow: 0 8px 20px var(--shadow);
-      color: var(--text-color);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1rem;
-      transition: box-shadow 0.3s ease;
-    }
-
-    .review-card:hover {
-      box-shadow: 0 12px 30px var(--accent-light);
-    }
-
-    .review-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      width: 100%;
-    }
-
-    .avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background-size: cover;
-      background-position: center;
-      box-shadow: 0 0 10px var(--accent-light);
-      flex-shrink: 0;
-    }
-
     .reviewer-name {
       font-weight: 700;
       font-size: 1.1rem;
-      color: var(--accent);
+      margin-bottom: 0.3rem;
+      color: #03a9f4;
     }
-
     .rating {
-      margin-left: auto;
-      color: #f2c94c;
+      color: #ffd700;
       font-size: 1.2rem;
+      margin-bottom: 0.7rem;
       user-select: none;
     }
-
     .review-text {
       font-style: italic;
-      font-size: 1rem;
-      color: var(--text-light);
-      line-height: 1.5;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: #ccc;
     }
 
-    /* Stats Section */
+    /* STATS */
     .stats {
       display: flex;
       justify-content: center;
@@ -332,358 +199,409 @@
       flex-wrap: wrap;
       margin-top: 1rem;
     }
-
     .stat-card {
-      background: linear-gradient(135deg, var(--accent-light), var(--accent));
-      color: var(--dark-bg);
-      padding: 3rem 2.5rem;
-      border-radius: 16px;
-      box-shadow: 0 8px 25px var(--accent-light);
+      background: #1e1e1e;
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(3,169,244,0.3);
       text-align: center;
-      width: 280px;
-      font-weight: 700;
-      user-select: none;
+      width: 180px;
+      cursor: default;
       transition: transform 0.3s ease;
     }
-
-    .stat-card:hover {
-      transform: scale(1.1);
-      box-shadow: 0 12px 40px var(--accent-light);
+    .stat-card:hover, .stat-card:focus-within {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(3,169,244,0.5);
+      outline: none;
     }
-
     .stat-card h3 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: 2px;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #03a9f4;
+      margin-bottom: 0.3rem;
     }
-
     .stat-card p {
-      font-weight: 600;
-      font-size: 1.2rem;
-      opacity: 0.85;
+      font-size: 1rem;
+      color: #bbb;
     }
 
-    /* Newsletter Signup */
-    #newsletter {
-      background-color: #121212cc;
-      border-radius: 14px;
-      padding: 3rem 2rem;
+    /* COURSES SECTION */
+    .courses-section {
+      background: #1a1a1a;
+      border-radius: 15px;
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: 3rem auto;
+      box-shadow: 0 0 25px rgba(3,169,244,0.3);
+    }
+    .courses-section h3 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #03a9f4;
       text-align: center;
-      margin-top: 4rem;
-      box-shadow: 0 0 20px var(--shadow);
-      color: var(--accent-light);
+    }
+    .course-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      color: #ccc;
+    }
+    .course-category {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #4fc3f7;
+      border-bottom: 2px solid #0288d1;
+      padding-bottom: 0.3rem;
+    }
+    .course-item {
+      margin-left: 1rem;
+      margin-bottom: 0.5rem;
+      list-style-type: disc;
+      font-weight: 400;
+      font-size: 0.95rem;
+      cursor: default;
+    }
+    .pro-course {
+      color: #ff5722;
+      font-weight: 700;
       user-select: none;
     }
 
-    #newsletter h3 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-      color: var(--accent);
+    /* FOOTER */
+    footer {
+      background: #121212;
+      border-top: 1px solid #333;
+      padding: 2rem 1rem;
+      text-align: center;
+      color: #555;
+      font-size: 0.9rem;
+      margin-top: auto;
     }
-
-    #newsletter p {
+    footer a {
+      margin: 0 0.5rem;
+      color: #03a9f4;
       font-size: 1.1rem;
-      margin-bottom: 2rem;
-      color: var(--text-light);
+    }
+    footer a:hover {
+      color: #0288d1;
     }
 
-    #newsletter form {
+    /* LOGIN/REGISTER MODAL */
+    .modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      padding: 1rem;
+    }
+    .modal.active {
+      display: flex;
+    }
+    .modal-content {
+      background: #1e1e1e;
+      border-radius: 12px;
+      max-width: 400px;
+      width: 100%;
+      padding: 2rem 2rem 2.5rem 2rem;
+      color: #ddd;
+      box-shadow: 0 0 25px rgba(3,169,244,0.7);
+      position: relative;
+    }
+    .modal-content h2 {
+      margin-bottom: 1rem;
+      color: #03a9f4;
+      text-align: center;
+    }
+    .modal-content label {
+      display: block;
+      margin: 1rem 0 0.4rem 0;
+      font-weight: 600;
+    }
+    .modal-content input[type="email"],
+    .modal-content input[type="password"] {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+    }
+    .modal-content button {
+      margin-top: 1.5rem;
+      width: 100%;
+      background: #03a9f4;
+      border: none;
+      padding: 0.75rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    .modal-content button:hover, .modal-content button:focus {
+      background-color: #0288d1;
+      outline: none;
+    }
+    .close-btn {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: #999;
+      cursor: pointer;
+      user-select: none;
+    }
+    .close-btn:hover, .close-btn:focus {
+      color: #fff;
+      outline: none;
+    }
+    .google-login-btn {
+      background: #db4437;
+      color: white;
+      margin-top: 1rem;
+      padding: 0.75rem;
+      border-radius: 6px;
+      border: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
       display: flex;
       justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    #newsletter input[type='email'] {
-      padding: 0.9rem 1.4rem;
-      border-radius: 40px;
-      border: none;
-      width: 280px;
-      font-size: 1rem;
-      font-weight: 500;
-      outline: none;
-      transition: box-shadow 0.3s ease;
-    }
-
-    #newsletter input[type='email']:focus {
-      box-shadow: 0 0 10px var(--accent-light);
-    }
-
-    #newsletter button {
-      background-color: var(--accent);
-      border: none;
-      border-radius: 40px;
-      padding: 0.9rem 2.2rem;
-      color: var(--dark-bg);
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 0 0 15px var(--accent-light);
+      align-items: center;
+      gap: 0.75rem;
+      user-select: none;
       transition: background-color 0.3s ease;
-      user-select: none;
+    }
+    .google-login-btn:hover, .google-login-btn:focus {
+      background-color: #a33c2d;
+      outline: none;
+    }
+    .google-login-btn svg {
+      width: 20px;
+      height: 20px;
     }
 
-    #newsletter button:hover {
-      background-color: var(--accent-light);
-    }
-
-    /* Footer */
-    footer {
-      background-color: #111;
-      padding: 3rem 5%;
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--text-light);
-      user-select: none;
-      margin-top: 4rem;
-    }
-
-    footer a {
-      color: var(--accent);
-      margin: 0 0.5rem;
-      text-decoration: none;
-      font-size: 1.3rem;
-      transition: color 0.3s;
-    }
-
-    footer a:hover {
-      color: var(--accent-light);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero h2 {
-        font-size: 2.8rem;
-      }
-
-      .btn-primary {
-        padding: 0.75rem 1.8rem;
-        font-size: 1rem;
-      }
-
-      nav a {
-        margin: 0 0.7rem;
-        font-size: 0.95rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero h2 {
-        font-size: 2.2rem;
-      }
-
-      .features,
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
       .reviews {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: center;
       }
-
       .stat-card {
-        width: 90%;
+        width: 80%;
       }
-
-      #newsletter input[type='email'] {
-        width: 100%;
-      }
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      .courses-section {
+        max-width: 95%;
+        margin: 3rem auto;
       }
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <h1>ElitePath Academy</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#features">Why ElitePath?</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#stats">Our Impact</a>
-      <a href="#newsletter">Newsletter</a>
-      <a href="login.html">Login</a>
-      <a href="register.html">Register</a>
-    </nav>
-    <button class="toggle-mode" onclick="toggleMode()">Toggle Theme</button>
-  </header>
 
-  <section class="hero" id="home" role="banner" aria-label="Homepage hero section">
+<header role="banner">
+  <nav aria-label="Primary navigation">
+    <div class="logo" tabindex="0">ElitePath Academy</div>
+    <div class="nav-links">
+      <a href="#home" tabindex="0">Home</a>
+      <a href="#courses" tabindex="0">Courses</a>
+      <button id="loginBtn" aria-haspopup="dialog" aria-controls="loginModal">Login / Register</button>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero" id="home" role="region" aria-label="Introduction hero section">
     <div class="hero-content">
-      <h2>Learn Skills That Pay You</h2>
-      <p>Trusted by 1000+ students. Join now and explore free and pro courses that have made millionaires.</p>
-      <button class="btn-primary" onclick="window.location.href='#features'">Get Started</button>
+      <h1>Build Your Future With ElitePath Academy</h1>
+      <p>Join 1000+ students mastering real skills. Learn website building, AI tools, side hustles, and financial basics — all for free!</p>
+      <button id="heroSignupBtn">Get Started Now</button>
     </div>
   </section>
 
-  <section class="section" id="features" aria-labelledby="features-title">
-    <h2 id="features-title" class="section-title">Why ElitePath?</h2>
-    <div class="features">
-      <div class="card" tabindex="0" role="article" aria-label="Real-World Skills feature">
-        <h3>Real-World Skills</h3>
-        <p>
-          Our courses are meticulously designed by industry experts who have
-          hands-on experience generating real income. You’ll learn actionable
-          skills that employers and clients actually want.
-        </p>
-      </div>
-      <div class="card" tabindex="0" role="article" aria-label="Flexible Learning feature">
-        <h3>Flexible Learning</h3>
-        <p>
-          Learn at your own pace with on-demand video lessons, live sessions,
-          and community support — perfect for busy professionals and students.
-        </p>
-      </div>
-      <div class="card" tabindex="0" role="article" aria-label="Career Focused feature">
-        <h3>Career Focused</h3>
-        <p>
-          Our curriculum is laser-focused on skills that open doors to high-paying jobs or
-          help you build thriving businesses from the ground up.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="about" aria-label="About ElitePath Academy">
-    <h2 class="section-title" id="about-title">About ElitePath Academy</h2>
-    <p>
-      At ElitePath Academy, we believe in empowering adults 18+ with
-      practical, high-value skills that unlock financial freedom and
-      career growth. Our mission is to bridge the gap between knowledge and
-      real-world success by delivering clear, concise, and applicable
-      training that works. Whether you're aiming for freelance gigs, full-time
-      employment, or entrepreneurial ventures, ElitePath is your trusted partner.
-    </p>
-  </section>
-
-  <section class="section" id="reviews" aria-labelledby="reviews-title">
-    <h2 id="reviews-title" class="section-title">What Our Students Say</h2>
-    <div class="reviews">
-      <article class="review-card" tabindex="0" aria-label="Review from student John Doe">
-        <div class="review-header">
-          <div
-            class="avatar"
-            style="background-image: url('https://randomuser.me/api/portraits/men/75.jpg')"
-            aria-hidden="true"
-          ></div>
-          <span class="reviewer-name">John Doe</span>
-          <div class="rating" aria-label="5 star rating" role="img">★★★★★</div>
-        </div>
-        <p class="review-text">
-          ElitePath’s practical courses gave me the confidence and skills to land my dream job in tech.
-          The step-by-step approach is unmatched.
-        </p>
+  <!-- Reviews Section -->
+  <section id="reviews" role="region" aria-label="Student reviews">
+    <h2>What Our Students Say</h2>
+    <div class="reviews" tabindex="0">
+      <article class="review-card" tabindex="0" aria-label="Review from student Alice">
+        <div class="reviewer-name">Alice</div>
+        <div class="rating" aria-label="4.7 out of 5 stars">★★★★☆</div>
+        <p class="review-text">The courses gave me a clear path and real skills — the mentorship helped me launch my side hustle fast!</p>
       </article>
 
-      <article class="review-card" tabindex="0" aria-label="Review from student Jane Smith">
-        <div class="review-header">
-          <div
-            class="avatar"
-            style="background-image: url('https://randomuser.me/api/portraits/women/65.jpg')"
-            aria-hidden="true"
-          ></div>
-          <span class="reviewer-name">Jane Smith</span>
-          <div class="rating" aria-label="4.5 star rating" role="img">★★★★☆</div>
-        </div>
-        <p class="review-text">
-          The flexibility to learn on my own schedule helped me balance work and study.
-          The community and support are incredible.
-        </p>
+      <article class="review-card" tabindex="0" aria-label="Review from student Brian">
+        <div class="reviewer-name">Brian</div>
+        <div class="rating" aria-label="4.8 out of 5 stars">★★★★☆</div>
+        <p class="review-text">The content is practical and easy to follow. I love the community support and daily mindset boosts.</p>
       </article>
 
-      <article class="review-card" tabindex="0" aria-label="Review from student Michael Lee">
-        <div class="review-header">
-          <div
-            class="avatar"
-            style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg')"
-            aria-hidden="true"
-          ></div>
-          <span class="reviewer-name">Michael Lee</span>
-          <div class="rating" aria-label="5 star rating" role="img">★★★★★</div>
-        </div>
-        <p class="review-text">
-          Thanks to ElitePath, I transitioned from a dead-end job to freelancing full-time.
-          The income boost was almost immediate.
-        </p>
+      <article class="review-card" tabindex="0" aria-label="Review from student Carla">
+        <div class="reviewer-name">Carla</div>
+        <div class="rating" aria-label="4.6 out of 5 stars">★★★★☆</div>
+        <p class="review-text">I went from zero to launching my first website in weeks. The AI tools tutorials are a game changer!</p>
       </article>
     </div>
   </section>
 
-  <section class="section" id="stats" aria-label="ElitePath Academy impact statistics">
-    <h2 class="section-title">Our Impact</h2>
-    <div class="stats" role="list">
-      <div class="stat-card" role="listitem" aria-label="Number of students graduated">
-        <h3>1,500+</h3>
-        <p>Graduates</p>
+  <!-- Stats Section -->
+  <section id="stats" role="region" aria-label="Our impact statistics">
+    <h2>Our Impact</h2>
+    <div class="stats">
+      <div class="stat-card" tabindex="0" aria-label="Number of students enrolled">
+        <h3>1000+</h3>
+        <p>Students Learning</p>
       </div>
-      <div class="stat-card" role="listitem" aria-label="Average course rating">
-        <h3>4.9 / 5</h3>
-        <p>Average Rating</p>
+      <div class="stat-card" tabindex="0" aria-label="Number of millionaires created">
+        <h3>4</h3>
+        <p>Millionaires Created</p>
       </div>
-      <div class="stat-card" role="listitem" aria-label="Courses available">
-        <h3>25+</h3>
-        <p>Courses</p>
-      </div>
-      <div class="stat-card" role="listitem" aria-label="Students who secured jobs or gigs">
+      <div class="stat-card" tabindex="0" aria-label="Success rate of students">
         <h3>85%</h3>
         <p>Success Rate</p>
       </div>
+      <div class="stat-card" tabindex="0" aria-label="Courses available">
+        <h3>25+</h3>
+        <p>Courses</p>
+      </div>
     </div>
   </section>
 
-  <section class="section" id="newsletter" aria-label="Subscribe to newsletter">
-    <h3>Stay Updated with ElitePath</h3>
-    <p>Subscribe to our newsletter for exclusive tips, course updates, and career advice.</p>
-    <form onsubmit="subscribeNewsletter(event)" aria-label="Newsletter subscription form">
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Enter your email"
-        aria-required="true"
-        required
-      />
-      <button type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
-    </form>
+  <!-- Courses Section -->
+  <section id="courses" class="courses-section" role="region" aria-label="Courses overview">
+    <h2>Courses Overview</h2>
+
+    <h3>🟢 100% Free Access (Value-packed)</h3>
+    <ul class="course-list" aria-label="Free courses list">
+      <li class="course-category">Learn to Build Websites</li>
+      <li class="course-item">HTML & CSS basics</li>
+      <li class="course-item">Build a portfolio page</li>
+      <li class="course-item">Host your site for free</li>
+
+      <li class="course-category">Top 10 AI Tools</li>
+      <li class="course-item">ChatGPT prompts for productivity</li>
+      <li class="course-item">AI image/video tools</li>
+      <li class="course-item">Automate your content & side hustles</li>
+
+      <li class="course-category">Start a Hustle with £0</li>
+      <li class="course-item">Reselling, flipping, affiliate marketing</li>
+      <li class="course-item">Fiverr & Upwork setup</li>
+      <li class="course-item">Selling digital products</li>
+
+      <li class="course-category">Money Basics That Schools Never Taught You</li>
+      <li class="course-item">What is money?</li>
+      <li class="course-item">How banks make profit</li>
+      <li class="course-item">Crypto & digital banks intro</li>
+
+      <li class="course-category">Daily Mindset Boost</li>
+      <li class="course-item">How to stay consistent</li>
+      <li class="course-item">Simple daily routines for clarity</li>
+      <li class="course-item">High-performer thinking</li>
+    </ul>
+
+    <h3>🔒 Exclusive for Members (Next Level)</h3>
+    <ul class="course-list" aria-label="Pro courses list">
+      <li class="course-category">Build & Launch Real Websites</li>
+      <li class="course-item pro-course">Full JavaScript projects</li>
+      <li class="course-item pro-course">Host with a custom domain</li>
+      <li class="course-item pro-course">Animate your portfolio</li>
+
+      <li class="course-category">YouTube Automation Blueprint</li>
+      <li class="course-item pro-course">How faceless YouTube channels make £1,000/month</li>
+      <li class="course-item pro-course">Free tools, script writing, voice AI</li>
+      <li class="course-item pro-course">Monetization strategy</li>
+
+      <li class="course-category">Start Your AI-Powered Business</li>
+      <li class="course-item pro-course">Use GPT + automation tools to build a service</li>
+      <li class="course-item pro-course">Sell with Notion/Framer/etc.</li>
+
+      <li class="course-category">The Hustle Stack System</li>
+      <li class="course-item pro-course">Stack 2–3 side hustles into one smart routine</li>
+      <li class="course-item pro-course">Time management for school & hustle</li>
+
+      <li class="course-category">1-on-1 Mentorship & Daily Boost</li>
+      <li class="course-item pro-course">Q&A access, private videos</li>
+      <li class="course-item pro-course">Daily challenge / content unlock</li>
+      <li class="course-item pro-course">Weekly “Level-Up” calls (recorded or live)</li>
+    </ul>
   </section>
 
-  <footer role="contentinfo">
-    <p>© 2025 ElitePath Academy. All rights reserved.</p>
-    <p>
-      Follow us:
-      <a href="#" aria-label="Follow on Facebook"><i class="fab fa-facebook"></i></a>
-      <a href="#" aria-label="Follow on Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="#" aria-label="Follow on Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="#" aria-label="Follow on LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </p>
-  </footer>
+</main>
 
-  <script>
-    // Toggle Light / Dark Mode
-    function toggleMode() {
-      document.body.classList.toggle('light-mode');
-    }
+<!-- LOGIN/REGISTER MODAL -->
+<div class="modal" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+  <div class="modal-content">
+    <button class="close-btn" aria-label="Close login dialog" id="closeModalBtn">&times;</button>
+    <h2 id="modalTitle">Login or Register</h2>
+    <p id="modalDesc">Use your email or continue with Google for quick access</p>
+    
+    <form id="authForm" novalidate>
+      <label for="email">Email address</label>
+      <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email" />
 
-    // Newsletter subscription handler (demo only)
-    function subscribeNewsletter(event) {
-      event.preventDefault();
-      const emailInput = document.getElementById('email');
-      if (emailInput.value.trim()) {
-        alert(`Thanks for subscribing, ${emailInput.value}! We'll keep you updated.`);
-        emailInput.value = '';
-      }
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required placeholder="Your password" autocomplete="current-password" />
+
+      <button type="submit">Continue</button>
+    </form>
+
+    <button class="google-login-btn" id="googleLoginBtn" aria-label="Continue with Google">
+      <!-- Google SVG logo -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 533.5 544.3" aria-hidden="true" focusable="false"><path fill="#4285f4" d="M533.5 278.4c0-18.7-1.6-36.7-4.8-54.2H272v102.8h146.9c-6.4 34.8-25.9 64.3-55.4 84.1v69h89.4c52.4-48.3 82.6-119.6 82.6-201.7z"/><path fill="#34a853" d="M272 544.3c74.1 0 136.3-24.5 181.7-66.3l-89.4-69c-24.8 16.6-56.7 26.5-92.3 26.5-70.9 0-131-48-152.5-112.4h-90v70.9c45.5 89.1 138.5 150.3 242.5 150.3z"/><path fill="#fbbc04" d="M119.5 324.8c-11.1-33.3-11.1-69.4 0-102.7v-70.9h-90c-38.4 74.3-38.4 163.2 0 237.5l90-63.9z"/><path fill="#ea4335" d="M272 107.7c39.9 0 75.8 13.7 104 40.5l78-78C404.5 24.5 342.3 0 272 0 167.9 0 74.9 61.2 29.5 150.3l90 70.9C141 155.7 201.1 107.7 272 107.7z"/></svg>
+      Continue with Google
+    </button>
+  </div>
+</div>
+
+<footer role="contentinfo">
+  <p>© 2025 ElitePath Academy. All rights reserved.</p>
+  <p>
+    <a href="#home">Home</a> | 
+    <a href="#courses">Courses</a> | 
+    <a href="#loginBtn">Login/Register</a>
+  </p>
+</footer>
+
+<script>
+  // Modal open/close logic
+  const loginBtn = document.getElementById('loginBtn');
+  const loginModal = document.getElementById('loginModal');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const heroSignupBtn = document.getElementById('heroSignupBtn');
+  
+  loginBtn.addEventListener('click', () => {
+    loginModal.classList.add('active');
+  });
+  heroSignupBtn.addEventListener('click', () => {
+    loginModal.classList.add('active');
+  });
+  closeModalBtn.addEventListener('click', () => {
+    loginModal.classList.remove('active');
+  });
+  loginModal.addEventListener('click', e => {
+    if (e.target === loginModal) {
+      loginModal.classList.remove('active');
     }
-  </script>
+  });
+  
+  // Google login placeholder
+  document.getElementById('googleLoginBtn').addEventListener('click', () => {
+    alert('Google login integration coming soon!');
+  });
+
+  // Form submit placeholder
+  document.getElementById('authForm').addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Email login/registration logic coming soon!');
+  });
+</script>
+
 </body>
-
 </html>
