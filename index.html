@@ -1,607 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ElitePath Academy — Build Your Future</title>
-  <style>
-    /* Reset & basics */
-    * {
-      box-sizing: border-box;
-      margin: 0; padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #e0e0e0;
-    }
-    body {
-      background-color: #121212;
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      font-size: 16px;
-    }
-    a {
-      color: #03a9f4;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover, a:focus {
-      color: #0288d1;
-      outline: none;
-    }
-
-    /* NAVIGATION */
-    header {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      background: rgba(18,18,18,0.95);
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid #333;
-      z-index: 1000;
-    }
-    nav {
-      max-width: 1200px;
-      margin: auto;
-      padding: 1rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.05em;
-      user-select: none;
-      color: #03a9f4;
-    }
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      font-weight: 500;
-    }
-    .nav-links button, .nav-links a {
-      background: none;
-      border: none;
-      color: #e0e0e0;
-      cursor: pointer;
-      font-size: 1rem;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-    }
-    .nav-links button:hover, .nav-links a:hover,
-    .nav-links button:focus, .nav-links a:focus {
-      background-color: #0288d1;
-      outline: none;
-    }
-
-    /* HERO SECTION */
-    .hero {
-      height: 100vh;
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem 1rem;
-      text-align: center;
-      color: #fff;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0.9));
-      z-index: 0;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 700px;
-      font-weight: 400;
-    }
-    .hero-content h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-    }
-    .hero-content p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      color: #bbb;
-    }
-    .hero-content button {
-      background-color: #03a9f4;
-      border: none;
-      padding: 0.75rem 2rem;
-      color: #fff;
-      font-weight: 600;
-      font-size: 1.1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      user-select: none;
-    }
-    .hero-content button:hover, .hero-content button:focus {
-      background-color: #0288d1;
-      outline: none;
-    }
-
-    /* SECTION BASE STYLES */
-    section {
-      max-width: 1100px;
-      margin: 5rem auto 3rem auto;
-      padding: 0 1rem;
-    }
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #03a9f4;
-      text-align: center;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-    }
-    section p {
-      max-width: 700px;
-      margin: 0.5rem auto 2rem auto;
-      color: #bbb;
-      text-align: center;
-    }
-
-    /* REVIEWS */
-    .reviews {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .review-card {
-      background: #1e1e1e;
-      padding: 1.5rem;
-      border-radius: 12px;
-      width: 280px;
-      box-shadow: 0 4px 12px rgba(3,169,244,0.3);
-      transition: transform 0.3s ease;
-      cursor: default;
-    }
-    .review-card:hover, .review-card:focus-within {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 20px rgba(3,169,244,0.5);
-      outline: none;
-    }
-    .reviewer-name {
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-bottom: 0.3rem;
-      color: #03a9f4;
-    }
-    .rating {
-      color: #ffd700;
-      font-size: 1.2rem;
-      margin-bottom: 0.7rem;
-      user-select: none;
-    }
-    .review-text {
-      font-style: italic;
-      font-size: 0.95rem;
-      line-height: 1.4;
-      color: #ccc;
-    }
-
-    /* STATS */
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-    .stat-card {
-      background: #1e1e1e;
-      padding: 1.5rem 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(3,169,244,0.3);
-      text-align: center;
-      width: 180px;
-      cursor: default;
-      transition: transform 0.3s ease;
-    }
-    .stat-card:hover, .stat-card:focus-within {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 20px rgba(3,169,244,0.5);
-      outline: none;
-    }
-    .stat-card h3 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #03a9f4;
-      margin-bottom: 0.3rem;
-    }
-    .stat-card p {
-      font-size: 1rem;
-      color: #bbb;
-    }
-
-    /* COURSES SECTION */
-    .courses-section {
-      background: #1a1a1a;
-      border-radius: 15px;
-      padding: 2rem 1rem;
-      max-width: 900px;
-      margin: 3rem auto;
-      box-shadow: 0 0 25px rgba(3,169,244,0.3);
-    }
-    .courses-section h3 {
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #03a9f4;
-      text-align: center;
-    }
-    .course-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.8rem;
-      color: #ccc;
-    }
-    .course-category {
-      margin-bottom: 1rem;
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: #4fc3f7;
-      border-bottom: 2px solid #0288d1;
-      padding-bottom: 0.3rem;
-    }
-    .course-item {
-      margin-left: 1rem;
-      margin-bottom: 0.5rem;
-      list-style-type: disc;
-      font-weight: 400;
-      font-size: 0.95rem;
-      cursor: default;
-    }
-    .pro-course {
-      color: #ff5722;
-      font-weight: 700;
-      user-select: none;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #121212;
-      border-top: 1px solid #333;
-      padding: 2rem 1rem;
-      text-align: center;
-      color: #555;
-      font-size: 0.9rem;
-      margin-top: auto;
-    }
-    footer a {
-      margin: 0 0.5rem;
-      color: #03a9f4;
-      font-size: 1.1rem;
-    }
-    footer a:hover {
-      color: #0288d1;
-    }
-
-    /* LOGIN/REGISTER MODAL */
-    .modal {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.85);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-      padding: 1rem;
-    }
-    .modal.active {
-      display: flex;
-    }
-    .modal-content {
-      background: #1e1e1e;
-      border-radius: 12px;
-      max-width: 400px;
-      width: 100%;
-      padding: 2rem 2rem 2.5rem 2rem;
-      color: #ddd;
-      box-shadow: 0 0 25px rgba(3,169,244,0.7);
-      position: relative;
-    }
-    .modal-content h2 {
-      margin-bottom: 1rem;
-      color: #03a9f4;
-      text-align: center;
-    }
-    .modal-content label {
-      display: block;
-      margin: 1rem 0 0.4rem 0;
-      font-weight: 600;
-    }
-    .modal-content input[type="email"],
-    .modal-content input[type="password"] {
-      width: 100%;
-      padding: 0.5rem;
-      border-radius: 6px;
-      border: none;
-      font-size: 1rem;
-    }
-    .modal-content button {
-      margin-top: 1.5rem;
-      width: 100%;
-      background: #03a9f4;
-      border: none;
-      padding: 0.75rem;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #fff;
-      border-radius: 6px;
-      cursor: pointer;
-      user-select: none;
-      transition: background-color 0.3s ease;
-    }
-    .modal-content button:hover, .modal-content button:focus {
-      background-color: #0288d1;
-      outline: none;
-    }
-    .close-btn {
-      position: absolute;
-      right: 15px;
-      top: 15px;
-      background: transparent;
-      border: none;
-      font-size: 1.5rem;
-      color: #999;
-      cursor: pointer;
-      user-select: none;
-    }
-    .close-btn:hover, .close-btn:focus {
-      color: #fff;
-      outline: none;
-    }
-    .google-login-btn {
-      background: #db4437;
-      color: white;
-      margin-top: 1rem;
-      padding: 0.75rem;
-      border-radius: 6px;
-      border: none;
-      font-weight: 700;
-      font-size: 1.1rem;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.75rem;
-      user-select: none;
-      transition: background-color 0.3s ease;
-    }
-    .google-login-btn:hover, .google-login-btn:focus {
-      background-color: #a33c2d;
-      outline: none;
-    }
-    .google-login-btn svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .reviews {
-        flex-direction: column;
-        align-items: center;
-      }
-      .stat-card {
-        width: 80%;
-      }
-      .courses-section {
-        max-width: 95%;
-        margin: 3rem auto;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Elipath Academy | Unlock Your Financial Future</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
 </head>
+
 <body>
-
-<header role="banner">
-  <nav aria-label="Primary navigation">
-    <div class="logo" tabindex="0">ElitePath Academy</div>
-    <div class="nav-links">
-      <a href="#home" tabindex="0">Home</a>
-      <a href="#courses" tabindex="0">Courses</a>
-      <button id="loginBtn" aria-haspopup="dialog" aria-controls="loginModal">Login / Register</button>
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">Elipath Academy</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#login" class="btn-login">Login</a></li>
+          <li><a href="#register" class="btn-register">Register</a></li>
+        </ul>
+      </nav>
     </div>
-  </nav>
-</header>
+  </header>
 
-<main>
-  <!-- Hero -->
-  <section class="hero" id="home" role="region" aria-label="Introduction hero section">
-    <div class="hero-content">
-      <h1>Build Your Future With ElitePath Academy</h1>
-      <p>Join 1000+ students mastering real skills. Learn website building, AI tools, side hustles, and financial basics — all for free!</p>
-      <button id="heroSignupBtn">Get Started Now</button>
-    </div>
-  </section>
-
-  <!-- Reviews Section -->
-  <section id="reviews" role="region" aria-label="Student reviews">
-    <h2>What Our Students Say</h2>
-    <div class="reviews" tabindex="0">
-      <article class="review-card" tabindex="0" aria-label="Review from student Alice">
-        <div class="reviewer-name">Alice</div>
-        <div class="rating" aria-label="4.7 out of 5 stars">★★★★☆</div>
-        <p class="review-text">The courses gave me a clear path and real skills — the mentorship helped me launch my side hustle fast!</p>
-      </article>
-
-      <article class="review-card" tabindex="0" aria-label="Review from student Brian">
-        <div class="reviewer-name">Brian</div>
-        <div class="rating" aria-label="4.8 out of 5 stars">★★★★☆</div>
-        <p class="review-text">The content is practical and easy to follow. I love the community support and daily mindset boosts.</p>
-      </article>
-
-      <article class="review-card" tabindex="0" aria-label="Review from student Carla">
-        <div class="reviewer-name">Carla</div>
-        <div class="rating" aria-label="4.6 out of 5 stars">★★★★☆</div>
-        <p class="review-text">I went from zero to launching my first website in weeks. The AI tools tutorials are a game changer!</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- Stats Section -->
-  <section id="stats" role="region" aria-label="Our impact statistics">
-    <h2>Our Impact</h2>
-    <div class="stats">
-      <div class="stat-card" tabindex="0" aria-label="Number of students enrolled">
-        <h3>1000+</h3>
-        <p>Students Learning</p>
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h2>Build Wealth with Skills That Matter</h2>
+        <p>Join over <strong>1000+</strong> learners. Trusted by experts. Your first month is <strong>free</strong>.</p>
+        <a href="#register" class="btn-main">Get Started Now</a>
       </div>
-      <div class="stat-card" tabindex="0" aria-label="Number of millionaires created">
+      <div class="hero-img">
+        <img src="/assets/wealth-growth.jpg" alt="Wealth Growing" />
+      </div>
+    </div>
+  </section>
+
+  <section id="intro" class="info-section">
+    <div class="container">
+      <h2>Why Elipath Academy?</h2>
+      <p>
+        Elipath Academy is designed for real people who want real results. We’ve helped
+        individuals from all walks of life start businesses, invest smarter, and build solid
+        financial foundations. Whether you’re 18 or 38, you’ll find content tailored to where you are now and where you want to go.
+      </p>
+      <ul class="features">
+        <li>✅ Expert-Led Lessons</li>
+        <li>✅ Lifetime Access to Your Courses</li>
+        <li>✅ Personalized Dashboards & Progress Saving</li>
+        <li>✅ Interactive Quizzes and Resources</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="stats" class="stats">
+    <div class="container">
+      <div class="stat">
         <h3>4</h3>
         <p>Millionaires Created</p>
       </div>
-      <div class="stat-card" tabindex="0" aria-label="Success rate of students">
-        <h3>85%</h3>
-        <p>Success Rate</p>
+      <div class="stat">
+        <h3>1000+</h3>
+        <p>Active Students</p>
       </div>
-      <div class="stat-card" tabindex="0" aria-label="Courses available">
-        <h3>25+</h3>
-        <p>Courses</p>
+      <div class="stat">
+        <h3>98%</h3>
+        <p>Satisfaction Rating</p>
       </div>
     </div>
   </section>
 
-  <!-- Courses Section -->
-  <section id="courses" class="courses-section" role="region" aria-label="Courses overview">
-    <h2>Courses Overview</h2>
-
-    <h3>🟢 100% Free Access (Value-packed)</h3>
-    <ul class="course-list" aria-label="Free courses list">
-      <li class="course-category">Learn to Build Websites</li>
-      <li class="course-item">HTML & CSS basics</li>
-      <li class="course-item">Build a portfolio page</li>
-      <li class="course-item">Host your site for free</li>
-
-      <li class="course-category">Top 10 AI Tools</li>
-      <li class="course-item">ChatGPT prompts for productivity</li>
-      <li class="course-item">AI image/video tools</li>
-      <li class="course-item">Automate your content & side hustles</li>
-
-      <li class="course-category">Start a Hustle with £0</li>
-      <li class="course-item">Reselling, flipping, affiliate marketing</li>
-      <li class="course-item">Fiverr & Upwork setup</li>
-      <li class="course-item">Selling digital products</li>
-
-      <li class="course-category">Money Basics That Schools Never Taught You</li>
-      <li class="course-item">What is money?</li>
-      <li class="course-item">How banks make profit</li>
-      <li class="course-item">Crypto & digital banks intro</li>
-
-      <li class="course-category">Daily Mindset Boost</li>
-      <li class="course-item">How to stay consistent</li>
-      <li class="course-item">Simple daily routines for clarity</li>
-      <li class="course-item">High-performer thinking</li>
-    </ul>
-
-    <h3>🔒 Exclusive for Members (Next Level)</h3>
-    <ul class="course-list" aria-label="Pro courses list">
-      <li class="course-category">Build & Launch Real Websites</li>
-      <li class="course-item pro-course">Full JavaScript projects</li>
-      <li class="course-item pro-course">Host with a custom domain</li>
-      <li class="course-item pro-course">Animate your portfolio</li>
-
-      <li class="course-category">YouTube Automation Blueprint</li>
-      <li class="course-item pro-course">How faceless YouTube channels make £1,000/month</li>
-      <li class="course-item pro-course">Free tools, script writing, voice AI</li>
-      <li class="course-item pro-course">Monetization strategy</li>
-
-      <li class="course-category">Start Your AI-Powered Business</li>
-      <li class="course-item pro-course">Use GPT + automation tools to build a service</li>
-      <li class="course-item pro-course">Sell with Notion/Framer/etc.</li>
-
-      <li class="course-category">The Hustle Stack System</li>
-      <li class="course-item pro-course">Stack 2–3 side hustles into one smart routine</li>
-      <li class="course-item pro-course">Time management for school & hustle</li>
-
-      <li class="course-category">1-on-1 Mentorship & Daily Boost</li>
-      <li class="course-item pro-course">Q&A access, private videos</li>
-      <li class="course-item pro-course">Daily challenge / content unlock</li>
-      <li class="course-item pro-course">Weekly “Level-Up” calls (recorded or live)</li>
-    </ul>
+  <section id="courses" class="info-section">
+    <div class="container">
+      <h2>Our Courses</h2>
+      <p>Each course is packed with actionable insights and tools. Here’s what you can learn:</p>
+      <ul class="courses-list">
+        <li>📈 How to start a dropshipping business</li>
+        <li>💸 Investing 101: How to grow your money safely</li>
+        <li>🧠 Mastering mindset and personal growth</li>
+        <li>🛍️ Building digital products that sell</li>
+        <li>🧾 Passive income with affiliate marketing</li>
+        <li>🔒 Pro Course: Millionaire’s Playbook (Premium)</li>
+      </ul>
+      <p class="premium-note">Premium courses require a subscription. <strong>£4.99/mo</strong> with 1-month free trial. <a href="#login">Sign in</a> to unlock.</p>
+    </div>
   </section>
 
-</main>
+  <section id="reviews" class="reviews">
+    <div class="container">
+      <h2>What Our Students Say</h2>
+      <div class="review-grid">
+        <div class="review">
+          <p>“This platform changed my life. I launched my first online business after just 4 weeks.”</p>
+          <h4>⭐ 4.8 – Sarah J.</h4>
+        </div>
+        <div class="review">
+          <p>“No fluff, just real advice. The investment course alone was worth it all.”</p>
+          <h4>⭐ 4.7 – James B.</h4>
+        </div>
+        <div class="review">
+          <p>“I saved hours of research. The structure and value are unmatched.”</p>
+          <h4>⭐ 4.6 – Amanda R.</h4>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- LOGIN/REGISTER MODAL -->
-<div class="modal" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
-  <div class="modal-content">
-    <button class="close-btn" aria-label="Close login dialog" id="closeModalBtn">&times;</button>
-    <h2 id="modalTitle">Login or Register</h2>
-    <p id="modalDesc">Use your email or continue with Google for quick access</p>
-    
-    <form id="authForm" novalidate>
-      <label for="email">Email address</label>
-      <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email" />
+  <section id="about" class="info-section">
+    <div class="container">
+      <h2>Who We Are</h2>
+      <p>
+        Elipath Academy was built for learners who want freedom and control. We believe that
+        education should be modern, practical, and accessible. Our mission is to empower people with
+        actionable financial skills that lead to independence and growth.
+      </p>
+    </div>
+  </section>
 
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required placeholder="Your password" autocomplete="current-password" />
-
-      <button type="submit">Continue</button>
-    </form>
-
-    <button class="google-login-btn" id="googleLoginBtn" aria-label="Continue with Google">
-      <!-- Google SVG logo -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 533.5 544.3" aria-hidden="true" focusable="false"><path fill="#4285f4" d="M533.5 278.4c0-18.7-1.6-36.7-4.8-54.2H272v102.8h146.9c-6.4 34.8-25.9 64.3-55.4 84.1v69h89.4c52.4-48.3 82.6-119.6 82.6-201.7z"/><path fill="#34a853" d="M272 544.3c74.1 0 136.3-24.5 181.7-66.3l-89.4-69c-24.8 16.6-56.7 26.5-92.3 26.5-70.9 0-131-48-152.5-112.4h-90v70.9c45.5 89.1 138.5 150.3 242.5 150.3z"/><path fill="#fbbc04" d="M119.5 324.8c-11.1-33.3-11.1-69.4 0-102.7v-70.9h-90c-38.4 74.3-38.4 163.2 0 237.5l90-63.9z"/><path fill="#ea4335" d="M272 107.7c39.9 0 75.8 13.7 104 40.5l78-78C404.5 24.5 342.3 0 272 0 167.9 0 74.9 61.2 29.5 150.3l90 70.9C141 155.7 201.1 107.7 272 107.7z"/></svg>
-      Continue with Google
-    </button>
-  </div>
-</div>
-
-<footer role="contentinfo">
-  <p>© 2025 ElitePath Academy. All rights reserved.</p>
-  <p>
-    <a href="#home">Home</a> | 
-    <a href="#courses">Courses</a> | 
-    <a href="#loginBtn">Login/Register</a>
-  </p>
-</footer>
-
-<script>
-  // Modal open/close logic
-  const loginBtn = document.getElementById('loginBtn');
-  const loginModal = document.getElementById('loginModal');
-  const closeModalBtn = document.getElementById('closeModalBtn');
-  const heroSignupBtn = document.getElementById('heroSignupBtn');
-  
-  loginBtn.addEventListener('click', () => {
-    loginModal.classList.add('active');
-  });
-  heroSignupBtn.addEventListener('click', () => {
-    loginModal.classList.add('active');
-  });
-  closeModalBtn.addEventListener('click', () => {
-    loginModal.classList.remove('active');
-  });
-  loginModal.addEventListener('click', e => {
-    if (e.target === loginModal) {
-      loginModal.classList.remove('active');
-    }
-  });
-  
-  // Google login placeholder
-  document.getElementById('googleLoginBtn').addEventListener('click', () => {
-    alert('Google login integration coming soon!');
-  });
-
-  // Form submit placeholder
-  document.getElementById('authForm').addEventListener('submit', e => {
-    e.preventDefault();
-    alert('Email login/registration logic coming soon!');
-  });
-</script>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Elipath Academy. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+    </div>
+  </footer>
 
 </body>
+
 </html>
