@@ -2,355 +2,120 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NextGen Hustle - Courses</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Courses - EliteMind Academy</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset */
-    *, *::before, *::after {
+    * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
-      margin: 0; padding: 0;
+      font-family: 'Inter', sans-serif;
     }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
-      background-size: cover;
-      color: #ddd;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      user-select: none;
+      background-color: #111;
+      color: #eee;
+      line-height: 1.6;
+      padding: 2rem;
     }
     header {
-      background: rgba(0, 0, 0, 0.75);
-      color: #00ffc3;
-      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      user-select: none;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #333;
     }
     header h1 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      cursor: default;
+      font-size: 1.8rem;
+      color: #4fd1c5;
     }
     nav a {
-      color: #00ffc3;
+      color: #eee;
       text-decoration: none;
-      margin-left: 24px;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-      user-select: none;
+      margin-left: 1rem;
     }
-    nav a:hover, nav a:focus {
-      color: #00ddb3;
-      outline: none;
+    section.intro {
+      margin-top: 2rem;
     }
-
-    main {
-      flex-grow: 1;
-      padding: 40px 20px;
-      background: rgba(15,15,15,0.85);
-      max-width: 1200px;
-      margin: 30px auto;
-      border-radius: 15px;
-      box-shadow: 0 0 30px #00ffc3aa;
-      user-select: none;
-    }
-    main h2 {
-      font-size: 2.8rem;
-      color: #00ffc3;
-      margin-bottom: 25px;
-      font-weight: 700;
-      text-align: center;
-      user-select: none;
-    }
-    main p.explanation {
-      font-size: 1.2rem;
-      color: #bbb;
-      max-width: 700px;
-      margin: 0 auto 50px auto;
-      line-height: 1.6;
-      user-select: none;
-    }
-
-    /* Courses Grid */
     .courses-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      user-select: none;
+      gap: 2rem;
+      margin-top: 2rem;
     }
-    .course-card {
-      background: #121212;
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(0,255,195,0.15);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      user-select: none;
-      cursor: default;
-      position: relative;
-    }
-    .course-card:hover {
-      box-shadow: 0 0 30px #00ffc3cc;
-      transform: translateY(-8px);
-    }
-    .course-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      user-select: none;
-    }
-    .course-content {
-      padding: 20px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      user-select: none;
-    }
-    .course-content h3 {
-      color: #00ffc3;
-      font-weight: 700;
-      margin-bottom: 12px;
-      font-size: 1.4rem;
-      user-select: none;
-    }
-    .course-content p {
-      color: #bbb;
-      flex-grow: 1;
-      margin-bottom: 18px;
-      font-size: 1rem;
-      user-select: none;
-    }
-    .price-tag {
-      font-weight: 700;
-      color: #00ddb3;
-      font-size: 1.1rem;
-      user-select: none;
-    }
-    .btn-course {
-      margin-top: 10px;
-      background-color: #00ffc3;
-      color: #000;
-      border: none;
-      padding: 10px 25px;
-      font-weight: 600;
-      border-radius: 25px;
-      transition: background-color 0.3s ease;
-      cursor: pointer;
-      width: fit-content;
-      user-select: none;
-      align-self: flex-start;
-    }
-    .btn-course:hover, .btn-course:focus {
-      background-color: #00ddb3;
-      outline: none;
-    }
-
-    /* Locked Pro course overlay */
-    .locked-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.75);
-      color: #ff5959;
-      font-weight: 700;
-      font-size: 1.1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      border-radius: 16px;
-      cursor: pointer;
-      user-select: none;
-    }
-    .course-card.locked {
-      pointer-events: none;
-    }
-    .course-card.locked .locked-overlay {
-      pointer-events: auto;
-      cursor: pointer;
-    }
-
-    /* Membership Info */
-    .membership-info {
-      background: #0e0e0e;
-      border-left: 5px solid #00ffc3;
-      padding: 20px;
-      margin-bottom: 40px;
+    .course {
+      background: #1a1a1a;
+      padding: 1.5rem;
       border-radius: 12px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      font-size: 1.1rem;
-      color: #bbb;
-      line-height: 1.5;
-      user-select: none;
+      transition: transform 0.3s;
     }
-    .membership-info strong {
-      color: #00ffc3;
+    .course:hover {
+      transform: translateY(-5px);
     }
-
-    /* Footer */
+    .course h3 {
+      margin-bottom: 0.5rem;
+      color: #4fd1c5;
+    }
+    .pro-badge {
+      display: inline-block;
+      background: #e53e3e;
+      color: white;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      margin-left: 0.5rem;
+    }
     footer {
+      margin-top: 4rem;
       text-align: center;
-      padding: 25px 10px;
-      background: #111111cc;
-      color: #555;
       font-size: 0.9rem;
-      user-select: none;
-      margin-top: 50px;
-      user-select: none;
-    }
-    footer a {
-      color: #00ffc3;
-      margin: 0 12px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: color 0.3s ease;
-      user-select: none;
-    }
-    footer a:hover, footer a:focus {
-      color: #00ddb3;
-      outline: none;
-    }
-
-    /* Responsive */
-    @media (max-width: 850px) {
-      .courses-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      nav a {
-        margin-left: 16px;
-        font-size: 0.95rem;
-      }
-    }
-    @media (max-width: 600px) {
-      .courses-grid {
-        grid-template-columns: 1fr;
-      }
-      nav {
-        font-size: 0.9rem;
-      }
+      color: #777;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>NextGen Hustle</h1>
+    <h1>EliteMind Academy</h1>
     <nav>
-      <a href="index.html#home">Home</a>
-      <a href="courses.html" aria-current="page">Courses</a>
-      <a href="index.html#login">Login</a>
-      <a href="index.html#register">Register</a>
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="login.html">Login</a>
     </nav>
   </header>
 
-  <main role="main" aria-label="Courses overview and membership information">
+  <section class="intro">
+    <h2>Discover Courses That Change Lives</h2>
+    <p>Sign in to track your progress, save favorites, and unlock exclusive Pro content. We offer industry-leading lessons in business, tech, and self-growth.</p>
+  </section>
 
-    <h2>Courses & Membership</h2>
-
-    <p class="explanation">
-      When you <strong>sign in</strong>, you unlock the power to continue exactly where you left off, save your favorite courses, and track your progress seamlessly.
-      Enjoy access to all free courses immediately after registering.
-      To access our exclusive <strong>Pro Courses</strong>, upgrade to our membership for <strong>£4.99/month</strong> — with <em>your first month free</em> (no charge, cancel anytime). We require credit card details for subscription management and secure payment.
-    </p>
-
-    <div class="membership-info" tabindex="0">
-      <strong>Why Upgrade to Pro?</strong><br />
-      Unlock expert-level courses like Advanced Digital Marketing, Algorithmic Trading, and Cryptocurrency Trading.
-      Our Pro courses provide in-depth strategies, tools, and insider knowledge you won’t find elsewhere.
-      Join our growing community of serious learners and get exclusive content updated regularly.
+  <section class="courses-grid">
+    <div class="course">
+      <h3>How to Make Your First £100 Online</h3>
+      <p>A beginner-friendly course teaching proven ways to start earning online today.</p>
     </div>
-
-    <section class="courses-grid" aria-label="List of available courses">
-
-      <!-- Free Course -->
-      <div class="course-card" tabindex="0" role="article" aria-label="Free Course: Digital Marketing Basics">
-        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Digital Marketing Basics" />
-        <div class="course-content">
-          <h3>Digital Marketing Basics</h3>
-          <p>Start your marketing journey with SEO, social media, and content strategies.</p>
-          <span class="price-tag">Free</span>
-          <button class="btn-course" onclick="alert('Please sign in to enroll')">Enroll Now</button>
-        </div>
-      </div>
-
-      <!-- Free Course -->
-      <div class="course-card" tabindex="0" role="article" aria-label="Free Course: Trading for Beginners">
-        <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Trading for Beginners" />
-        <div class="course-content">
-          <h3>Trading for Beginners</h3>
-          <p>Learn the fundamentals of stock market trading with simple, easy steps.</p>
-          <span class="price-tag">Free</span>
-          <button class="btn-course" onclick="alert('Please sign in to enroll')">Enroll Now</button>
-        </div>
-      </div>
-
-      <!-- Locked Pro Course -->
-      <div class="course-card locked" tabindex="0" role="article" aria-label="Pro Course: Advanced Digital Marketing - Locked">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Advanced Digital Marketing" />
-        <div class="course-content">
-          <h3>Advanced Digital Marketing</h3>
-          <p>Master PPC, conversion optimization, and data-driven marketing tactics.</p>
-          <span class="price-tag">£29.99</span>
-          <button class="btn-course" disabled>Pro Access</button>
-        </div>
-        <div class="locked-overlay" onclick="alert('Upgrade to Pro to unlock Advanced Digital Marketing course!')" tabindex="0" role="button" aria-pressed="false" aria-label="Upgrade to Pro to unlock Advanced Digital Marketing course">
-          Locked - Upgrade to Pro
-        </div>
-      </div>
-
-      <!-- Locked Pro Course -->
-      <div class="course-card locked" tabindex="0" role="article" aria-label="Pro Course: Algorithmic Trading - Locked">
-        <img src="https://images.unsplash.com/photo-1526378721510-436f46084f89?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Algorithmic Trading" />
-        <div class="course-content">
-          <h3>Algorithmic Trading</h3>
-          <p>Automate your trades with coding and quantitative methods.</p>
-          <span class="price-tag">£49.99</span>
-          <button class="btn-course" disabled>Pro Access</button>
-        </div>
-        <div class="locked-overlay" onclick="alert('Upgrade to Pro to unlock Algorithmic Trading course!')" tabindex="0" role="button" aria-pressed="false" aria-label="Upgrade to Pro to unlock Algorithmic Trading course">
-          Locked - Upgrade to Pro
-        </div>
-      </div>
-
-      <!-- Locked Pro Course -->
-      <div class="course-card locked" tabindex="0" role="article" aria-label="Pro Course: Cryptocurrency Trading - Locked">
-        <img src="https://images.unsplash.com/photo-1532375810709-1a421fa68d7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cryptocurrency Trading" />
-        <div class="course-content">
-          <h3>Cryptocurrency Trading</h3>
-          <p>Advanced techniques for trading Bitcoin, Ethereum, and altcoins profitably.</p>
-          <span class="price-tag">£59.99</span>
-          <button class="btn-course" disabled>Pro Access</button>
-        </div>
-        <div class="locked-overlay" onclick="alert('Upgrade to Pro to unlock Cryptocurrency Trading course!')" tabindex="0" role="button" aria-pressed="false" aria-label="Upgrade to Pro to unlock Cryptocurrency Trading course">
-          Locked - Upgrade to Pro
-        </div>
-      </div>
-
-    </section>
-
-  </main>
+    <div class="course">
+      <h3>Mastering Freelance Skills</h3>
+      <p>Learn skills that pay: copywriting, design, marketing, and client handling.</p>
+    </div>
+    <div class="course">
+      <h3>Building Passive Income Streams <span class="pro-badge">PRO</span></h3>
+      <p>Advanced tactics to set up long-term earning strategies. <strong>Sign in to upgrade</strong>.</p>
+    </div>
+    <div class="course">
+      <h3>Mindset & Discipline for High Achievers</h3>
+      <p>Learn how to stay focused, avoid burnout, and build elite-level habits.</p>
+    </div>
+    <div class="course">
+      <h3>Crypto & Investing Essentials <span class="pro-badge">PRO</span></h3>
+      <p>Unlock the basics of smart investing. Requires Pro access.</p>
+    </div>
+  </section>
 
   <footer>
-    <p>&copy; 2025 NextGen Hustle. All rights reserved.</p>
-    <p>
-      <a href="index.html#home">Home</a> |
-      <a href="courses.html" aria-current="page">Courses</a> |
-      <a href="index.html#login">Login</a> |
-      <a href="index.html#register">Register</a>
-    </p>
+    <p>&copy; 2025 EliteMind Academy. All rights reserved.</p>
   </footer>
-
 </body>
 </html>
